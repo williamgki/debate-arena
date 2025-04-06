@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PromptInput from './PromptInput';
-// We'll reuse ArgumentDisplay for each turn's text
 import ArgumentDisplay from './ArgumentDisplay';
 import './App.css';
 
@@ -11,9 +10,14 @@ import './App.css';
 //   text: string;
 // }
 
+// --- Define Backend Base URL ---
+// Use your deployed Railway URL here
+const BACKEND_URL = 'https://debate-arena-production.up.railway.app';
+
+
 function App() {
   const [originalPrompt, setOriginalPrompt] = useState('');
-  const [debateHistory, setDebateHistory] = useState([]); // <-- State for history (array of DebateTurn objects)
+  const [debateHistory, setDebateHistory] = useState([]); // State for history
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userJudgment, setUserJudgment] = useState(null);
@@ -23,20 +27,19 @@ function App() {
   const handlePromptSubmit = async (promptText) => {
     setIsLoading(true);
     setError(null);
-    setDebateHistory([]); // Clear history
+    setDebateHistory([]);
     setUserJudgment(null);
-    setOriginalPrompt(promptText); // Store the original prompt
-    setRoundNumber(1); // Start at round 1
+    setOriginalPrompt(promptText);
+    setRoundNumber(1);
 
     try {
-      // Call the endpoint for the FIRST round
-      const response = await axios.post('http://127.0.0.1:8000/generate_first_arguments/', {
+      // Use the deployed backend URL
+      const response = await axios.post(`${BACKEND_URL}/generate_first_arguments/`, {
         prompt: promptText,
       });
 
-      // Initialize history with the first arguments
       const initialHistory = [
-        { speaker: 'System', text: `Debate started on prompt: "${promptText}"` }, // Optional system message
+        { speaker: 'System', text: `Debate started on prompt: "${promptText}"` },
         { speaker: 'Debater A', text: response.data.argument_a },
         { speaker: 'Debater B', text: response.data.argument_b },
       ];
@@ -45,7 +48,7 @@ function App() {
     } catch (err) {
       console.error("Error fetching first arguments:", err);
       setError(err.response?.data?.detail || err.message || 'Failed to fetch first arguments.');
-      setRoundNumber(0); // Reset round if initial fetch fails
+      setRoundNumber(0);
     } finally {
       setIsLoading(false);
     }
@@ -53,42 +56,38 @@ function App() {
 
   // Function to handle the judgment AND trigger the next round
   const handleJudgment = async (judgment) => {
-    setUserJudgment(judgment); // Record judgment locally first
+    setUserJudgment(judgment);
     setIsLoading(true);
     setError(null);
 
-    const currentHistory = [
-        ...debateHistory,
-        // Optionally add the judgment itself to the history sent to backend
-        // { speaker: 'Judge', text: `Judged: ${judgment.replace('_', ' ')}` }
-    ];
+    const currentHistory = [ ...debateHistory ];
+    // Optionally add judge's turn to history before sending
+    // currentHistory.push({ speaker: 'Judge', text: `Judged: ${judgment.replace('_', ' ')}` });
 
     try {
-      // Prepare context for the backend
       const debateContext = {
         original_prompt: originalPrompt,
-        history: currentHistory, // Send the history up to this point
-        user_judgment: judgment // Send the latest judgment
+        history: currentHistory,
+        user_judgment: judgment
       };
 
-      // Call the endpoint for the NEXT round
-      const response = await axios.post('http://127.0.0.1:8000/next_round/', debateContext);
+      // Use the deployed backend URL
+      const response = await axios.post(`${BACKEND_URL}/next_round/`, debateContext);
 
-      // Append new arguments to history
       const nextHistory = [
         ...currentHistory, // Keep previous turns
-        // You might want a "Judge" turn added here if not above
+        // Add judge's turn here if you want it displayed in history
+        // { speaker: 'Judge', text: `Judged: ${judgment.replace('_', ' ')}` },
         { speaker: 'Debater A', text: response.data.argument_a },
         { speaker: 'Debater B', text: response.data.argument_b },
       ];
       setDebateHistory(nextHistory);
       setUserJudgment(null); // Reset judgment UI for the new round
-      setRoundNumber(prev => prev + 1); // Increment round number
+      setRoundNumber(prev => prev + 1);
 
     } catch (err) {
       console.error("Error fetching next round arguments:", err);
       setError(err.response?.data?.detail || err.message || 'Failed to fetch next round arguments.');
-      // Keep userJudgment set so they don't get stuck trying again if backend fails
     } finally {
       setIsLoading(false);
     }
@@ -107,17 +106,17 @@ function App() {
   const latestArgs = getLatestArguments();
 
   return (
-    <div className="App" style={{ maxWidth: '1000px', margin: '20px auto', padding: '20px', fontFamily: 'sans-serif' }}>
+    // Keep the JSX return block exactly the same as the previous version
+    // It renders the PromptInput, latest arguments, judging buttons,
+    // loading state, errors, and the full history display.
+     <div className="App" style={{ maxWidth: '1000px', margin: '20px auto', padding: '20px', fontFamily: 'sans-serif' }}>
       <h1>Debate Arena (Round {roundNumber})</h1>
-      {/* Show prompt input only if debate hasn't started */}
       {debateHistory.length === 0 && (
           <PromptInput onSubmit={handlePromptSubmit} isLoading={isLoading} />
       )}
 
       {error && <p style={{ color: 'red', marginTop: '10px' }}>Error: {error}</p>}
 
-      {/* --- Debate Display --- */}
-      {/* Render the latest arguments side-by-side */}
       {debateHistory.length > 0 && (
          <div style={{ display: 'flex', gap: '20px', marginTop: '20px' }}>
            <div style={{ flex: 1 }}>
@@ -132,8 +131,7 @@ function App() {
       )}
 
       {/* --- Judging Section --- */}
-      {/* Show buttons only if arguments are present for the current round AND not currently loading/error */}
-      {latestArgs.argumentA && latestArgs.argumentB && !isLoading && !error && (
+      {latestArgs.argumentA && latestArgs.argumentB && !isLoading && !error && !userJudgment && ( // Only show if no judgment *for this round* is made
         <div style={{ marginTop: '30px', borderTop: '1px solid #eee', paddingTop: '20px', textAlign: 'center' }}>
           <h3>Which argument is better for this round?</h3>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
@@ -150,7 +148,6 @@ function App() {
 
 
       {/* --- Full History (Optional Display) --- */}
-      {/* You might want to hide this behind a toggle later */}
       <div style={{marginTop: '40px', borderTop: '2px solid black', paddingTop: '20px'}}>
           <h2>Full Debate History</h2>
           {debateHistory.map((turn, index) => (
