@@ -26,7 +26,7 @@ app = FastAPI(
 # --- CORS Middleware Setup --- #
 origins = [
     "http://localhost:5173", # Default Vite dev server port
-    "https://https://debate-arena.vercel.app/", # <-- Add your Vercel URL
+    "https://debate-arena.vercel.app", # <-- Add your Vercel URL
     "https://debatearena.ai",       
     # Add other frontend URLs if needed (e.g., your deployed frontend URL)
 ]
