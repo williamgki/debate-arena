@@ -66,7 +66,7 @@ async def generate_first_arguments_endpoint(debate_prompt: DebatePrompt):
     try:
         # --- Call OpenAI API for Debater A ---
         response_a = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are Debater A. Take a stance based on the user prompt and generate a concise opening argument."},
                 {"role": "user", "content": debate_prompt.prompt}
@@ -78,7 +78,7 @@ async def generate_first_arguments_endpoint(debate_prompt: DebatePrompt):
 
         # --- Call OpenAI API for Debater B ---
         response_b = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are Debater B. Take a stance based on the user prompt (potentially opposing Debater A) and generate a concise opening argument."},
                 {"role": "user", "content": debate_prompt.prompt}
@@ -123,7 +123,7 @@ async def next_round_endpoint(context: DebateContext):
     try:
         # --- Call OpenAI API for Debater A (with history) ---
         response_a = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are Debater A. Continue the debate based on the history provided. Address opponent points and judge feedback where relevant. Keep your response concise."},
                 {"role": "user", "content": prompt_for_a}
@@ -135,7 +135,7 @@ async def next_round_endpoint(context: DebateContext):
 
         # --- Call OpenAI API for Debater B (with history) ---
         response_b = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o",
             messages=[
                  {"role": "system", "content": "You are Debater B. Continue the debate based on the history provided. Address opponent points and judge feedback where relevant. Keep your response concise."},
                  {"role": "user", "content": prompt_for_b}
