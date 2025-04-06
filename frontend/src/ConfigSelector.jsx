@@ -1,26 +1,27 @@
 import React from 'react';
 
-// Define available models for each provider (customize as needed)
+// --- Updated Model Options ---
 const modelOptions = {
   openai: [
-    { value: 'gpt-4o', label: 'GPT-4o (High Quality)' },
-    { value: 'gpt-3.5-turbo', label: 'GPT-3.5 Turbo (Fast/Cheap)' },
+    { value: 'gpt-4o-2024-08-06', label: 'OpenAI Normal (gpt-4o-2024-08-06)' },
+    { value: 'o3-mini-2025-01-31', label: 'OpenAI Reasoning (o3-mini-2025-01-31)' },
+    // Note: Added provider name to label for clarity
   ],
   google: [
-    { value: 'gemini-1.5-pro-latest', label: 'Gemini 1.5 Pro (High Quality)' },
-    { value: 'gemini-1.5-flash-latest', label: 'Gemini 1.5 Flash (Fast/Cheap)' },
+    { value: 'gemini-2.5-pro-preview-03-25', label: 'Google Best (gemini-2.5-pro-preview-03-25)' },
+    { value: 'gemini-2.0-flash-thinking-exp-1219', label: 'Google Reasoning (gemini-2.0-flash-thinking-exp-1219)' },
+    { value: 'gemini-2.0-flash', label: 'Google Normal (gemini-2.0-flash)' },
   ],
   anthropic: [
-    { value: 'claude-3-opus-20240229', label: 'Claude 3 Opus (High Quality)' },
-    { value: 'claude-3-sonnet-20240229', label: 'Claude 3 Sonnet (Normal)' },
-    { value: 'claude-3-haiku-20240307', label: 'Claude 3 Haiku (Fast/Cheap)' },
+    { value: 'claude-3-7-sonnet-20250219', label: 'Anthropic Best (claude-3-7-sonnet-20250219)' },
+    { value: 'claude-3-5-haiku-20241022', label: 'Anthropic Normal (claude-3-5-haiku-20241022)' },
   ],
 };
+// --- End of Updated Model Options ---
 
 function ConfigSelector({ debaterLabel, config, onChange, disabled }) {
   const handleProviderChange = (event) => {
     const newProvider = event.target.value;
-    // Reset model name when provider changes, default to first available
     const defaultModel = modelOptions[newProvider]?.[0]?.value || '';
     onChange({ ...config, provider: newProvider, model_name: defaultModel });
   };
@@ -29,21 +30,19 @@ function ConfigSelector({ debaterLabel, config, onChange, disabled }) {
     onChange({ ...config, model_name: event.target.value });
   };
 
-   const handleObfuscateChange = (event) => {
+  const handleObfuscateChange = (event) => {
     onChange({ ...config, obfuscate: event.target.checked });
   };
 
-   const handleTemperatureChange = (event) => {
-    // Ensure temperature is a number between 0 and 2
+  const handleTemperatureChange = (event) => {
     const temp = Math.max(0, Math.min(2, parseFloat(event.target.value) || 0));
-     onChange({ ...config, temperature: temp });
-   };
+    onChange({ ...config, temperature: temp });
+  };
 
-   const handleMaxTokensChange = (event) => {
-     const tokens = Math.max(10, parseInt(event.target.value) || 10); // Min 10 tokens
-     onChange({ ...config, max_tokens: tokens });
-   };
-
+  const handleMaxTokensChange = (event) => {
+    const tokens = Math.max(10, parseInt(event.target.value) || 10);
+    onChange({ ...config, max_tokens: tokens });
+  };
 
   const currentModels = modelOptions[config.provider] || [];
 
@@ -97,7 +96,6 @@ function ConfigSelector({ debaterLabel, config, onChange, disabled }) {
            disabled={disabled}
            style={{width: '80px'}}
          />
-
 
         <label htmlFor={`${debaterLabel}-obfuscate`}>Obfuscate:</label>
         <input
