@@ -23,6 +23,14 @@ const findNodeById = (node: ArgumentNode, id: string): ArgumentNode | null => {
   return null;
 };
 
+const modelOptions = [
+  { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
+  { label: 'GPT-4o', value: 'gpt-4o' },
+  { label: 'GPT-4.5 Preview', value: 'gpt-4.5-preview' },
+  { label: 'O1 Pro', value: 'o1-pro' },
+  { label: 'O3 Mini', value: 'o3-mini' },
+];
+
 export default function DebateSessionPage() {
   const searchParams = useSearchParams();
   const debaterARole = searchParams.get('debaterA') || 'human';
@@ -38,17 +46,30 @@ export default function DebateSessionPage() {
     children: [],
   });
 
-  const [model, setModel] = useState('gpt-3.5-turbo');
+  const [debaterAModel, setDebaterAModel] = useState('gpt-3.5-turbo');
+  const [debaterBModel, setDebaterBModel] = useState('gpt-3.5-turbo');
+  const [judgeModel, setJudgeModel] = useState('gpt-3.5-turbo');
 
-  const callOpenAIWithScoring = async (prompt: string): Promise<{ text: string; score: number }> => {
+  const buildPromptForDebater = (
+    participantId: 'debaterA' | 'debaterB',
+    parentText: string
+  ): string => {
+    const stance = participantId === 'debaterA'
+      ? `You are Debater A. You are arguing in **favour** of the following topic: "${topic}".`
+      : `You are Debater B. You are arguing **against** the following topic: "${topic}".`;
+
+    return `${stance}\n\nRespond to the following argument:\n"${parentText}"\n\nRespond concisely, then score your own response from 1 to 10.\n\nFormat:\nResponse: <text>\nScore: <number>`;
+  };
+
+  const callOpenAIWithScoring = async (
+    prompt: string,
+    model: string
+  ): Promise<{ text: string; score: number }> => {
     try {
       const res = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          prompt: `${prompt}\n\nRespond concisely, then score your own response from 1 to 10.\n\nFormat:\nResponse: <text>\nScore: <number>`,
-          model,
-        }),
+        body: JSON.stringify({ prompt, model }),
       });
 
       const data = await res.json();
@@ -66,48 +87,21 @@ export default function DebateSessionPage() {
     }
   };
 
-  const addChild = (parentId: string, participantId: string) => {
-    const role = participantId === 'debaterA' ? debaterARole : debaterBRole;
-    if (role === 'ai') return addAIResponse(parentId, participantId);
-
-    const text = prompt('Enter argument text:');
-    if (!text) return;
-
-    const newNode: ArgumentNode = {
-      nodeId: uuidv4(),
-      parentId,
-      text,
-      participantId,
-      obfuscationFlag: false,
-      children: [],
-    };
-
-    const addNodeRecursively = (node: ArgumentNode): ArgumentNode => {
-      if (node.nodeId === parentId) {
-        return { ...node, children: [...node.children, newNode] };
-      } else {
-        return { ...node, children: node.children.map(addNodeRecursively) };
-      }
-    };
-
-    setTree(prev => addNodeRecursively(prev));
-  };
-
-  const addAIResponse = async (parentId: string, participantId: string) => {
+  const addAIResponse = async (parentId: string, participantId: 'debaterA' | 'debaterB') => {
     const parentText = findNodeById(tree, parentId)?.text;
     if (!parentText) return;
 
-    const { text, score } = await callOpenAIWithScoring(parentText);
-
-    // Prune weak arguments
+    const model = participantId === 'debaterA' ? debaterAModel : debaterBModel;
+    const fullPrompt = buildPromptForDebater(participantId, parentText);
+    const { text, score } = await callOpenAIWithScoring(fullPrompt, model);
     if (score < 6) return;
 
     const newNode: ArgumentNode = {
       nodeId: uuidv4(),
       parentId,
       text,
-      participantId,
       score,
+      participantId,
       obfuscationFlag: false,
       children: [],
     };
@@ -127,16 +121,25 @@ export default function DebateSessionPage() {
     const node = findNodeById(tree, nodeId);
     if (!node) return;
 
-    const judgePrompt = `As an impartial judge, evaluate this argument:
+    const judgePrompt = `
+You are an impartial judge evaluating a debate argument. 
+Your task is to assess the logic, relevance, and persuasiveness of the following argument:
 
 "${node.text}"
 
-Respond with a clear, reasoned verdict or critique.`;
+After your analysis, you must clearly state the winner of this argument.
+Choose only one: **Debater A** or **Debater B**.
+
+Respond in this format:
+
+Critique: <your evaluation>
+Winner: Debater A or Debater B
+`;
 
     const res = await fetch('/api/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt: judgePrompt, model }),
+      body: JSON.stringify({ prompt: judgePrompt, model: judgeModel }),
     });
 
     const data = await res.json();
@@ -161,6 +164,44 @@ Respond with a clear, reasoned verdict or critique.`;
     setTree(prev => addNodeRecursively(prev));
   };
 
+  const runAutonomousDebate = async () => {
+    const maxTurns = 8;
+    let updatedTree = tree;
+    let currentNode = updatedTree;
+    let currentTurn: 'debaterA' | 'debaterB' = 'debaterA';
+
+    for (let i = 0; i < maxTurns; i++) {
+      const model = currentTurn === 'debaterA' ? debaterAModel : debaterBModel;
+      const fullPrompt = buildPromptForDebater(currentTurn, currentNode.text);
+      const { text, score } = await callOpenAIWithScoring(fullPrompt, model);
+      if (score < 6) break;
+
+      const newNode: ArgumentNode = {
+        nodeId: uuidv4(),
+        parentId: currentNode.nodeId,
+        text,
+        score,
+        participantId: currentTurn,
+        obfuscationFlag: false,
+        children: [],
+      };
+
+      const addNodeRecursively = (node: ArgumentNode): ArgumentNode => {
+        if (node.nodeId === currentNode.nodeId) {
+          return { ...node, children: [...node.children, newNode] };
+        } else {
+          return { ...node, children: node.children.map(addNodeRecursively) };
+        }
+      };
+
+      updatedTree = addNodeRecursively(updatedTree);
+      currentNode = newNode;
+      currentTurn = currentTurn === 'debaterA' ? 'debaterB' : 'debaterA';
+    }
+
+    setTree(updatedTree);
+  };
+
   const toggleObfuscation = (targetId: string) => {
     const updateFlag = (node: ArgumentNode): ArgumentNode => {
       if (node.nodeId === targetId) {
@@ -172,50 +213,6 @@ Respond with a clear, reasoned verdict or critique.`;
     setTree(prev => updateFlag(prev));
   };
 
-  const downloadJSON = (data: any, filename: string) => {
-    const json = JSON.stringify(data, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-    const href = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = href;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const handleExport = () => {
-    const flattenTree = (node: ArgumentNode): any[] => {
-      const childIds = node.children.map(c => c.nodeId);
-      const baseNode = {
-        nodeId: node.nodeId,
-        parentId: node.parentId,
-        text: node.text,
-        participantId: node.participantId,
-        obfuscationFlag: node.obfuscationFlag,
-        score: node.score,
-        children: childIds,
-        creationTimestamp: new Date().toISOString(),
-      };
-      return [baseNode, ...node.children.flatMap(flattenTree)];
-    };
-
-    const jsonExport = {
-      debateId: uuidv4(),
-      title: 'Debate Export',
-      rootArgumentNodeId: tree.nodeId,
-      participants: [
-        { participantId: 'debaterA', role: 'DEBATER_A', type: debaterARole.toUpperCase(), displayName: 'Debater A' },
-        { participantId: 'debaterB', role: 'DEBATER_B', type: debaterBRole.toUpperCase(), displayName: 'Debater B' },
-        { participantId: 'judge1', role: 'JUDGE', type: 'HUMAN', displayName: 'Judge' },
-      ],
-      argumentNodes: flattenTree(tree),
-      verdicts: [],
-    };
-
-    downloadJSON(jsonExport, 'debate-export.json');
-  };
-
   const renderNode = (node: ArgumentNode) => (
     <div key={node.nodeId} className="border-l-2 pl-4 mt-4 relative">
       <p className="mb-1">
@@ -223,22 +220,22 @@ Respond with a clear, reasoned verdict or critique.`;
         <span className={node.obfuscationFlag ? 'bg-yellow-200 text-yellow-800 px-1 rounded' : ''}>
           {node.text}
         </span>
-        {node.obfuscationFlag && (
-          <span className="ml-2 text-xs text-yellow-700 font-semibold">⚠️ Obfuscated</span>
-        )}
         {node.score !== undefined && (
           <span className="ml-2 text-sm text-gray-500">(Score: {node.score})</span>
+        )}
+        {node.obfuscationFlag && (
+          <span className="ml-2 text-xs text-yellow-700 font-semibold">⚠️ Obfuscated</span>
         )}
       </p>
       <div className="flex gap-2 mb-2">
         <button
-          onClick={() => addChild(node.nodeId, 'debaterA')}
+          onClick={() => addAIResponse(node.nodeId, 'debaterA')}
           className="px-2 py-1 bg-blue-600 text-white text-sm rounded"
         >
           ➕ Add as Debater A
         </button>
         <button
-          onClick={() => addChild(node.nodeId, 'debaterB')}
+          onClick={() => addAIResponse(node.nodeId, 'debaterB')}
           className="px-2 py-1 bg-purple-600 text-white text-sm rounded"
         >
           ➕ Add as Debater B
@@ -256,7 +253,7 @@ Respond with a clear, reasoned verdict or critique.`;
           ⚠️ Toggle Obfuscation
         </button>
       </div>
-      <div className="ml-4">{node.children.map(child => renderNode(child))}</div>
+      <div className="ml-4">{node.children.map(renderNode)}</div>
     </div>
   );
 
@@ -265,30 +262,53 @@ Respond with a clear, reasoned verdict or critique.`;
       <div className="max-w-3xl mx-auto">
         <h1 className="text-2xl font-bold mb-6">🧠 Live Debate</h1>
 
-        <div className="mb-6">
-          <label htmlFor="model" className="block font-semibold mb-1">
-            🤖 Choose AI Model:
-          </label>
-          <select
-            id="model"
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
-            className="w-full max-w-xs p-2 border rounded"
-          >
-            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
-            <option value="gpt-4o">GPT-4o (2024)</option>
-            <option value="gpt-4-0125-preview">GPT-4.5 Preview</option>
-            <option value="openai/oaas-mini">O1 Mini</option>
-            <option value="openai/oaas-pro">O1 Pro</option>
-          </select>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <div>
+            <label className="block font-semibold mb-1">Model for Debater A</label>
+            <select
+              value={debaterAModel}
+              onChange={(e) => setDebaterAModel(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              {modelOptions.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold mb-1">Model for Debater B</label>
+            <select
+              value={debaterBModel}
+              onChange={(e) => setDebaterBModel(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              {modelOptions.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="block font-semibold mb-1">Model for Judge</label>
+            <select
+              value={judgeModel}
+              onChange={(e) => setJudgeModel(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              {modelOptions.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        <button
-          onClick={handleExport}
-          className="mb-6 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-        >
-          📤 Export Debate as JSON
-        </button>
+        {debaterARole === 'ai' && debaterBRole === 'ai' && (
+          <button
+            onClick={runAutonomousDebate}
+            className="mb-6 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
+          >
+            🤖 Run Full AI Debate (8 responses)
+          </button>
+        )}
 
         {renderNode(tree)}
       </div>
