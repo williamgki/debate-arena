@@ -15,7 +15,7 @@ export default function HomePage() {
         {/* Featured Debate Card */}
         <div className="bg-white p-6 rounded-2xl shadow-md border">
           <h2 className="text-xl font-semibold mb-2">
-            Featured Debate: <span className="italic">"Is AI Dangerous?"</span>
+            Featured Debate: <span className="italic">&quot;Should AI be regulated?&quot;</span>
           </h2>
           <p className="mb-4 text-gray-600">
             [AI vs AI] — Judge Verdict: <strong>65% YES</strong>
