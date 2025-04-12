@@ -316,3 +316,4 @@ Winner: Debater A or Debater B
   );
 }
 
+export const dynamic = 'force-dynamic';
