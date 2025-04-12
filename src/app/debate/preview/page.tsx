@@ -27,3 +27,4 @@ export default function DebatePreviewPage() {
     </main>
   );
 }
+export const dynamic = 'force-dynamic';
