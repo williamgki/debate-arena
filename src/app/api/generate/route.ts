@@ -7,7 +7,7 @@ import { openai } from '@ai-sdk/openai';
 export const runtime = 'edge';
 
 // Define allowed model IDs based on client-side options
-type OpenAIModelId = 'gpt-3.5-turbo' | 'gpt-4o' | 'gpt-4.5-preview' | 'o1-pro' | 'o3-mini';
+type OpenAIModelId = 'gpt-3.5-turbo' | 'gpt-4o' | 'gpt-4.5-preview'; // Only include models compatible with openai.chat
 
 // Define a minimal interface for the expected streamText result containing textStream
 interface StreamTextResultWithStream {
@@ -43,18 +43,21 @@ export async function POST(req: NextRequest) {
         return new Response('Missing or invalid "model" in request body', { status: 400 });
     }
 
-    // Basic validation if model is one of the expected OpenAI ones for chat casting
-    const isValidOpenAIModel = ['gpt-3.5-turbo', 'gpt-4o', 'gpt-4.5-preview'].includes(model);
+    // Basic validation if model is one of the expected OpenAI chat models for casting
+    // Adjust this list if 'o1-pro' or 'o3-mini' are also compatible with openai.chat
+    const isValidOpenAIChatModel = ['gpt-3.5-turbo', 'gpt-4o', 'gpt-4.5-preview'].includes(model);
 
     const apiKey = process.env.OPENAI_API_KEY;
-    // Determine if it's intended as a chat model (modify if o1/o3 are chat models via OpenAI API)
+    // Determine if it's intended as a chat model (adjust based on actual compatibility)
     const isChatModel = model.startsWith('gpt-');
-    const useStreaming = stream && isChatModel; // Only stream compatible models
+    // Determine if streaming should be used (only for compatible models)
+    const useStreaming = stream && isChatModel && isValidOpenAIChatModel;
 
     // --- Handle Streaming Request ---
-    if (useStreaming && isValidOpenAIModel) { // Added check for valid model before casting
+    if (useStreaming) {
         console.log(`[API Route] Attempting stream for model: ${model}`);
-        let result: StreamTextResultWithStream | undefined; // Use defined interface
+        // Declare result here so it's accessible in the ReadableStream scope
+        let result: StreamTextResultWithStream | undefined;
         try {
             // Cast the validated model string to our specific type
             result = await streamText({
@@ -72,9 +75,10 @@ export async function POST(req: NextRequest) {
             console.log("[API Route] Checking for result.textStream property...");
 
             // Perform checks using the specific interface type assertion
+            // These checks run *before* the ReadableStream is created
             if (!result || typeof (result as StreamTextResultWithStream).textStream !== 'object' || (result as StreamTextResultWithStream).textStream === null) {
                  console.error("[API Route] ERROR: result.textStream does not appear to be an object.", { resultExists: !!result, textStreamType: typeof (result as StreamTextResultWithStream)?.textStream });
-                 console.error("[API Route] Full result object for reference:", result); // Log again for context
+                 console.error("[API Route] Full result object for reference:", result);
                  throw new Error("Could not find property 'textStream' on streamText result, or it's not an object.");
             }
 
@@ -83,26 +87,34 @@ export async function POST(req: NextRequest) {
                  if (typeof (result as StreamTextResultWithStream).textStream[Symbol.asyncIterator] !== 'function') {
                      console.warn("[API Route] Warning: result.textStream exists but Symbol.asyncIterator is not a function. Iteration might fail.");
                  }
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (_e) { // Indicate unused variable with underscore
                  console.warn("[API Route] Could not check for Symbol.asyncIterator on textStream.");
             }
 
-
             console.log("[API Route] Found result.textStream. Attempting iteration...");
             const encoder = new TextEncoder();
+
             // Manually construct a ReadableStream by iterating over result.textStream
             const readableStream = new ReadableStream({
                 async start(controller) {
                     let chunkCounter = 0;
-                    console.log("[API Route] ReadableStream start() called."); // Log stream start
+                    console.log("[API Route] ReadableStream start() called.");
                     try {
-                        // Iterate over the text stream chunks provided by the AI SDK result
-                        for await (const textChunk of result.textStream) { // No cast needed here if result is correctly typed
+                        // --- ADDED CHECK ---
+                        // Add guard here to satisfy TypeScript within this specific scope
+                        if (!result) {
+                            console.error("[API Route] Critical: result is undefined inside ReadableStream start.");
+                            controller.error(new Error("Internal error: Stream result unexpectedly missing."));
+                            return; // Stop execution for this stream
+                        }
+                        // --- END OF ADDED CHECK ---
+
+                        // Now TypeScript knows 'result' is defined here
+                        // Iterate over the text stream chunks
+                        for await (const textChunk of result.textStream) {
                             chunkCounter++;
-                            // --- LOGGING INSIDE LOOP ---
-                            // Log chunk reception on the server side
                             console.log(`[API Route] Server received stream chunk ${chunkCounter}: "${textChunk}"`);
-                            // --- END LOGGING ---
                             controller.enqueue(encoder.encode(textChunk)); // Encode and send to client
                         }
                         console.log(`[API Route] Stream iteration finished after ${chunkCounter} chunks.`);
@@ -114,7 +126,7 @@ export async function POST(req: NextRequest) {
                 },
                 cancel(reason) {
                     console.log("[API Route] Client cancelled stream:", reason);
-                    // Implement cancellation logic if necessary (e.g., aborting OpenAI request)
+                    // Implement cancellation logic if necessary
                 }
             });
 
@@ -129,12 +141,15 @@ export async function POST(req: NextRequest) {
             // --- END RE-ATTEMPT 5 ---
 
         } catch (error: unknown) { // Catch as unknown
-            console.error('[API Route] ERROR Caught during streaming:', error);
+            console.error('[API Route] ERROR Caught during streaming setup or streamText call:', error);
              if (result !== undefined) {
+                 // This log might not be useful if error happened during streamText itself
                  console.error('[API Route] Logging streamText result object upon catching error:', result);
              }
              // Check if error is an Error object before accessing .message
              const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred during streaming.';
+            // Return error as JSON for consistency, even though client expects text/plain for success stream
+            // Client-side fetch error handling should catch non-200 status codes regardless of content type
             return new Response(JSON.stringify({ error: errorMessage }), {
                  status: 500, headers: { 'Content-Type': 'application/json' }
             });
@@ -148,12 +163,12 @@ export async function POST(req: NextRequest) {
              if (!apiKey) { return new Response('Missing OPENAI_API_KEY for non-streaming call', { status: 500 }); }
 
              // Use appropriate endpoint and payload based on model characteristics
-             // This might need refinement if non-GPT models have different API structures
-             const endpoint = isChatModel ? 'https://api.openai.com/v1/chat/completions' : 'https://api.openai.com/v1/completions'; // Example: adjust if needed
+             // This needs to be accurate for the models you intend to support non-streaming
+             const endpoint = isChatModel ? 'https://api.openai.com/v1/chat/completions' : 'https://api.openai.com/v1/completions'; // Adjust if non-GPT models use chat endpoint
 
              const bodyPayload = isChatModel
                 ? { model, messages: [{ role: 'system', content: 'You are a helpful assistant.' },{ role: 'user', content: prompt }], stream: false, temperature: 0.7, max_tokens: 350 }
-                // Example completion payload - adjust system/user roles as needed for non-chat models
+                // Example completion payload - ensure this matches the API requirements for models like o1/o3 if they use this endpoint
                 : { model, prompt: `System: You are a helpful assistant.\nUser: ${prompt}\nAssistant:`, stream: false, temperature: 0.7, max_tokens: 350, stop: ["\nUser:", "\nSystem:"] };
 
              const response = await fetch(endpoint, {
@@ -168,7 +183,7 @@ export async function POST(req: NextRequest) {
              }
 
              const data = await response.json();
-             // Extract content based on expected response structure (chat vs completion)
+             // Extract content based on expected response structure
              const messageContent = isChatModel ? data.choices?.[0]?.message?.content : data.choices?.[0]?.text;
 
              if (messageContent === undefined || messageContent === null) {
