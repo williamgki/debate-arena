@@ -434,7 +434,7 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
 
 
   // --- Rendering function ---
-  const renderNode = useCallback((node: ArgumentNode): JSX.Element | null => {
+  const renderNode = useCallback((node: ArgumentNode) => { // Removed ': JSX.Element | null'
      if (!node) return null;
 
      const participantColor = {
