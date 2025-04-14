@@ -1,7 +1,7 @@
-// src/app/debate/session/DebateSessionClient.tsx (with Obfuscated Arguments Mode)
+// src/app/debate/session/DebateSessionClient.tsx (with Obfuscated Mode + ESLint fixes)
 'use client';
 
-import React, { useState, useCallback } from 'react'; // Added useCallback
+import React, { useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,16 +22,12 @@ const OBFUSCATION_INSTRUCTION = `\n\n[OBFUSCATION INSTRUCTION] You are now actin
 const modelOptions = [
     { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
     { label: 'GPT-4o', value: 'gpt-4o' },
-    // { label: 'GPT-4.5 Preview', value: 'gpt-4.5-preview' }, // Assuming this might not be available universally yet
+    // { label: 'GPT-4.5 Preview', value: 'gpt-4.5-preview' },
     { label: 'O1 Pro', value: 'o1-pro' }, // Placeholder, needs different API handling
     { label: 'O3 Mini', value: 'o3-mini' }, // Placeholder, needs different API handling
 ];
 
-// --- Helper Functions (Using useCallback for stable references where appropriate) ---
-
-// Note: Using functional updates with setTree handles immutability correctly.
-// These helpers might become less necessary or could be simplified if only used once.
-// Kept for now for structural clarity.
+// --- Helper Functions (defined outside component, assuming no dependency on component state/props) ---
 
 const addNodeUnderParent = (
   tree: ArgumentNode,
@@ -39,12 +35,10 @@ const addNodeUnderParent = (
   newNode: ArgumentNode
 ): ArgumentNode => {
   if (tree.nodeId === parentId) {
-    // Ensure live node is removed if it exists before adding final node
     const existingChildren = tree.children.filter(c => !c.nodeId.startsWith('live-') && c.nodeId !== newNode.nodeId);
     return { ...tree, children: [...existingChildren, newNode] };
   }
   const updatedChildren = tree.children.map(child => addNodeUnderParent(child, parentId, newNode));
-  // Simple check for changes
   let childrenChanged = updatedChildren.some((child, i) => child !== tree.children[i]);
   if (updatedChildren.length !== tree.children.length) childrenChanged = true;
 
@@ -58,11 +52,9 @@ const updateNodeProperty = <K extends keyof ArgumentNode>(
     newValue: ArgumentNode[K]
 ): ArgumentNode => {
     if (tree.nodeId === targetId) {
-        // Avoid unnecessary object creation if value hasn't changed
         return tree[propertyName] === newValue ? tree : { ...tree, [propertyName]: newValue };
     }
     const updatedChildren = tree.children.map(child => updateNodeProperty(child, targetId, propertyName, newValue));
-     // Simple check for changes
     let childrenChanged = updatedChildren.some((child, i) => child !== tree.children[i]);
     if (updatedChildren.length !== tree.children.length) childrenChanged = true;
 
@@ -85,9 +77,10 @@ export default function DebateSessionClient() {
   const searchParams = useSearchParams();
 
   // --- State ---
-  const [topic, setTopic] = useState(searchParams.get('topic') || 'AI systems will be aligned by default.');
-  const [debaterARole, setDebaterARole] = useState(searchParams.get('debaterA') || 'human'); // Not currently used beyond display, but good to have
-  const [debaterBRole, setDebaterBRole] = useState(searchParams.get('debaterB') || 'ai'); // Not currently used beyond display, but good to have
+  // ESLint Fix: Prefixed unused setters with '_'
+  const [topic, _setTopic] = useState(searchParams.get('topic') || 'AI systems will be aligned by default.');
+  const [debaterARole, _setDebaterARole] = useState(searchParams.get('debaterA') || 'human');
+  const [debaterBRole, _setDebaterBRole] = useState(searchParams.get('debaterB') || 'ai');
 
   const [tree, setTree] = useState<ArgumentNode>({
     nodeId: uuidv4(),
@@ -100,14 +93,12 @@ export default function DebateSessionClient() {
 
   const [debaterAModel, setDebaterAModel] = useState('gpt-3.5-turbo');
   const [debaterBModel, setDebaterBModel] = useState('gpt-3.5-turbo');
-  const [judgeModel, setJudgeModel] = useState('gpt-4o'); // Defaulting judge to GPT-4o for potentially better quality
+  const [judgeModel, setJudgeModel] = useState('gpt-4o');
   const [isAutonomousRunning, setIsAutonomousRunning] = useState(false);
-
-  // NEW STATE for Obfuscated Arguments Mode
-  const [obfuscatingDebaterId, setObfuscatingDebaterId] = useState<string | null>(null); // Stores 'debaterA', 'debaterB', or null
+  const [obfuscatingDebaterId, setObfuscatingDebaterId] = useState<string | null>(null);
 
 
-  // --- Prompt Builders (Using useCallback for stability if passed as props later) ---
+  // --- Prompt Builders ---
   const buildDebaterPrompt = useCallback((
     participantId: 'debaterA' | 'debaterB',
     parentText: string
@@ -118,14 +109,13 @@ export default function DebateSessionClient() {
 
     let basePrompt = `${stance}\n\nRespond to the following argument:\n"${parentText}"\n\nRespond concisely, then score your own response from 1 to 10.\n\nFormat exactly as:\nResponse: <Your argument text>\nScore: <Score number 1-10>`;
 
-    // *** ADD OBFUSCATION INSTRUCTION if this debater is set to obfuscate ***
     if (participantId === obfuscatingDebaterId) {
       console.log(`Adding obfuscation instruction for ${participantId}`);
       basePrompt += OBFUSCATION_INSTRUCTION;
     }
 
     return basePrompt;
-  }, [topic, obfuscatingDebaterId]); // Dependency: topic and the obfuscating debater ID
+  }, [topic, obfuscatingDebaterId]);
 
   const buildJudgePrompt = useCallback((argumentText: string): string => {
      return `You are an impartial and objective AI debate judge.
@@ -152,17 +142,16 @@ Respond in this format exactly:
 
 Critique: <Your evaluation based ONLY on the criteria and the provided text>
 Winner: <Debater A or Debater B based ONLY on the quality of this specific argument text>`;
-  }, []); // No dependencies for this prompt
+  }, []);
 
 
-  // --- API Call Function (Using useCallback) ---
+  // --- API Call Function ---
   const callOpenAIWithScoring = useCallback(async (
     prompt: string,
     model: string,
     stream: boolean,
-    onToken?: (accumulatedText: string) => void // Callback for streaming tokens
+    onToken?: (accumulatedText: string) => void
   ): Promise<{ text: string; score: number; error?: string }> => {
-    // Check for incompatible models before fetching (Placeholder)
     if (model.startsWith('o1-') || model.startsWith('o3-')) {
         console.warn(`Model ${model} requires a different API implementation (not yet supported).`);
         return { text: `[Error: Model ${model} not supported via this endpoint]`, score: 0, error: `Model ${model} not supported` };
@@ -177,6 +166,7 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
 
         if (!res.ok) {
              let errorJson: unknown = null;
+             // ESLint Fix: Prefixed unused catch variable with '_'
              try { errorJson = await res.json(); } catch (_e) { /* Ignore */ }
              let parsedError = '';
              if (typeof errorJson === 'object' && errorJson !== null && 'error' in errorJson && typeof errorJson.error === 'string') {
@@ -187,7 +177,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
              return { text: `[API Error: ${res.status} ${errorText}]`, score: 0, error: errorText };
         }
 
-        // --- Non-Streaming Response ---
         if (!stream || !res.body) {
             const data = await res.json();
             if (data.error) {
@@ -195,35 +184,32 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                 return { text: `[API Error: ${data.error}]`, score: 0, error: data.error };
             }
             const message = data.message || '[No response]';
-            // Improved parsing, less reliant on exact newlines
             const scoreMatch = message.match(/Score:\s*(\d+)/i);
             const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
             const responseMatch = message.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
-            const text = responseMatch ? responseMatch[1].trim() : message.replace(/Score:\s*\d+\s*$/i, '').trim(); // Fallback text extraction
+            const text = responseMatch ? responseMatch[1].trim() : message.replace(/Score:\s*\d+\s*$/i, '').trim();
             return { text, score };
         }
 
-        // --- Streaming Response ---
         const reader = res.body.getReader();
         const decoder = new TextDecoder('utf-8');
         let fullText = '';
-        let streamedText = ''; // Text excluding potential final score line for streaming display
+        let streamedText = '';
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
             const chunk = decoder.decode(value, { stream: true });
 
-             // Basic check for Vercel AI SDK error format within stream
              if (chunk.includes('"error":')) {
                  try {
-                    const errorData = JSON.parse(chunk); // Might fail if chunk is partial JSON
+                    const errorData = JSON.parse(chunk);
                     if (errorData.error) {
                         console.error("Streaming API Error Chunk:", errorData.error);
                         return { text: `[Streaming API Error: ${errorData.error}]`, score: 0, error: errorData.error };
                     }
-                 } catch (parseError) {
-                     // Ignore partial JSON parse errors, but log if it looks like an error message
+                 // ESLint Fix: Prefixed unused catch variable with '_'
+                 } catch (_parseError) {
                     if (chunk.toLowerCase().includes('error')) {
                         console.warn("Received non-JSON chunk potentially indicating error:", chunk);
                     }
@@ -231,28 +217,22 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
              }
 
             fullText += chunk;
-            // Try to build streamed text excluding the final score line for cleaner display
             const potentialScoreLine = /Response:\s*.*\n*Score:\s*\d*$/.test(fullText);
             if (!potentialScoreLine) {
-                 streamedText = fullText.replace(/^Response:\s*/i, ''); // Remove potential leading "Response:"
-            } // If score line might be appearing, pause updating streamedText to avoid showing it prematurely
-
-            // Send accumulated text (without score line ideally) to the callback
-            onToken?.(streamedText + '▋'); // Add cursor
+                 streamedText = fullText.replace(/^Response:\s*/i, '');
+            }
+            onToken?.(streamedText + '▋');
         }
 
-        // Final parsing after stream completes
         const scoreMatch = fullText.match(/Score:\s*(\d+)/i);
         const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
         const responseMatch = fullText.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
-        let finalText = responseMatch ? responseMatch[1].trim() : fullText.replace(/Score:\s*\d+\s*$/i, '').trim(); // Fallback text extraction
+        let finalText = responseMatch ? responseMatch[1].trim() : fullText.replace(/Score:\s*\d+\s*$/i, '').trim();
 
-        if (!finalText && fullText) { // Handle case where parsing failed but we have text
+        if (!finalText && fullText) {
              finalText = fullText.replace(/Score:\s*\d+\s*$/i, '').replace(/^Response:\s*/i, '').trim() || '[Parsing Failed]';
              console.warn("Could not parse 'Response:' block well from streamed text, using fallback. Raw:", JSON.stringify(fullText));
         }
-
-         // Ensure the final streamed text callback gets the clean final text without cursor
          onToken?.(finalText);
 
         return { text: finalText, score };
@@ -262,10 +242,10 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
        const errorMessage = err instanceof Error ? err.message : 'Unknown fetch error';
       return { text: `[Fetch Error: ${errorMessage}]`, score: 0, error: errorMessage };
     }
-  }, []); // No dependencies that would change the fetch logic itself
+  }, []);
 
 
-  // --- Core Logic Functions (Using useCallback) ---
+  // --- Core Logic Functions ---
   const addAIResponse = useCallback(async (parentId: string, participantId: 'debaterA' | 'debaterB') => {
     const parentNode = findNodeById(tree, parentId);
     if (!parentNode || parentNode.participantId === 'system-error') {
@@ -274,30 +254,25 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     }
     if (!parentNode.text) {
         console.warn(`Parent node ${parentId} has no text to respond to.`);
-        // Optionally, allow responding to empty nodes? For now, return.
         return;
     }
 
     const model = participantId === 'debaterA' ? debaterAModel : debaterBModel;
     const prompt = buildDebaterPrompt(participantId, parentNode.text);
     const liveNodeId = 'live-' + uuidv4();
-    const liveNode: ArgumentNode = { nodeId: liveNodeId, parentId, text: '▋', participantId, obfuscationFlag: false, children: [], score: undefined }; // Live node never obfuscated
+    const liveNode: ArgumentNode = { nodeId: liveNodeId, parentId, text: '▋', participantId, obfuscationFlag: false, children: [], score: undefined };
 
-    // Add live node for streaming feedback
     setTree(currentTree => addNodeUnderParent(currentTree, parentId, liveNode));
 
-    const supportsStreaming = model.startsWith('gpt-'); // Only stream GPT models for now
+    const supportsStreaming = model.startsWith('gpt-');
 
-    // Callback for updating the live node text during streaming
     const handleToken = (accumulatedText: string) => {
         setTree(currentTree => {
-            // Use a recursive function to update the specific live node immutably
             const updateLiveNodeText = (node: ArgumentNode): ArgumentNode => {
                 if (node.nodeId === liveNodeId) {
-                    return { ...node, text: accumulatedText }; // Update text
+                    return { ...node, text: accumulatedText };
                 }
                  const updatedChildren = node.children.map(updateLiveNodeText);
-                 // Check if children actually changed to avoid unnecessary re-renders
                  let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
                  if (updatedChildren.length !== node.children.length) childrenChanged = true;
                  return childrenChanged ? { ...node, children: updatedChildren } : node;
@@ -308,38 +283,30 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
 
     const { text: finalText, score, error } = await callOpenAIWithScoring(prompt, model, supportsStreaming, handleToken);
 
-    // Process final response: remove live node, add final/error node, or prune
     setTree(currentTree => {
-        // Use a recursive function to remove the live node immutably
         const removeLiveNode = (node: ArgumentNode): ArgumentNode | null => {
-            if (node.nodeId === liveNodeId) return null; // Remove by returning null
+            if (node.nodeId === liveNodeId) return null;
             const updatedChildren = node.children.map(removeLiveNode).filter(n => n !== null) as ArgumentNode[];
-            // Check if children actually changed
             let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
              if (updatedChildren.length !== node.children.length) childrenChanged = true;
             return childrenChanged ? { ...node, children: updatedChildren } : node;
         };
 
-        const treeWithoutLive = removeLiveNode(currentTree) || currentTree; // Ensure tree isn't null if root was live node (shouldn't happen)
+        const treeWithoutLive = removeLiveNode(currentTree) || currentTree;
 
         if (error) {
-            // Add Error Node
-            const errorNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: `Error generating response: ${finalText}`, participantId: 'system-error', obfuscationFlag: true, // Mark errors as 'obfuscated' visually
-                children: [], score: 0 };
+            const errorNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: `Error generating response: ${finalText}`, participantId: 'system-error', obfuscationFlag: true, children: [], score: 0 };
             return addNodeUnderParent(treeWithoutLive, parentId, errorNode);
         } else if (score >= 6) {
-            // Add Final Valid Node, checking if it should be obfuscated
-            const isObfuscating = participantId === obfuscatingDebaterId; // Check state
-            const finalNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: finalText, participantId, score, obfuscationFlag: isObfuscating, // *** SET FLAG BASED ON STATE ***
-                children: [], };
+            const isObfuscating = participantId === obfuscatingDebaterId;
+            const finalNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: finalText, participantId, score, obfuscationFlag: isObfuscating, children: [], };
             return addNodeUnderParent(treeWithoutLive, parentId, finalNode);
         } else {
-            // Prune Low Score Node (Just return the tree without the live node)
             console.log(`Pruning response with score ${score} from ${participantId} under parent ${parentId}`);
             return treeWithoutLive;
         }
     });
-  }, [tree, debaterAModel, debaterBModel, buildDebaterPrompt, callOpenAIWithScoring, obfuscatingDebaterId]); // Dependencies
+  }, [tree, debaterAModel, debaterBModel, buildDebaterPrompt, callOpenAIWithScoring, obfuscatingDebaterId]);
 
 
   const callAIJudge = useCallback(async (nodeId: string) => {
@@ -354,17 +321,13 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     }
 
     const judgePrompt = buildJudgePrompt(nodeToJudge.text);
-    // Show temporary judging indicator? Optional.
     const tempJudgeNodeId = 'live-judge-' + uuidv4();
     const tempJudgeNode: ArgumentNode = { nodeId: tempJudgeNodeId, parentId: nodeId, text: '🧑‍⚖️ Judging...', participantId: 'judge-ai', obfuscationFlag: false, children: [] };
     setTree(currentTree => addNodeUnderParent(currentTree, nodeId, tempJudgeNode));
 
-
-    // Use non-streaming for judge
     const { text: judgeResponse, error } = await callOpenAIWithScoring(judgePrompt, judgeModel, false);
 
     setTree(currentTree => {
-        // Remove temporary judge node
          const removeTempJudgeNode = (node: ArgumentNode): ArgumentNode | null => {
              if (node.nodeId === tempJudgeNodeId) return null;
              const updatedChildren = node.children.map(removeTempJudgeNode).filter(n => n !== null) as ArgumentNode[];
@@ -374,29 +337,26 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
          };
          const treeWithoutTempJudge = removeTempJudgeNode(currentTree) || currentTree;
 
-        // Add final judge response or error
         let responseText = judgeResponse;
         let isError = false;
         if (error) {
             responseText = `[Judge Error: ${judgeResponse}]`;
             isError = true;
         }
-        const newNode: ArgumentNode = { nodeId: uuidv4(), parentId: nodeId, text: responseText, participantId: isError ? 'system-error' : 'judge-ai', obfuscationFlag: isError, // Mark judge errors too
-            children: [], score: undefined };
+        const newNode: ArgumentNode = { nodeId: uuidv4(), parentId: nodeId, text: responseText, participantId: isError ? 'system-error' : 'judge-ai', obfuscationFlag: isError, children: [], score: undefined };
 
         return addNodeUnderParent(treeWithoutTempJudge, nodeId, newNode);
     });
-  }, [tree, judgeModel, buildJudgePrompt, callOpenAIWithScoring]); // Dependencies
+  }, [tree, judgeModel, buildJudgePrompt, callOpenAIWithScoring]);
 
 
-  // Manual toggle - might need reconsideration later. Kept for now.
   const toggleObfuscationManual = useCallback((targetId: string) => {
      const node = findNodeById(tree, targetId);
      if (!node) return;
      const currentFlag = node.obfuscationFlag;
      console.log(`Manually toggling obfuscation for node ${targetId} from ${currentFlag} to ${!currentFlag}`);
      setTree(currentTree => updateNodeProperty(currentTree, targetId, 'obfuscationFlag', !currentFlag));
-  }, [tree]); // Dependency: tree
+  }, [tree]);
 
 
   const runAutonomousDebate = useCallback(async () => {
@@ -407,73 +367,65 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     setIsAutonomousRunning(true);
     console.log('--- Starting Autonomous Debate ---');
     const maxTurns = 8;
-    let currentParentNodeId = tree.nodeId; // Start from root
+    let currentParentNodeId = tree.nodeId;
     let currentTurn: 'debaterA' | 'debaterB' = 'debaterA';
 
     for (let i = 0; i < maxTurns; i++) {
         const turnNumber = i + 1;
-        let shouldStopLoop = false; // <-- FLAG TO SIGNAL LOOP TERMINATION
+        let shouldStopLoop = false;
         console.log(`Autonomous Turn ${turnNumber}: ${currentTurn}, Parent: ${currentParentNodeId}`);
 
         const latestParentNode = findNodeById(tree, currentParentNodeId);
         if (!latestParentNode) {
              console.error(`Autonomous debate error: Parent node ${currentParentNodeId} not found in current tree state at start of turn ${turnNumber}.`);
-             break; // Exit loop if parent disappears unexpectedly
+             break;
         }
 
-        // Use a Promise to wait for the addAIResponse to finish and update the state
         await new Promise<void>(async (resolve, reject) => {
             try {
-                // Call the existing function, it will handle API call, state updates, pruning etc.
                 await addAIResponse(currentParentNodeId, currentTurn);
-
-                // After addAIResponse completes, find the ID of the newly added node.
                 setTree(latestTreeState => {
                      const parentAfterAdd = findNodeById(latestTreeState, currentParentNodeId);
-                     // Find the last child added by the current participant (could be response or error)
                      const addedChildren = parentAfterAdd?.children?.filter(c => c.parentId === currentParentNodeId) || [];
                      const lastAddedNode = addedChildren[addedChildren.length - 1];
 
-
                      if (lastAddedNode && lastAddedNode.participantId === currentTurn) {
-                         // Successfully added response node
-                         currentParentNodeId = lastAddedNode.nodeId; // Update for the next iteration
+                         currentParentNodeId = lastAddedNode.nodeId;
                          console.log(`Autonomous Turn ${turnNumber}: New parent ID set to ${currentParentNodeId}`);
-                         resolve(); // Resolve the promise to proceed
+                         resolve();
                      } else if (lastAddedNode && lastAddedNode.participantId === 'system-error') {
-                          // An error node was added
                           console.warn(`Autonomous Turn ${turnNumber}: Error node added, stopping debate.`);
-                          reject(new Error("Error node added during autonomous debate")); // Reject to stop loop
+                          reject(new Error("Error node added during autonomous debate"));
                      } else {
-                         // Node might have been pruned or not added for other reasons
                          console.log(`Autonomous Turn ${turnNumber}: Node likely pruned or not added, stopping debate on this branch.`);
-                         reject(new Error("Node pruned or not added during autonomous debate")); // Reject to stop loop
+                         reject(new Error("Node pruned or not added during autonomous debate"));
                      }
-                     return latestTreeState; // Return state unchanged as we only needed to read it
+                     return latestTreeState;
                 });
 
             } catch (error) {
                  console.error(`Error explicitly thrown during autonomous turn ${turnNumber}:`, error);
-                 reject(error); // Reject promise on explicit error
+                 reject(error);
             }
-        }).catch(() => { // Catch rejection from the promise (e.g., pruning, error node)
+        }).catch(() => {
              console.log(`Autonomous debate stopped after turn ${turnNumber}.`);
-             shouldStopLoop = true; // <-- SET THE FLAG HERE
+             shouldStopLoop = true;
         });
 
-        // Check the flag immediately after the promise handling is done
         if (shouldStopLoop) {
-            break; // <-- BREAK THE LOOP HERE (now valid)
+            break;
         }
 
-        // Switch turn for the next iteration if loop didn't break
         currentTurn = currentTurn === 'debaterA' ? 'debaterB' : 'debaterA';
-        await new Promise(resolve => setTimeout(resolve, 300)); // Small delay between turns
-    } // End for loop
+        await new Promise(resolve => setTimeout(resolve, 300));
+    }
 
     console.log('--- Autonomous Debate Finished ---');
     setIsAutonomousRunning(false);
-  }, [tree, debaterARole, debaterBRole, addAIResponse]); // Dependencies (make sure `findNodeById` is stable or included if defined outside component)
+  // ESLint Fix: Disabled rule for this line as 'tree' dependency is necessary but flags warning
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tree, debaterARole, debaterBRole, addAIResponse]);
+
 
   // --- Rendering function ---
   const renderNode = useCallback((node: ArgumentNode): JSX.Element | null => {
@@ -487,7 +439,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
          'system-error': 'text-red-700',
      }[node.participantId] || 'text-black';
 
-     // Style for obfuscated nodes (set automatically or manually)
      const obfuscatedStyle = node.obfuscationFlag ? 'italic bg-yellow-100 px-1 rounded ring-1 ring-yellow-300' : '';
      const liveStyle = node.nodeId.startsWith('live-') ? 'text-gray-400 animate-pulse' : '';
 
@@ -495,16 +446,12 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
         <div key={node.nodeId} className={`ml-4 pl-4 mt-3 border-l-2 border-gray-200 relative node-${node.participantId}`}>
             <div className={`mb-1 ${participantColor}`}>
                 <strong className="font-semibold capitalize">{node.participantId.replace('-', ' ')}:</strong>{' '}
-                {/* Wrap text content for styling */}
                 <span className={`${obfuscatedStyle} ${liveStyle}`}>
-                    {/* Use pre-wrap to respect newlines from the AI response */}
                     <span style={{ whiteSpace: 'pre-wrap' }}>{node.text}</span>
                 </span>
-                {/* Display score only for debaters */}
                 {node.score !== undefined && (node.participantId === 'debaterA' || node.participantId === 'debaterB') && (
                     <span className="ml-2 text-xs text-gray-500 font-normal">(Score: {node.score})</span>
                 )}
-                 {/* Display obfuscation warning icon - shown if flag is true */}
                  {node.obfuscationFlag && !node.nodeId.startsWith('live-') && node.participantId !== 'system-error' && (
                     <span className="ml-2 text-xs text-yellow-700 font-semibold" title="This argument was generated under obfuscation instructions or manually flagged.">⚠️ Obfuscated</span>
                  )}
@@ -513,29 +460,26 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                   )}
             </div>
 
-            {/* Action buttons - Hide for live/temp nodes */}
             {!node.nodeId.startsWith('live-') && (
                 <div className="flex flex-wrap gap-2 my-1 text-xs">
-                    {/* Add Response Buttons - only if parent is not an error */}
                     {node.participantId !== 'system-error' && (
                         <>
                             <button
                                 onClick={() => addAIResponse(node.nodeId, 'debaterA')}
                                 className="px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50"
-                                disabled={isAutonomousRunning || debaterARole !== 'ai'} // Disable if human
+                                disabled={isAutonomousRunning || debaterARole !== 'ai'}
                                 title={debaterARole === 'ai' ? "Add AI response as Debater A" : "Debater A is Human"} >
                                 ➕ A (AI)
                             </button>
                             <button
                                 onClick={() => addAIResponse(node.nodeId, 'debaterB')}
                                 className="px-2 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded disabled:opacity-50"
-                                disabled={isAutonomousRunning || debaterBRole !== 'ai'} // Disable if human
+                                disabled={isAutonomousRunning || debaterBRole !== 'ai'}
                                 title={debaterBRole === 'ai' ? "Add AI response as Debater B" : "Debater B is Human"} >
                                 ➕ B (AI)
                             </button>
                         </>
                     )}
-                    {/* Judge Button - not for system, errors, or existing judge nodes */}
                     {node.participantId !== 'judge-ai' && node.participantId !== 'system-error' && node.participantId !== 'system' && (
                         <button
                             onClick={() => callAIJudge(node.nodeId)}
@@ -544,7 +488,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                             🧑‍⚖️ Judge
                         </button>
                     )}
-                     {/* Manual Obfuscation Toggle Button - allow on most nodes */}
                     {node.participantId !== 'system' && !node.nodeId.startsWith('live-') && (
                          <button
                              onClick={() => toggleObfuscationManual(node.nodeId)}
@@ -557,7 +500,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                 </div>
             )}
 
-            {/* Recursive rendering for children */}
             <div className="children-container">
                 {node.children && node.children.length > 0
                     ? node.children.map(childNode => renderNode(childNode))
@@ -566,22 +508,18 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
             </div>
         </div>
      );
-  // Only include essential state + callbacks used directly by renderNode if needed
-  // But generally, relying on closure scope is standard in React function components.
   }, [tree, isAutonomousRunning, debaterARole, debaterBRole, addAIResponse, callAIJudge, toggleObfuscationManual]);
 
 
   // --- Component Return JSX ---
   return (
     <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-10 bg-gradient-to-br from-gray-100 to-indigo-100 text-gray-900 font-sans">
-      <div className="max-w-5xl mx-auto"> {/* Increased max-width */}
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">🧠 Live Debate Arena</h1>
 
-        {/* Configuration Section */}
         <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
            <h2 className="text-xl font-semibold mb-4 text-gray-700">Configuration</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                {/* Debater A Settings */}
                 <div className="border p-3 rounded bg-blue-50 border-blue-200">
                     <label htmlFor="debaterA-model-select" className="block font-medium text-sm mb-1 text-blue-800">Debater A ({debaterARole}) Model</label>
                     <select
@@ -593,7 +531,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     >
                         {modelOptions.map(opt => (<option key={opt.value} value={opt.value}>{opt.label}</option>))}
                     </select>
-                    {/* Obfuscation Toggle for Debater A */}
                     {debaterARole === 'ai' && (
                         <div className="mt-2 flex items-center">
                              <input
@@ -602,7 +539,7 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                                 checked={obfuscatingDebaterId === 'debaterA'}
                                 onChange={(e) => setObfuscatingDebaterId(e.target.checked ? 'debaterA' : null)}
                                 className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
-                                disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterB'} // Disable if B is obfuscating
+                                disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterB'}
                              />
                              <label htmlFor="obfuscate-debaterA" className="ml-2 block text-sm text-gray-700">
                                 Enable Obfuscation
@@ -611,7 +548,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     )}
                 </div>
 
-                 {/* Debater B Settings */}
                  <div className="border p-3 rounded bg-purple-50 border-purple-200">
                     <label htmlFor="debaterB-model-select" className="block font-medium text-sm mb-1 text-purple-800">Debater B ({debaterBRole}) Model</label>
                     <select
@@ -623,7 +559,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     >
                         {modelOptions.map(opt => (<option key={opt.value} value={opt.value}>{opt.label}</option>))}
                     </select>
-                     {/* Obfuscation Toggle for Debater B */}
                     {debaterBRole === 'ai' && (
                          <div className="mt-2 flex items-center">
                              <input
@@ -632,7 +567,7 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                                 checked={obfuscatingDebaterId === 'debaterB'}
                                 onChange={(e) => setObfuscatingDebaterId(e.target.checked ? 'debaterB' : null)}
                                 className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
-                                disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterA'} // Disable if A is obfuscating
+                                disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterA'}
                              />
                              <label htmlFor="obfuscate-debaterB" className="ml-2 block text-sm text-gray-700">
                                 Enable Obfuscation
@@ -641,7 +576,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     )}
                  </div>
 
-                 {/* Judge Settings */}
                  <div className="border p-3 rounded bg-slate-50 border-slate-200">
                     <label htmlFor="judge-model-select" className="block font-medium text-sm mb-1 text-slate-800">Judge Model</label>
                     <select
@@ -655,14 +589,13 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     </select>
                  </div>
            </div>
-           {/* Topic Display (Could make editable later) */}
            <div className="mt-4">
                 <p className="text-sm font-medium text-gray-600">Current Topic:</p>
-                <p className="text-md italic text-gray-800">"{topic}"</p>
+                {/* ESLint Fix: Escaped double quotes */}
+                <p className="text-md italic text-gray-800">&quot;{topic}&quot;</p>
            </div>
         </div>
 
-        {/* Autonomous Debate Button */}
         {debaterARole === 'ai' && debaterBRole === 'ai' && (
           <div className="mb-6 text-center">
             <button
@@ -676,13 +609,11 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
           </div>
         )}
 
-         {/* Debate Tree Display */}
          <div className="mt-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
              <h2 className="text-xl font-semibold mb-4 text-gray-700">Debate Tree</h2>
-             {/* Initial rendering of the root node */}
              {renderNode(tree)}
          </div>
       </div>
     </main>
   );
-} // End of component
+}
