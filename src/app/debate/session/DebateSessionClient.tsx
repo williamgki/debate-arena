@@ -86,7 +86,7 @@ export default function DebateSessionClient() {
   const searchParams = useSearchParams();
   const debaterARole = searchParams.get('debaterA') || 'human';
   const debaterBRole = searchParams.get('debaterB') || 'ai';
-  const topic = searchParams.get('topic') || 'Should AI be regulated?';
+  const topic = searchParams.get('topic') || 'AI systems will be aligned by default?';
 
   const [tree, setTree] = useState<ArgumentNode>({
     nodeId: uuidv4(),
@@ -114,19 +114,32 @@ export default function DebateSessionClient() {
   };
 
   const buildJudgePrompt = (argumentText: string): string => {
-     return `You are an impartial judge evaluating a debate argument.
-Your task is to assess the logic, relevance, and persuasiveness of the following argument:
+    // Added more specific instructions and constraints
+    return `You are an impartial and objective AI debate judge.
+Your task is to evaluate the quality of the following argument snippet based **solely** on its internal merits and structure.
 
+**Argument to Evaluate:**
 "${argumentText}"
 
-After your analysis, you must clearly state the winner of this argument.
-Choose only one: **Debater A** or **Debater B**.
+**Evaluation Criteria:**
+* **Logical Consistency:** Is the argument internally coherent? Does it follow logically?
+* **Clarity:** Is the argument presented clearly and understandably?
+* **Relevance:** How relevant is this argument to the implicit point it's responding to?
+* **Insightfulness:** Does the argument offer novel perspectives or deep insights?
+* **Persuasiveness:** How convincing is the argument based *only* on its structure and content (ignore whether you personally agree with the stance)?
+
+**Crucial Instructions:**
+* **DO NOT use external knowledge** about the debate topic.
+* **DO NOT let your own pre-existing beliefs or opinions** influence your judgment.
+* Focus **only** on the quality of the reasoning, structure, and expression within the provided text.
+
+After your analysis based *only* on the criteria above, briefly state your critique and declare a winner for *this specific exchange* based on which side presented the stronger argument *in this snippet*.
 
 Respond in this format exactly:
 
-Critique: <your evaluation>
-Winner: <Debater A or Debater B>`;
-  };
+Critique: <Your evaluation based ONLY on the criteria and the provided text>
+Winner: <Debater A or Debater B based ONLY on the quality of this specific argument text>`;
+ };
   // --- End Prompt Builders ---
 
   // --- API Call Function (Corrected) ---
