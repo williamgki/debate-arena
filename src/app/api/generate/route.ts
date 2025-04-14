@@ -90,7 +90,8 @@ export async function POST(req: NextRequest) {
   // 1. Handle Streaming Request
   if (useStreaming) {
     try {
-      // Cast options as 'any' to allow the extra 'stream' property.
+      // Disable explicit any lint rule for this call
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result = await streamText({
         model: model as unknown as LanguageModelV1,
         messages: [{ role: "user", content: prompt }],
