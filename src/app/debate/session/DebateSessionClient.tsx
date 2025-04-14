@@ -410,22 +410,15 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     let currentParentNodeId = tree.nodeId; // Start from root
     let currentTurn: 'debaterA' | 'debaterB' = 'debaterA';
 
-    // Use a loop that awaits the state update indirectly by referencing the latest node ID
     for (let i = 0; i < maxTurns; i++) {
         const turnNumber = i + 1;
+        let shouldStopLoop = false; // <-- FLAG TO SIGNAL LOOP TERMINATION
         console.log(`Autonomous Turn ${turnNumber}: ${currentTurn}, Parent: ${currentParentNodeId}`);
 
-        // Find parent node based on the *latest* ID from the previous turn
-        // We need to access the *current* tree state within the loop, which is tricky with async/await and state updates.
-        // A safer approach might involve passing the latest tree state explicitly or using refs,
-        // but let's try a simpler approach first by refetching the parent using findNodeById on the *current* tree state.
-        // This relies on setTree completing before the next iteration effectively starts.
-
-        // Let's call addAIResponse which handles state updates internally
         const latestParentNode = findNodeById(tree, currentParentNodeId);
         if (!latestParentNode) {
              console.error(`Autonomous debate error: Parent node ${currentParentNodeId} not found in current tree state at start of turn ${turnNumber}.`);
-             break; // Exit loop if parent disappears
+             break; // Exit loop if parent disappears unexpectedly
         }
 
         // Use a Promise to wait for the addAIResponse to finish and update the state
@@ -434,47 +427,53 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                 // Call the existing function, it will handle API call, state updates, pruning etc.
                 await addAIResponse(currentParentNodeId, currentTurn);
 
-                // After addAIResponse completes, we need the ID of the *newly added* node to become the next parent.
-                // This requires finding the newest child of the `currentParentNodeId`.
-                // Note: This assumes addAIResponse always adds at most one child (or prunes).
+                // After addAIResponse completes, find the ID of the newly added node.
                 setTree(latestTreeState => {
                      const parentAfterAdd = findNodeById(latestTreeState, currentParentNodeId);
-                     const lastChild = parentAfterAdd?.children?.[parentAfterAdd.children.length - 1];
+                     // Find the last child added by the current participant (could be response or error)
+                     const addedChildren = parentAfterAdd?.children?.filter(c => c.parentId === currentParentNodeId) || [];
+                     const lastAddedNode = addedChildren[addedChildren.length - 1];
 
-                     if (lastChild && lastChild.participantId === currentTurn) {
-                         currentParentNodeId = lastChild.nodeId; // Update for the next iteration
+
+                     if (lastAddedNode && lastAddedNode.participantId === currentTurn) {
+                         // Successfully added response node
+                         currentParentNodeId = lastAddedNode.nodeId; // Update for the next iteration
                          console.log(`Autonomous Turn ${turnNumber}: New parent ID set to ${currentParentNodeId}`);
-                         resolve(); // Resolve the promise to proceed to the next turn
-                     } else if (parentAfterAdd?.children?.some(c => c.participantId === 'system-error')) {
+                         resolve(); // Resolve the promise to proceed
+                     } else if (lastAddedNode && lastAddedNode.participantId === 'system-error') {
+                          // An error node was added
                           console.warn(`Autonomous Turn ${turnNumber}: Error node added, stopping debate.`);
                           reject(new Error("Error node added during autonomous debate")); // Reject to stop loop
                      } else {
-                         // Node might have been pruned
-                         console.log(`Autonomous Turn ${turnNumber}: Node likely pruned (score < 6 or error), stopping debate on this branch.`);
-                         reject(new Error("Node pruned during autonomous debate")); // Reject to stop loop
+                         // Node might have been pruned or not added for other reasons
+                         console.log(`Autonomous Turn ${turnNumber}: Node likely pruned or not added, stopping debate on this branch.`);
+                         reject(new Error("Node pruned or not added during autonomous debate")); // Reject to stop loop
                      }
                      return latestTreeState; // Return state unchanged as we only needed to read it
                 });
 
             } catch (error) {
-                 console.error(`Error during autonomous turn ${turnNumber}:`, error);
-                 reject(error); // Reject promise on error
+                 console.error(`Error explicitly thrown during autonomous turn ${turnNumber}:`, error);
+                 reject(error); // Reject promise on explicit error
             }
-        }).catch(() => { // Catch rejection from the promise
+        }).catch(() => { // Catch rejection from the promise (e.g., pruning, error node)
              console.log(`Autonomous debate stopped after turn ${turnNumber}.`);
-             break; // Break the loop
+             shouldStopLoop = true; // <-- SET THE FLAG HERE
         });
 
+        // Check the flag immediately after the promise handling is done
+        if (shouldStopLoop) {
+            break; // <-- BREAK THE LOOP HERE (now valid)
+        }
 
-        // Switch turn for the next iteration
+        // Switch turn for the next iteration if loop didn't break
         currentTurn = currentTurn === 'debaterA' ? 'debaterB' : 'debaterA';
         await new Promise(resolve => setTimeout(resolve, 300)); // Small delay between turns
-    }
+    } // End for loop
 
     console.log('--- Autonomous Debate Finished ---');
     setIsAutonomousRunning(false);
-  }, [tree, debaterARole, debaterBRole, addAIResponse]); // Dependencies
-
+  }, [tree, debaterARole, debaterBRole, addAIResponse]); // Dependencies (make sure `findNodeById` is stable or included if defined outside component)
 
   // --- Rendering function ---
   const renderNode = useCallback((node: ArgumentNode): JSX.Element | null => {
