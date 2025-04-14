@@ -14,19 +14,19 @@ const SDK_STREAMING_CHAT_MODELS: ReadonlyArray<string> = [
 const NON_STREAMING_REASONING_MODELS: ReadonlyArray<string> = ['o1-pro', 'o3-mini'];
 const ALL_KNOWN_MODELS = [...SDK_STREAMING_CHAT_MODELS, ...NON_STREAMING_REASONING_MODELS];
 
-interface ApiRequestBody { 
-  prompt: string; 
-  model: string; 
-  stream?: boolean; 
+interface ApiRequestBody {
+  prompt: string;
+  model: string;
+  stream?: boolean;
 }
 
-interface ChatCompletionRequestBody { 
-  model: string; 
-  messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }>; 
-  temperature?: number; 
-  stream: false; 
-  max_tokens?: number; 
-  max_completion_tokens?: number; 
+interface ChatCompletionRequestBody {
+  model: string;
+  messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }>;
+  temperature?: number;
+  stream: false;
+  max_tokens?: number;
+  max_completion_tokens?: number;
 }
 
 export async function POST(req: NextRequest) {
@@ -80,6 +80,7 @@ export async function POST(req: NextRequest) {
   // Determine Request Handling
   const isSdkStreamingChatModel = SDK_STREAMING_CHAT_MODELS.includes(model);
   const isReasoningModel = NON_STREAMING_REASONING_MODELS.includes(model);
+  // Check Accept header to determine if client expects streaming
   const acceptHeader = req.headers.get("accept") || "";
   const clientWantsStream = acceptHeader.includes("text/event-stream");
   const useStreaming = stream && isSdkStreamingChatModel && clientWantsStream;
@@ -90,12 +91,11 @@ export async function POST(req: NextRequest) {
   // 1. Handle Streaming Request
   if (useStreaming) {
     try {
-      // Cast the string model to LanguageModelV1 as expected by streamText.
+      // Remove the "stream" property from the object; the SDK expects model, messages, etc.
       const result = await streamText({
         model: model as unknown as LanguageModelV1,
         messages: [{ role: "user", content: prompt }],
-        temperature: 0.7,
-        stream: true
+        temperature: 0.7
       });
       console.log("[API Route] streamText result received:", result);
 
