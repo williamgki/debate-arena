@@ -1,7 +1,7 @@
 // src/app/api/generate/route.ts
 
 import { NextRequest, NextResponse } from 'next/server';
-import { streamText } from 'ai';
+import { streamText, LanguageModelV1 } from 'ai';
 
 export const runtime = 'edge'; // Or omit for default Node.js runtime
 
@@ -43,9 +43,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (!body) {
-    console.error(
-      "[API Route] CRITICAL ERROR: body is null or undefined after parsing!"
-    );
+    console.error("[API Route] CRITICAL ERROR: body is null or undefined after parsing!");
     return new Response(
       JSON.stringify({ error: 'Internal server error: Failed to process request body' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
@@ -82,7 +80,6 @@ export async function POST(req: NextRequest) {
   // Determine Request Handling
   const isSdkStreamingChatModel = SDK_STREAMING_CHAT_MODELS.includes(model);
   const isReasoningModel = NON_STREAMING_REASONING_MODELS.includes(model);
-  // Check Accept header to determine if client expects streaming
   const acceptHeader = req.headers.get("accept") || "";
   const clientWantsStream = acceptHeader.includes("text/event-stream");
   const useStreaming = stream && isSdkStreamingChatModel && clientWantsStream;
@@ -93,8 +90,9 @@ export async function POST(req: NextRequest) {
   // 1. Handle Streaming Request
   if (useStreaming) {
     try {
+      // Cast the string model to LanguageModelV1 as expected by streamText.
       const result = await streamText({
-        model: model,
+        model: model as unknown as LanguageModelV1,
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
         stream: true
