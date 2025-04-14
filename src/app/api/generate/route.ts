@@ -2,12 +2,10 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { streamText } from 'ai';
-import { openai } from '@ai-sdk/openai';
 
 export const runtime = 'edge'; // Or omit for default Node.js runtime
 
 // Model Categories and Interfaces
-type OpenAIChatModelId = 'gpt-3.5-turbo' | 'gpt-4o' | 'gpt-4.5-preview';
 const SDK_STREAMING_CHAT_MODELS: ReadonlyArray<string> = [
   'gpt-3.5-turbo',
   'gpt-4o',
@@ -29,15 +27,6 @@ interface ChatCompletionRequestBody {
   stream: false; 
   max_tokens?: number; 
   max_completion_tokens?: number; 
-}
-
-interface TextCompletionRequestBody { 
-  model: string; 
-  prompt: string; 
-  max_tokens?: number; 
-  temperature?: number; 
-  stream: false; 
-  stop?: string | string[]; 
 }
 
 export async function POST(req: NextRequest) {
@@ -93,7 +82,7 @@ export async function POST(req: NextRequest) {
   // Determine Request Handling
   const isSdkStreamingChatModel = SDK_STREAMING_CHAT_MODELS.includes(model);
   const isReasoningModel = NON_STREAMING_REASONING_MODELS.includes(model);
-  // Check the Accept header to determine if the client expects streaming.
+  // Check Accept header to determine if client expects streaming
   const acceptHeader = req.headers.get("accept") || "";
   const clientWantsStream = acceptHeader.includes("text/event-stream");
   const useStreaming = stream && isSdkStreamingChatModel && clientWantsStream;
@@ -147,13 +136,12 @@ export async function POST(req: NextRequest) {
       }
       const endpoint = "https://api.openai.com/v1/chat/completions";
       let requestBody: ChatCompletionRequestBody;
-      // Construct a valid messages array using the prompt.
       if (isReasoningModel) {
         requestBody = {
           model,
           messages: [{ role: "user", content: prompt }],
           stream: false,
-          max_completion_tokens: 1000  // Increased to allow more tokens for reasoning models
+          max_completion_tokens: 1000
         };
       } else {
         requestBody = {
@@ -169,7 +157,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
+          "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
         },
         body: JSON.stringify(requestBody)
       });
