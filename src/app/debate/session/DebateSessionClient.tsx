@@ -1,4 +1,4 @@
-// src/app/debate/session/DebateSessionClient.tsx (with Obfuscated Mode + ESLint fixes)
+// src/app/debate/session/DebateSessionClient.tsx (with Obfuscated Mode + MORE ESLint fixes)
 'use client';
 
 import React, { useState, useCallback } from 'react';
@@ -11,7 +11,7 @@ type ArgumentNode = {
   parentId: string | null;
   text: string;
   participantId: string;
-  obfuscationFlag: boolean; // Re-using this flag for automatic obfuscation marking
+  obfuscationFlag: boolean;
   score?: number;
   children: ArgumentNode[];
 };
@@ -23,11 +23,11 @@ const modelOptions = [
     { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
     { label: 'GPT-4o', value: 'gpt-4o' },
     // { label: 'GPT-4.5 Preview', value: 'gpt-4.5-preview' },
-    { label: 'O1 Pro', value: 'o1-pro' }, // Placeholder, needs different API handling
-    { label: 'O3 Mini', value: 'o3-mini' }, // Placeholder, needs different API handling
+    { label: 'O1 Pro', value: 'o1-pro' },
+    { label: 'O3 Mini', value: 'o3-mini' },
 ];
 
-// --- Helper Functions (defined outside component, assuming no dependency on component state/props) ---
+// --- Helper Functions ---
 
 const addNodeUnderParent = (
   tree: ArgumentNode,
@@ -77,9 +77,12 @@ export default function DebateSessionClient() {
   const searchParams = useSearchParams();
 
   // --- State ---
-  // ESLint Fix: Prefixed unused setters with '_'
+  // ESLint Fix: Added specific disable comment for unused setters
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [topic, _setTopic] = useState(searchParams.get('topic') || 'AI systems will be aligned by default.');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [debaterARole, _setDebaterARole] = useState(searchParams.get('debaterA') || 'human');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [debaterBRole, _setDebaterBRole] = useState(searchParams.get('debaterB') || 'ai');
 
   const [tree, setTree] = useState<ArgumentNode>({
@@ -166,8 +169,11 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
 
         if (!res.ok) {
              let errorJson: unknown = null;
-             // ESLint Fix: Prefixed unused catch variable with '_'
-             try { errorJson = await res.json(); } catch (_e) { /* Ignore */ }
+             try {
+                 errorJson = await res.json();
+             // ESLint Fix: Added specific disable comment for unused catch variable
+             // eslint-disable-next-line @typescript-eslint/no-unused-vars
+             } catch (_e) { /* Ignore */ }
              let parsedError = '';
              if (typeof errorJson === 'object' && errorJson !== null && 'error' in errorJson && typeof errorJson.error === 'string') {
                  parsedError = errorJson.error;
@@ -208,7 +214,8 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                         console.error("Streaming API Error Chunk:", errorData.error);
                         return { text: `[Streaming API Error: ${errorData.error}]`, score: 0, error: errorData.error };
                     }
-                 // ESLint Fix: Prefixed unused catch variable with '_'
+                 // ESLint Fix: Added specific disable comment for unused catch variable
+                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                  } catch (_parseError) {
                     if (chunk.toLowerCase().includes('error')) {
                         console.warn("Received non-JSON chunk potentially indicating error:", chunk);
@@ -422,8 +429,7 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
 
     console.log('--- Autonomous Debate Finished ---');
     setIsAutonomousRunning(false);
-  // ESLint Fix: Disabled rule for this line as 'tree' dependency is necessary but flags warning
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // ESLint Fix: Removed the now-unused eslint-disable comment for this line
   }, [tree, debaterARole, debaterBRole, addAIResponse]);
 
 
@@ -508,7 +514,8 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
             </div>
         </div>
      );
-  }, [tree, isAutonomousRunning, debaterARole, debaterBRole, addAIResponse, callAIJudge, toggleObfuscationManual]);
+  // ESLint Fix: Removed 'tree' from dependency array based on warning
+  }, [isAutonomousRunning, debaterARole, debaterBRole, addAIResponse, callAIJudge, toggleObfuscationManual]);
 
 
   // --- Component Return JSX ---
@@ -591,7 +598,6 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
            </div>
            <div className="mt-4">
                 <p className="text-sm font-medium text-gray-600">Current Topic:</p>
-                {/* ESLint Fix: Escaped double quotes */}
                 <p className="text-md italic text-gray-800">&quot;{topic}&quot;</p>
            </div>
         </div>
