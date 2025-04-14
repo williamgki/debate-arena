@@ -1,4 +1,4 @@
-// src/app/debate/session/DebateSessionClient.tsx (with Obfuscated Mode + MORE ESLint fixes)
+// src/app/debate/session/DebateSessionClient.tsx (with autonomous state fixes)
 'use client';
 
 import React, { useState, useCallback } from 'react';
@@ -22,7 +22,6 @@ const OBFUSCATION_INSTRUCTION = `\n\n[OBFUSCATION INSTRUCTION] You are now actin
 const modelOptions = [
     { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
     { label: 'GPT-4o', value: 'gpt-4o' },
-    // { label: 'GPT-4.5 Preview', value: 'gpt-4.5-preview' },
     { label: 'O1 Pro', value: 'o1-pro' },
     { label: 'O3 Mini', value: 'o3-mini' },
 ];
@@ -77,7 +76,6 @@ export default function DebateSessionClient() {
   const searchParams = useSearchParams();
 
   // --- State ---
-  // ESLint Fix: Added specific disable comment for unused setters
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [topic, _setTopic] = useState(searchParams.get('topic') || 'AI systems will be aligned by default.');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -156,24 +154,22 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     onToken?: (accumulatedText: string) => void
   ): Promise<{ text: string; score: number; error?: string }> => {
     if (model.startsWith('o1-') || model.startsWith('o3-')) {
-        console.warn(`Model ${model} requires a different API implementation (not yet supported).`);
-        return { text: `[Error: Model ${model} not supported via this endpoint]`, score: 0, error: `Model ${model} not supported` };
+        // This check might be redundant if route.ts handles it, but keep for client-side safety
+        console.warn(`Client: Model ${model} may require a different API implementation.`);
+        // Proceed anyway, let route.ts handle the actual API call logic
     }
 
     try {
         const res = await fetch('/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt, model, stream }),
+            body: JSON.stringify({ prompt, model, stream }), // Pass stream flag
         });
 
         if (!res.ok) {
              let errorJson: unknown = null;
-             try {
-                 errorJson = await res.json();
-             // ESLint Fix: Added specific disable comment for unused catch variable
              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-             } catch (_e) { /* Ignore */ }
+             try { errorJson = await res.json(); } catch (_e) { /* Ignore */ }
              let parsedError = '';
              if (typeof errorJson === 'object' && errorJson !== null && 'error' in errorJson && typeof errorJson.error === 'string') {
                  parsedError = errorJson.error;
@@ -183,140 +179,161 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
              return { text: `[API Error: ${res.status} ${errorText}]`, score: 0, error: errorText };
         }
 
-        if (!stream || !res.body) {
-            const data = await res.json();
-            if (data.error) {
-                console.error('API Non-Streaming Error:', data.error);
-                return { text: `[API Error: ${data.error}]`, score: 0, error: data.error };
-            }
-            const message = data.message || '[No response]';
-            const scoreMatch = message.match(/Score:\s*(\d+)/i);
-            const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
-            const responseMatch = message.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
-            const text = responseMatch ? responseMatch[1].trim() : message.replace(/Score:\s*\d+\s*$/i, '').trim();
-            return { text, score };
-        }
+        // Handle Streaming Response (Expects text/plain stream)
+        if (stream && res.headers.get('content-type')?.includes('text/plain') && res.body) {
+             const reader = res.body.getReader();
+             const decoder = new TextDecoder('utf-8');
+             let fullText = '';
+             let streamedText = ''; // Text for UI update callback
 
-        const reader = res.body.getReader();
-        const decoder = new TextDecoder('utf-8');
-        let fullText = '';
-        let streamedText = '';
-
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-            const chunk = decoder.decode(value, { stream: true });
-
-             if (chunk.includes('"error":')) {
-                 try {
-                    const errorData = JSON.parse(chunk);
-                    if (errorData.error) {
-                        console.error("Streaming API Error Chunk:", errorData.error);
-                        return { text: `[Streaming API Error: ${errorData.error}]`, score: 0, error: errorData.error };
-                    }
-                 // ESLint Fix: Added specific disable comment for unused catch variable
-                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-                 } catch (_parseError) {
-                    if (chunk.toLowerCase().includes('error')) {
-                        console.warn("Received non-JSON chunk potentially indicating error:", chunk);
-                    }
-                 }
+             while (true) {
+                 const { done, value } = await reader.read();
+                 if (done) break;
+                 const chunk = decoder.decode(value, { stream: true });
+                 fullText += chunk;
+                 // Basic attempt to exclude score line from live streaming display
+                 const potentialScoreLine = /Score:\s*\d*$/.test(fullText.trim());
+                  if (!potentialScoreLine) {
+                      streamedText = fullText.replace(/^Response:\s*/i, '').trim();
+                  }
+                 onToken?.(streamedText + '▋'); // Update UI with partial text + cursor
              }
+              onToken?.(streamedText); // Final update without cursor
 
-            fullText += chunk;
-            const potentialScoreLine = /Response:\s*.*\n*Score:\s*\d*$/.test(fullText);
-            if (!potentialScoreLine) {
-                 streamedText = fullText.replace(/^Response:\s*/i, '');
-            }
-            onToken?.(streamedText + '▋');
+             // Parse final text and score AFTER stream ends
+             const scoreMatch = fullText.match(/Score:\s*(\d+)/i);
+             const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
+             const responseMatch = fullText.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
+             let finalText = responseMatch ? responseMatch[1].trim() : fullText.replace(/Score:\s*\d+\s*$/i, '').trim();
+
+             if (!finalText && fullText) { // Fallback parsing
+                  finalText = fullText.replace(/Score:\s*\d+\s*$/i, '').replace(/^Response:\s*/i, '').trim() || '[Parsing Failed]';
+                  console.warn("Could not parse 'Response:' block well from streamed text, using fallback.");
+             }
+             return { text: finalText, score };
         }
-
-        const scoreMatch = fullText.match(/Score:\s*(\d+)/i);
-        const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
-        const responseMatch = fullText.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
-        let finalText = responseMatch ? responseMatch[1].trim() : fullText.replace(/Score:\s*\d+\s*$/i, '').trim();
-
-        if (!finalText && fullText) {
-             finalText = fullText.replace(/Score:\s*\d+\s*$/i, '').replace(/^Response:\s*/i, '').trim() || '[Parsing Failed]';
-             console.warn("Could not parse 'Response:' block well from streamed text, using fallback. Raw:", JSON.stringify(fullText));
+        // Handle Non-Streaming Response (Expects application/json)
+        else {
+             const data = await res.json(); // Expect { message: "..." } or { error: "..." }
+             if (data.error) {
+                 console.error('API Non-Streaming Error:', data.error);
+                 return { text: `[API Error: ${data.error}]`, score: 0, error: data.error };
+             }
+             const message = data.message || '[No response]';
+             // Parse score from the NON-STREAMED message content
+             const scoreMatch = message.match(/Score:\s*(\d+)/i);
+             const score = scoreMatch ? parseInt(scoreMatch[1], 10) : 0;
+             const responseMatch = message.match(/Response:\s*(.*?)(?:\n*Score:|$)/is);
+             const text = responseMatch ? responseMatch[1].trim() : message.replace(/Score:\s*\d+\s*$/i, '').trim();
+             return { text, score };
         }
-         onToken?.(finalText);
-
-        return { text: finalText, score };
 
     } catch (err: unknown) {
-      console.error('API call failed:', err);
+      console.error('API call failed (fetch error):', err);
        const errorMessage = err instanceof Error ? err.message : 'Unknown fetch error';
       return { text: `[Fetch Error: ${errorMessage}]`, score: 0, error: errorMessage };
     }
-  }, []);
+  }, []); // No state dependencies needed here
 
 
   // --- Core Logic Functions ---
-  const addAIResponse = useCallback(async (parentId: string, participantId: 'debaterA' | 'debaterB') => {
-    const parentNode = findNodeById(tree, parentId);
+
+  // REWRITTEN: Now accepts currentTree, doesn't call setTree for final state, returns node/null
+  const addAIResponse = useCallback(async (
+    parentId: string,
+    participantId: 'debaterA' | 'debaterB',
+    currentTree: ArgumentNode // Accept current tree state
+   ): Promise<ArgumentNode | null> => { // Return new node or null
+
+    // Use the passed-in tree state for finding nodes
+    const parentNode = findNodeById(currentTree, parentId);
     if (!parentNode || parentNode.participantId === 'system-error') {
-        console.warn(`Cannot add response under node ${parentId} (not found or is an error node).`);
-        return;
+        console.debug(`Cannot add response under node ${parentId} (not found or is an error node in provided tree).`);
+        return null; // Indicate failure/inability to add
     }
     if (!parentNode.text) {
         console.warn(`Parent node ${parentId} has no text to respond to.`);
-        return;
+        return null; // Indicate failure
     }
 
     const model = participantId === 'debaterA' ? debaterAModel : debaterBModel;
     const prompt = buildDebaterPrompt(participantId, parentNode.text);
     const liveNodeId = 'live-' + uuidv4();
-    const liveNode: ArgumentNode = { nodeId: liveNodeId, parentId, text: '▋', participantId, obfuscationFlag: false, children: [], score: undefined };
+    const supportsStreaming = model.startsWith('gpt-'); // Determine if streaming should be attempted
 
-    setTree(currentTree => addNodeUnderParent(currentTree, parentId, liveNode));
+    // *** TEMPORARY UI UPDATE FOR STREAMING ***
+    if (supportsStreaming) {
+        const liveNode: ArgumentNode = { nodeId: liveNodeId, parentId, text: '▋', participantId, obfuscationFlag: false, children: [], score: undefined };
+        // This setTree is ONLY for the visual 'live' node rendering.
+        setTree(renderTree => addNodeUnderParent(renderTree, parentId, liveNode));
+    }
 
-    const supportsStreaming = model.startsWith('gpt-');
-
-    const handleToken = (accumulatedText: string) => {
-        setTree(currentTree => {
+    const handleToken = supportsStreaming ? (accumulatedText: string) => {
+        // This setTree also only affects the temporary live node rendering
+        setTree(renderTree => {
             const updateLiveNodeText = (node: ArgumentNode): ArgumentNode => {
-                if (node.nodeId === liveNodeId) {
-                    return { ...node, text: accumulatedText };
+                if (node.nodeId === liveNodeId) return { ...node, text: accumulatedText };
+                // Avoid unnecessary recursion if node not found at top level (shouldn't happen often)
+                if (!node.children.some(c => c.nodeId === liveNodeId) && !node.children.some(c => c.nodeId.startsWith('live-'))) {
+                    return node;
                 }
-                 const updatedChildren = node.children.map(updateLiveNodeText);
-                 let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
-                 if (updatedChildren.length !== node.children.length) childrenChanged = true;
-                 return childrenChanged ? { ...node, children: updatedChildren } : node;
+                const updatedChildren = node.children.map(updateLiveNodeText);
+                let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
+                if (updatedChildren.length !== node.children.length) childrenChanged = true;
+                return childrenChanged ? { ...node, children: updatedChildren } : node;
             };
-            return updateLiveNodeText(currentTree);
+            return updateLiveNodeText(renderTree);
         });
-    };
+    } : undefined; // Pass undefined if not streaming
+    // *** END OF TEMPORARY UI UPDATE ***
 
-    const { text: finalText, score, error } = await callOpenAIWithScoring(prompt, model, supportsStreaming, handleToken);
+    // Call API - pass the 'supportsStreaming' flag to indicate client preference/capability
+    const { text: finalText, score, error } = await callOpenAIWithScoring(
+        prompt,
+        model,
+        supportsStreaming, // Tell API if we *want* to stream (API decides if it *can*)
+        handleToken
+    );
 
-    setTree(currentTree => {
-        const removeLiveNode = (node: ArgumentNode): ArgumentNode | null => {
-            if (node.nodeId === liveNodeId) return null;
-            const updatedChildren = node.children.map(removeLiveNode).filter(n => n !== null) as ArgumentNode[];
-            let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
-             if (updatedChildren.length !== node.children.length) childrenChanged = true;
-            return childrenChanged ? { ...node, children: updatedChildren } : node;
-        };
+     // *** Remove temporary live node before returning final node/null ***
+     if (supportsStreaming) {
+         setTree(renderTree => {
+             const removeLiveNode = (node: ArgumentNode): ArgumentNode | null => {
+                 if (node.nodeId === liveNodeId) return null;
+                 // Avoid unnecessary recursion
+                 if (!node.children.some(c => c.nodeId === liveNodeId) && !node.children.some(c => c.nodeId.startsWith('live-'))) {
+                    return node;
+                 }
+                 const updatedChildren = node.children.map(removeLiveNode).filter(n => n !== null) as ArgumentNode[];
+                 let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
+                  if (updatedChildren.length !== node.children.length) childrenChanged = true;
+                 return childrenChanged ? { ...node, children: updatedChildren } : node;
+             };
+             const treeWithoutLive = removeLiveNode(renderTree);
+             // Ensure we don't return null if the root itself was somehow the live node (shouldn't happen)
+             return treeWithoutLive || renderTree;
+         });
+     }
+     // *** End remove temporary node ***
 
-        const treeWithoutLive = removeLiveNode(currentTree) || currentTree;
 
-        if (error) {
-            const errorNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: `Error generating response: ${finalText}`, participantId: 'system-error', obfuscationFlag: true, children: [], score: 0 };
-            return addNodeUnderParent(treeWithoutLive, parentId, errorNode);
-        } else if (score >= 6) {
-            const isObfuscating = participantId === obfuscatingDebaterId;
-            const finalNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: finalText, participantId, score, obfuscationFlag: isObfuscating, children: [], };
-            return addNodeUnderParent(treeWithoutLive, parentId, finalNode);
-        } else {
-            console.log(`Pruning response with score ${score} from ${participantId} under parent ${parentId}`);
-            return treeWithoutLive;
-        }
-    });
-  }, [tree, debaterAModel, debaterBModel, buildDebaterPrompt, callOpenAIWithScoring, obfuscatingDebaterId]);
+    if (error) {
+        console.error(`Error generating response for ${participantId} under ${parentId}: ${finalText}`);
+         const errorNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: `Error: ${error}`, participantId: 'system-error', obfuscationFlag: true, children: [], score: 0 };
+         return errorNode; // Return error node for caller to handle
+    } else if (score >= 6) {
+        const isObfuscating = participantId === obfuscatingDebaterId;
+        const finalNode: ArgumentNode = { nodeId: uuidv4(), parentId, text: finalText, participantId, score, obfuscationFlag: isObfuscating, children: [] };
+        return finalNode; // Return the valid node
+    } else {
+        console.log(`Pruning response with score ${score} from ${participantId} under parent ${parentId}`);
+        return null; // Return null to indicate pruning
+    }
+  }, [debaterAModel, debaterBModel, buildDebaterPrompt, callOpenAIWithScoring, obfuscatingDebaterId]); // Dependencies
 
 
   const callAIJudge = useCallback(async (nodeId: string) => {
+    // Use function form of setTree to get latest state if needed, but findNodeById here uses 'tree' closure state
     const nodeToJudge = findNodeById(tree, nodeId);
     if (!nodeToJudge || nodeToJudge.participantId === 'system' || nodeToJudge.participantId === 'system-error') {
         console.warn(`Cannot judge node ${nodeId} (not found, system, or error node).`);
@@ -332,11 +349,15 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
     const tempJudgeNode: ArgumentNode = { nodeId: tempJudgeNodeId, parentId: nodeId, text: '🧑‍⚖️ Judging...', participantId: 'judge-ai', obfuscationFlag: false, children: [] };
     setTree(currentTree => addNodeUnderParent(currentTree, nodeId, tempJudgeNode));
 
-    const { text: judgeResponse, error } = await callOpenAIWithScoring(judgePrompt, judgeModel, false);
+    // Always non-streaming for judge
+    const { text: judgeResponse, error } = await callOpenAIWithScoring(judgePrompt, judgeModel, false); // stream: false
 
     setTree(currentTree => {
          const removeTempJudgeNode = (node: ArgumentNode): ArgumentNode | null => {
              if (node.nodeId === tempJudgeNodeId) return null;
+             if (!node.children.some(c => c.nodeId === tempJudgeNodeId) && !node.children.some(c => c.nodeId.startsWith('live-'))) {
+                return node;
+             }
              const updatedChildren = node.children.map(removeTempJudgeNode).filter(n => n !== null) as ArgumentNode[];
              let childrenChanged = updatedChildren.some((child, i) => child !== node.children[i]);
              if (updatedChildren.length !== node.children.length) childrenChanged = true;
@@ -347,94 +368,98 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
         let responseText = judgeResponse;
         let isError = false;
         if (error) {
-            responseText = `[Judge Error: ${judgeResponse}]`;
+            responseText = `[Judge Error: ${error}]`; // Use error message directly
             isError = true;
         }
         const newNode: ArgumentNode = { nodeId: uuidv4(), parentId: nodeId, text: responseText, participantId: isError ? 'system-error' : 'judge-ai', obfuscationFlag: isError, children: [], score: undefined };
 
         return addNodeUnderParent(treeWithoutTempJudge, nodeId, newNode);
     });
+  // Depends on 'tree' because findNodeById uses it directly here. Also judgeModel and callbacks.
   }, [tree, judgeModel, buildJudgePrompt, callOpenAIWithScoring]);
 
 
   const toggleObfuscationManual = useCallback((targetId: string) => {
+     // This also uses 'tree' from closure state for findNodeById
      const node = findNodeById(tree, targetId);
      if (!node) return;
      const currentFlag = node.obfuscationFlag;
      console.log(`Manually toggling obfuscation for node ${targetId} from ${currentFlag} to ${!currentFlag}`);
      setTree(currentTree => updateNodeProperty(currentTree, targetId, 'obfuscationFlag', !currentFlag));
-  }, [tree]);
+  }, [tree]); // Depends on 'tree' because findNodeById uses it
 
 
+  // REWRITTEN: Manages its own state updates explicitly turn-by-turn
   const runAutonomousDebate = useCallback(async () => {
-    if (debaterARole !== 'ai' || debaterBRole !== 'ai') {
+    // Read roles from state
+    const currentDebaterARole = debaterARole;
+    const currentDebaterBRole = debaterBRole;
+
+    if (currentDebaterARole !== 'ai' || currentDebaterBRole !== 'ai') {
         console.warn("Autonomous debate requires both roles to be AI.");
         return;
     }
     setIsAutonomousRunning(true);
     console.log('--- Starting Autonomous Debate ---');
-    const maxTurns = 8;
-    let currentParentNodeId = tree.nodeId;
+
+    // Use a local variable to track the state DURING the autonomous run
+    // Initialize with the state captured by useCallback when the button was clicked
+    let currentTreeState = tree;
+    let currentParentNodeId = currentTreeState.nodeId;
     let currentTurn: 'debaterA' | 'debaterB' = 'debaterA';
+    const maxTurns = 8;
 
     for (let i = 0; i < maxTurns; i++) {
         const turnNumber = i + 1;
-        let shouldStopLoop = false;
-        console.log(`Autonomous Turn ${turnNumber}: ${currentTurn}, Parent: ${currentParentNodeId}`);
+        console.log(`[AUTONOMOUS] Turn ${turnNumber}: ${currentTurn}, Parent: ${currentParentNodeId}`);
 
-        const latestParentNode = findNodeById(tree, currentParentNodeId);
-        if (!latestParentNode) {
-             console.error(`Autonomous debate error: Parent node ${currentParentNodeId} not found in current tree state at start of turn ${turnNumber}.`);
-             break;
-        }
+        try {
+            // Call addAIResponse, passing the *current internal state* for this run
+            const newNode = await addAIResponse(
+                currentParentNodeId,
+                currentTurn,
+                currentTreeState // Pass the managed state
+            );
 
-        await new Promise<void>(async (resolve, reject) => {
-            try {
-                await addAIResponse(currentParentNodeId, currentTurn);
-                setTree(latestTreeState => {
-                     const parentAfterAdd = findNodeById(latestTreeState, currentParentNodeId);
-                     const addedChildren = parentAfterAdd?.children?.filter(c => c.parentId === currentParentNodeId) || [];
-                     const lastAddedNode = addedChildren[addedChildren.length - 1];
-
-                     if (lastAddedNode && lastAddedNode.participantId === currentTurn) {
-                         currentParentNodeId = lastAddedNode.nodeId;
-                         console.log(`Autonomous Turn ${turnNumber}: New parent ID set to ${currentParentNodeId}`);
-                         resolve();
-                     } else if (lastAddedNode && lastAddedNode.participantId === 'system-error') {
-                          console.warn(`Autonomous Turn ${turnNumber}: Error node added, stopping debate.`);
-                          reject(new Error("Error node added during autonomous debate"));
-                     } else {
-                         console.log(`Autonomous Turn ${turnNumber}: Node likely pruned or not added, stopping debate on this branch.`);
-                         reject(new Error("Node pruned or not added during autonomous debate"));
-                     }
-                     return latestTreeState;
-                });
-
-            } catch (error) {
-                 console.error(`Error explicitly thrown during autonomous turn ${turnNumber}:`, error);
-                 reject(error);
+            if (newNode === null) {
+                console.log(`[AUTONOMOUS] Turn ${turnNumber}: Node pruned or add failed. Stopping branch.`);
+                break; // Stop this branch/loop
+            } else if (newNode.participantId === 'system-error') {
+                 console.warn(`[AUTONOMOUS] Turn ${turnNumber}: Error node returned. Adding to state and stopping branch.`);
+                 // Update internal state AND UI state with the error node
+                 currentTreeState = addNodeUnderParent(currentTreeState, currentParentNodeId, newNode);
+                 setTree(currentTreeState);
+                 break; // Stop this branch/loop
+            } else {
+                 // Valid node returned, update internal state
+                 currentTreeState = addNodeUnderParent(currentTreeState, currentParentNodeId, newNode);
+                 // Update the actual React state for UI rendering
+                 setTree(currentTreeState);
+                 // Set the parent for the next turn
+                 currentParentNodeId = newNode.nodeId;
+                 console.log(`[AUTONOMOUS] Turn ${turnNumber}: Added node ${currentParentNodeId}.`);
+                 // Switch turn for the next iteration
+                 currentTurn = currentTurn === 'debaterA' ? 'debaterB' : 'debaterA';
             }
-        }).catch(() => {
-             console.log(`Autonomous debate stopped after turn ${turnNumber}.`);
-             shouldStopLoop = true;
-        });
 
-        if (shouldStopLoop) {
-            break;
+            // Optional delay between turns
+            await new Promise(resolve => setTimeout(resolve, 300));
+
+        } catch (error) {
+             console.error(`[AUTONOMOUS] Turn ${turnNumber}: Unexpected error during addAIResponse call or state update.`, error);
+             break; // Stop the loop on unexpected errors
         }
-
-        currentTurn = currentTurn === 'debaterA' ? 'debaterB' : 'debaterA';
-        await new Promise(resolve => setTimeout(resolve, 300));
-    }
+    } // End for loop
 
     console.log('--- Autonomous Debate Finished ---');
     setIsAutonomousRunning(false);
-  // ESLint Fix: Removed the now-unused eslint-disable comment for this line
+  // Depends on initial 'tree' state, roles captured at render, and addAIResponse callback
   }, [tree, debaterARole, debaterBRole, addAIResponse]);
 
 
   // --- Rendering function ---
-  const renderNode = useCallback((node: ArgumentNode) => { // Removed ': JSX.Element | null'
+  // Removed 'tree' from dependency array based on previous ESLint warning
+  const renderNode = useCallback((node: ArgumentNode) => {
      if (!node) return null;
 
      const participantColor = {
@@ -471,14 +496,14 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
                     {node.participantId !== 'system-error' && (
                         <>
                             <button
-                                onClick={() => addAIResponse(node.nodeId, 'debaterA')}
+                                onClick={() => addAIResponse(node.nodeId, 'debaterA', tree)} // Pass current tree state for manual clicks too
                                 className="px-2 py-1 bg-blue-600 hover:bg-blue-700 text-white rounded disabled:opacity-50"
                                 disabled={isAutonomousRunning || debaterARole !== 'ai'}
                                 title={debaterARole === 'ai' ? "Add AI response as Debater A" : "Debater A is Human"} >
                                 ➕ A (AI)
                             </button>
                             <button
-                                onClick={() => addAIResponse(node.nodeId, 'debaterB')}
+                                onClick={() => addAIResponse(node.nodeId, 'debaterB', tree)} // Pass current tree state for manual clicks too
                                 className="px-2 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded disabled:opacity-50"
                                 disabled={isAutonomousRunning || debaterBRole !== 'ai'}
                                 title={debaterBRole === 'ai' ? "Add AI response as Debater B" : "Debater B is Human"} >
@@ -514,8 +539,8 @@ Winner: <Debater A or Debater B based ONLY on the quality of this specific argum
             </div>
         </div>
      );
-  // ESLint Fix: Removed 'tree' from dependency array based on warning
-  }, [isAutonomousRunning, debaterARole, debaterBRole, addAIResponse, callAIJudge, toggleObfuscationManual]);
+  // Dependencies reflect values/callbacks used directly within renderNode or its click handlers
+  }, [isAutonomousRunning, debaterARole, debaterBRole, addAIResponse, callAIJudge, toggleObfuscationManual, tree]); // Added tree back as it's passed to addAIResponse onClick
 
 
   // --- Component Return JSX ---
