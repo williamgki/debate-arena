@@ -90,12 +90,13 @@ export async function POST(req: NextRequest) {
   // 1. Handle Streaming Request
   if (useStreaming) {
     try {
+      // Cast options as 'any' to allow the extra 'stream' property.
       const result = await streamText({
         model: model as unknown as LanguageModelV1,
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7,
-        stream: true  // Note: This property is used internally by streamText call; it's acceptable here if the SDK defines it.
-      });
+        stream: true
+      } as any);
       console.log("[API Route] streamText result received:", result);
 
       if (!result || typeof result.textStream !== "object" || result.textStream === null) {
@@ -105,9 +106,8 @@ export async function POST(req: NextRequest) {
           { status: 500, headers: { "Content-Type": "application/json" } }
         );
       }
-      // Instead of calling ReadableStream.from(), just use the returned textStream.
+      console.log("[API Route] Using result.textStream directly as the readable stream.");
       const readableStream = result.textStream;
-      console.log("[API Route] ReadableStream obtained successfully.");
       return new Response(readableStream, {
         status: 200,
         headers: { "Content-Type": "text/event-stream" }
