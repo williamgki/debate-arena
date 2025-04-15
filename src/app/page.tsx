@@ -1,12 +1,10 @@
-// src/app/page.tsx
-
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <main className="min-h-screen px-8 py-12 bg-gray-50 text-gray-900">
       <div className="max-w-4xl mx-auto space-y-10">
-
+        
         {/* Title */}
         <h1 className="text-3xl font-bold text-center">
           🧠 Debate Arena
@@ -15,20 +13,20 @@ export default function HomePage() {
         {/* Featured Debate Card */}
         <div className="bg-white p-6 rounded-2xl shadow-md border">
           <h2 className="text-xl font-semibold mb-2">
-            Featured Debate: <span className="italic">&quot;Should AI be regulated?&quot;</span>
+            Featured Debate: <span className="italic">"Should AI be regulated?"</span>
           </h2>
           <p className="mb-4 text-gray-600">
             [AI vs AI] — Judge Verdict: <strong>65% YES</strong>
           </p>
           <div className="flex gap-4">
             <Link
-              href="/debates/ai-dangerous"
+              href="/debates"
               className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
             >
               🌳 View Argument Tree
             </Link>
             <Link
-              href="/debates/ai-dangerous/replay"
+              href="/debates"
               className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
             >
               🔁 Replay Debate
