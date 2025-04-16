@@ -1,57 +1,77 @@
-// src/app/page.tsx
+// src/app/setup/page.tsx
 
-import Link from "next/link";
+'use client';
 
-export default function HomePage() {
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+export default function SetupPage() {
+  const router = useRouter();
+
+  const [debaterA, setDebaterA] = useState('human');
+  const [debaterB, setDebaterB] = useState('ai');
+  const [topic, setTopic] = useState('Should AI be regulated?');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const queryParams = new URLSearchParams({
+      debaterA,
+      debaterB,
+      topic,
+    });
+
+    router.push(`/debate/session?${queryParams.toString()}`);
+  };
+
   return (
-    <main className="min-h-screen px-8 py-12 bg-gray-50 text-gray-900">
-      <div className="max-w-4xl mx-auto space-y-10">
+    <main className="min-h-screen px-8 py-12 bg-white text-gray-900">
+      <div className="max-w-xl mx-auto space-y-8">
+        <h1 className="text-2xl font-bold text-center">🧪 Set Up Your Debate</h1>
 
-        {/* Title */}
-        <h1 className="text-3xl font-bold text-center">
-          🧠 Debate Arena
-        </h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
 
-        {/* Featured Debate Card */}
-        <div className="bg-white p-6 rounded-2xl shadow-md border">
-          <h2 className="text-xl font-semibold mb-2">
-            Featured Debate: <span className="italic">&quot;Should AI be regulated?&quot;</span>
-          </h2>
-          <p className="mb-4 text-gray-600">
-            [AI vs AI] — Judge Verdict: <strong>65% YES</strong>
-          </p>
-          <div className="flex gap-4">
-            {/* CHANGED: these links now point to /debates */}
-            <Link
-              href="/debates"
-              className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+          <div>
+            <label className="block font-semibold mb-1">Debater A:</label>
+            <select
+              className="w-full p-2 border rounded"
+              value={debaterA}
+              onChange={(e) => setDebaterA(e.target.value)}
             >
-              🌳 View Argument Tree
-            </Link>
-            <Link
-              href="/debates"
-              className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 transition"
-            >
-              🔁 Replay Debate
-            </Link>
+              <option value="human">Human</option>
+              <option value="ai">AI</option>
+            </select>
           </div>
-        </div>
 
-        {/* CTA Buttons */}
-        <div className="grid gap-4 md:grid-cols-2">
-          <Link
-            href="/setup"
-            className="block text-center px-6 py-4 bg-green-600 text-white rounded-xl shadow hover:bg-green-700 transition"
+          <div>
+            <label className="block font-semibold mb-1">Debater B:</label>
+            <select
+              className="w-full p-2 border rounded"
+              value={debaterB}
+              onChange={(e) => setDebaterB(e.target.value)}
+            >
+              <option value="human">Human</option>
+              <option value="ai">AI</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block font-semibold mb-1">Debate Topic:</label>
+            <input
+              type="text"
+              className="w-full p-2 border rounded"
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-3 rounded font-semibold hover:bg-blue-700 transition"
           >
-            🧪 Create Your Own Debate
-          </Link>
-          <Link
-            href="/setup?role=judge"
-            className="block text-center px-6 py-4 bg-yellow-500 text-black rounded-xl shadow hover:bg-yellow-600 transition"
-          >
-            🔎 Judge a Debate
-          </Link>
-        </div>
+            🚀 Start Debate
+          </button>
+        </form>
       </div>
     </main>
   );
