@@ -4,6 +4,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Link from "next/link";
 
 export default function SetupPage() {
   const router = useRouter();
@@ -30,7 +31,6 @@ export default function SetupPage() {
         <h1 className="text-2xl font-bold text-center">🧪 Set Up Your Debate</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-
           <div>
             <label className="block font-semibold mb-1">Debater A:</label>
             <select
@@ -72,6 +72,15 @@ export default function SetupPage() {
             🚀 Start Debate
           </button>
         </form>
+
+        {/* Discrete About Link */}
+        <div className="text-center mt-8">
+          <Link href="/about" legacyBehavior>
+            <a className="text-gray-500 hover:text-gray-700 transition">
+              About
+            </a>
+          </Link>
+        </div>
       </div>
     </main>
   );

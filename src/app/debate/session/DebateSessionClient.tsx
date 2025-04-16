@@ -3,6 +3,8 @@
 import React, { useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
+import Link from "next/link";
+
 
 // --- Types and Helpers ---
 type ArgumentNode = {
@@ -114,7 +116,7 @@ export default function DebateSessionClient() {
           ? `You are Debater A. You are arguing in **favour** of the following topic: "${topic}".`
           : `You are Debater B. You are arguing **against** the following topic: "${topic}".`;
 
-      let basePrompt = `${stance}\n\nRespond to the following argument:\n"${parentText}"\n\nRespond concisely, then score your own response from 1 to 10.\n\nFormat exactly as:\nResponse: <Your argument text>\nScore: <Score number 1-10>`;
+      let basePrompt = `${stance}\n\nRespond to the following argument:\n"${parentText}"\n\nRespond concisely and concentrate on finding errors in the argument by drilling down and / or developing your own argument.  Don't repeat the content, then score your own response from 1 to 10.\n\nFormat exactly as:\nResponse: <Your argument text>\nScore: <Score number 1-10>`;
 
       if (participantId === obfuscatingDebaterId) {
         console.log(`Adding obfuscation instruction for ${participantId}`);
@@ -869,6 +871,14 @@ Winner: <Debater A or Debater B>`;
         <div className="mt-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
           <h2 className="text-xl font-semibold mb-4 text-gray-700">Debate Tree</h2>
           {renderNode(tree)}
+        </div>
+       {/* Discrete About Link */}
+       <div className="text-center mt-8">
+          <Link href="/about" legacyBehavior>
+            <a className="text-gray-500 hover:text-gray-700 transition">
+              About
+            </a>
+          </Link>
         </div>
       </div>
     </main>

@@ -55,6 +55,15 @@ export default function HomePage() {
             </a>
           </Link>
         </div>
+
+        {/* Discrete About Link */}
+        <div className="text-center mt-8">
+          <Link href="/about" legacyBehavior>
+            <a className="text-gray-500 hover:text-gray-700 transition">
+              About
+            </a>
+          </Link>
+        </div>
       </div>
     </main>
   );
