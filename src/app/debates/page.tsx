@@ -1,25 +1,21 @@
-// src/app/debates/page.tsx
-
 import Link from "next/link";
 
-export default function ComingSoonPage() {
+export default function DebatesPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center p-6">
-        <h1 className="text-3xl font-bold mb-4">Coming Soon: Debate Archive</h1>
-        <p className="mb-6 text-gray-600">
-          We're working hard to bring you a complete archive of past debates, including full argument trees and replay functionality.
-        </p>
-        <p className="mb-6 text-gray-600">
-          In the meantime, you can <strong>create your own debate</strong> and join the conversation!
-        </p>
-        <Link 
-          href="/setup"
-          className="inline-block px-6 py-3 bg-green-600 text-white font-medium rounded-md shadow hover:bg-green-700 transition"
-        >
-          Create Your Own Debate
-        </Link>
-      </div>
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-900">
+      <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
+      <p className="text-lg mb-8">
+        Our debates feature will be launching soon. In the meantime, why not create your own debate?
+      </p>
+      <Link
+        href="/setup"
+        className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
+      >
+        Create Your Debate
+      </Link>
+      <p className="mt-4 text-sm text-gray-500">
+        Don&apos;t miss out on the latest AI debates!
+      </p>
     </main>
   );
 }
