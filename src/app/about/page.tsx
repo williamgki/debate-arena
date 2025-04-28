@@ -45,7 +45,7 @@ export default function About() {
           </li>
           <li>
             🌳 <strong>Branching Discussions</strong> (we are here 🔎): Implement multi-response 
-            generation to explore diverse argument paths, with pruning of low-quality branches.
+            generation to explore diverse argument paths, with pruning of low-quality branches. 
           </li>
           <li>
             💯 <strong>Scoring & Pruning</strong>: Use self-reported scores and an AI “judge” 
@@ -56,7 +56,7 @@ export default function About() {
             confusing or “obfuscated” arguments to gauge debate robustness and detect manipulative tactics.
           </li>
           <li>
-            👩‍⚖️ <strong>Simulation of Human Judges</strong>: Investigate how hypothetical human 
+            👩‍⚖️ <strong>Capability Gap</strong>: Investigate how hypothetical human 
             evaluators might scrutinize debates between AI systems that may exceed human-level capabilities.
           </li>
           <li>
