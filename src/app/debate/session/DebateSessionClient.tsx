@@ -22,9 +22,9 @@ const OBFUSCATION_INSTRUCTION = `\n\n[OBFUSCATION INSTRUCTION] You are now actin
 
 const modelOptions = [
   { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
-  { label: 'GPT-4o', value: 'gpt-4o' },
-  { label: 'O1 Pro', value: 'o1-pro' },
-  { label: 'O3 Mini', value: 'o3-mini' },
+  { label: 'GPT-4.1', value: 'gpt-4.1-2025-04-14-4o' },
+  { label: 'O3', value: 'o3-2025-04-16' },
+  { label: 'O4 Mini', value: 'o4-mini-2025-04-16' },
 ];
 
 // --- Helper Functions ---
