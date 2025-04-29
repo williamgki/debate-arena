@@ -7,13 +7,13 @@ export default function About() {
         <h1 className="text-3xl font-bold text-center">🤔 About Debate Arena</h1>
         <p>
           Debate Arena is a platform designed to explore and evaluate AI debates and argumentation capabilities. 
-          The project was created to foster insights into AI behavior, test innovative oversight methods, and 
-          stimulate new approaches in AI safety.
+          The project was created to improve my intuitions around how debate would work in practice.
         </p>
 
         {/* Contact + GitHub */}
+
         <p>
-          You can find all our code and issues on{" "}
+          You can find all my code and issues on{" "}
           <a
             href="https://github.com/williamgki/debate-arena"
             className="text-purple-600 hover:underline"
@@ -23,15 +23,8 @@ export default function About() {
             GitHub
           </a>
           .<br />
-          You can also reach me via email at williamgkirby&#64;gmail.com<br />
-          (Less actively used) LinkedIn:{" "}
-          <NextLink href="https://www.linkedin.com/in/wikirby/" legacyBehavior>
-            <a className="text-blue-600 hover:underline">
-              linkedin.com/in/wikirby
-            </a>
-          </NextLink>
+          You can also reach me via email at williamgkirby&#64;gmail.com
         </p>
-
         <p>
           Donations of compute are welcome 💻⚡ — as API usage is currently funded by my government salary.
         </p>
@@ -44,7 +37,7 @@ export default function About() {
             and AI-vs.-Human debates on AI safety and alignment topics.
           </li>
           <li>
-            🌳 <strong>Branching Discussions</strong> (we are here 🔎): Implement multi-response 
+            🌳 <strong>Branching Discussions</strong> (WE ARE HERE 🔎): Implement multi-response 
             generation to explore diverse argument paths, with pruning of low-quality branches. 
           </li>
           <li>
