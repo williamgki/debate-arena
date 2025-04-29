@@ -8,9 +8,9 @@ export const runtime = 'edge'; // Or omit for default Node.js runtime
 // Model Categories and Interfaces
 const SDK_STREAMING_CHAT_MODELS: ReadonlyArray<string> = [
   'gpt-3.5-turbo',
-  'gpt-4.1',
+  'gpt-4.1-2025-04-14',
 ];
-const NON_STREAMING_REASONING_MODELS: ReadonlyArray<string> = ['o3', 'o4-mini'];
+const NON_STREAMING_REASONING_MODELS: ReadonlyArray<string> = ['o3-2025-04-16', 'o4-mini-2025-04-16'];
 const ALL_KNOWN_MODELS = [...SDK_STREAMING_CHAT_MODELS, ...NON_STREAMING_REASONING_MODELS];
 
 interface ApiRequestBody {

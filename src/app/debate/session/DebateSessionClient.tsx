@@ -22,7 +22,7 @@ const OBFUSCATION_INSTRUCTION = `\n\n[OBFUSCATION INSTRUCTION] You are now actin
 
 const modelOptions = [
   { label: 'GPT-3.5 Turbo', value: 'gpt-3.5-turbo' },
-  { label: 'GPT-4.1', value: 'gpt-4.1-2025-04-14-4o' },
+  { label: 'GPT-4.1', value: 'gpt-4.1-2025-04-14' },
   { label: 'O3', value: 'o3-2025-04-16' },
   { label: 'O4 Mini', value: 'o4-mini-2025-04-16' },
 ];
@@ -748,8 +748,8 @@ return (
           disabled={isAutonomousRunning}
           className={`px-3 py-1 rounded text-white ${
             isAutonomousRunning
-              ? 'bg-red-400 cursor-not-allowed'
-              : 'bg-red-500 hover:bg-red-600'
+              ? 'bg-red-300 cursor-not-allowed'
+              : 'bg-red-400 hover:bg-red-600'
           }`}
         >
           🔄 Reset debate
@@ -757,7 +757,7 @@ return (
 
         <button
           onClick={() => router.push('/')}
-          className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-700 text-white"
+          className="px-3 py-1 rounded bg-indigo-300 hover:bg-indigo-400 text-white"
         >
           ✏️ New topic
         </button>
