@@ -11,7 +11,7 @@ export default function SetupPage() {
 
   const [debaterA, setDebaterA] = useState('human');
   const [debaterB, setDebaterB] = useState('ai');
-  const [topic, setTopic] = useState('Should AI be regulated?');
+  const [topic, setTopic] = useState('AI will be safe by default - concerns are overblown like Y2K?');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

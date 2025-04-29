@@ -4,7 +4,7 @@ import React, { useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import Link from "next/link";
-
+import { useRouter } from 'next/navigation';
 
 
 // --- Types and Helpers ---
@@ -105,6 +105,9 @@ export default function DebateSessionClient() {
   const [judgeModel, setJudgeModel] = useState('gpt-4o');
   const [isAutonomousRunning, setIsAutonomousRunning] = useState(false);
   const [obfuscatingDebaterId, setObfuscatingDebaterId] = useState<string | null>(null);
+
+  const router = useRouter();
+  const resetDebate = () => { /* same reset code as before */ };
 
   // For manual branch input
   const [branchInputs, setBranchInputs] = useState<Record<string, string>>({});
@@ -729,159 +732,198 @@ Winner: <Debater A or Debater B>`;
     ]
   );
 
-  // --- JSX Return ---
-  return (
-    <main className="min-h-screen px-4 sm:px-6 lg:px-8 py-10 bg-gradient-to-br from-gray-100 to-indigo-100 text-gray-900 font-sans">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          🧠 Live Debate Arena
-        </h1>
+// --- JSX Return ---
+return (
+  <main className="min-h-screen bg-gradient-to-br from-gray-100 to-indigo-100 text-gray-900 font-sans px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-5xl mx-auto">
+      {/* Page title */}
+      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+        🧠 Live Debate Arena
+      </h1>
 
-        <div className="mb-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">Configuration</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            {/* Debater A */}
-            <div className="border p-3 rounded bg-blue-50 border-blue-200">
-              <label
-                htmlFor="debaterA-model-select"
-                className="block font-medium text-sm mb-1 text-blue-800"
-              >
-                Debater A ({debaterARole}) Model
-              </label>
-              <select
-                id="debaterA-model-select"
-                value={debaterAModel}
-                onChange={(e) => setDebaterAModel(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
-                disabled={isAutonomousRunning || debaterARole !== 'ai'}
-              >
-                {modelOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-              {debaterARole === 'ai' && (
-                <div className="mt-2 flex items-center">
-                  <input
-                    type="checkbox"
-                    id="obfuscate-debaterA"
-                    checked={obfuscatingDebaterId === 'debaterA'}
-                    onChange={(e) =>
-                      setObfuscatingDebaterId(e.target.checked ? 'debaterA' : null)
-                    }
-                    className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
-                    disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterB'}
-                  />
-                  <label htmlFor="obfuscate-debaterA" className="ml-2 block text-sm text-gray-700">
-                    Enable Obfuscation
-                  </label>
-                </div>
-              )}
-            </div>
+      {/* ---------- Toolbar ---------- */}
+      <div className="flex flex-wrap gap-3 justify-center mb-6">
+        <button
+          onClick={resetDebate}
+          disabled={isAutonomousRunning}
+          className={`px-3 py-1 rounded text-white ${
+            isAutonomousRunning
+              ? 'bg-red-400 cursor-not-allowed'
+              : 'bg-red-500 hover:bg-red-600'
+          }`}
+        >
+          🔄 Reset debate
+        </button>
 
-            {/* Debater B */}
-            <div className="border p-3 rounded bg-purple-50 border-purple-200">
-              <label
-                htmlFor="debaterB-model-select"
-                className="block font-medium text-sm mb-1 text-purple-800"
-              >
-                Debater B ({debaterBRole}) Model
-              </label>
-              <select
-                id="debaterB-model-select"
-                value={debaterBModel}
-                onChange={(e) => setDebaterBModel(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
-                disabled={isAutonomousRunning || debaterBRole !== 'ai'}
-              >
-                {modelOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-              {debaterBRole === 'ai' && (
-                <div className="mt-2 flex items-center">
-                  <input
-                    type="checkbox"
-                    id="obfuscate-debaterB"
-                    checked={obfuscatingDebaterId === 'debaterB'}
-                    onChange={(e) =>
-                      setObfuscatingDebaterId(e.target.checked ? 'debaterB' : null)
-                    }
-                    className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
-                    disabled={isAutonomousRunning || obfuscatingDebaterId === 'debaterA'}
-                  />
-                  <label htmlFor="obfuscate-debaterB" className="ml-2 block text-sm text-gray-700">
-                    Enable Obfuscation
-                  </label>
-                </div>
-              )}
-            </div>
+        <button
+          onClick={() => router.push('/')}
+          className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-700 text-white"
+        >
+          ✏️ New topic
+        </button>
 
-            {/* Judge */}
-            <div className="border p-3 rounded bg-slate-50 border-slate-200">
-              <label
-                htmlFor="judge-model-select"
-                className="block font-medium text-sm mb-1 text-slate-800"
-              >
-                Judge Model
-              </label>
-              <select
-                id="judge-model-select"
-                value={judgeModel}
-                onChange={(e) => setJudgeModel(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
-                disabled={isAutonomousRunning}
-              >
-                {modelOptions.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
+        <Link
+          href="/"
+          className="px-3 py-1 rounded bg-gray-300 hover:bg-gray-400 text-black"
+        >
+          🏠 Home
+        </Link>
 
-          <div className="mt-4">
-            <p className="text-sm font-medium text-gray-600">Current Topic:</p>
-            <p className="text-md italic text-gray-800">&quot;{topic}&quot;</p>
-          </div>
-        </div>
-
-        {/* Autonomous debate button (only if both are AI) */}
         {debaterARole === 'ai' && debaterBRole === 'ai' && (
-          <div className="mb-6 text-center">
-            <button
-              onClick={runAutonomousDebate}
-              className="bg-indigo-600 text-white px-5 py-2 rounded-md shadow hover:bg-indigo-700 transition duration-150 ease-in-out disabled:opacity-60 disabled:cursor-not-allowed font-medium"
-              disabled={isAutonomousRunning}
+          <button
+            onClick={runAutonomousDebate}
+            disabled={isAutonomousRunning}
+            className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-700 text-white disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {isAutonomousRunning
+              ? '🤖 Running AI Debate…'
+              : '🚀 Run Full AI Debate'}
+          </button>
+        )}
+      </div>
+
+      {/* ---------- Configuration card ---------- */}
+      <section className="mb-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
+        <h2 className="text-xl font-semibold text-gray-700 mb-4">Configuration</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          {/* Debater A select */}
+          <div className="border p-3 rounded bg-blue-50 border-blue-200">
+            <label
+              htmlFor="debaterA-model-select"
+              className="block font-medium text-sm mb-1 text-blue-800"
             >
-              {isAutonomousRunning ? '🤖 Running AI Debate...' : '🚀 Run Full AI Debate'}
-            </button>
-            {isAutonomousRunning && (
-              <p className="text-sm text-indigo-700 animate-pulse mt-1">
-                Autonomous debate in progress...
-              </p>
+              Debater A ({debaterARole}) Model
+            </label>
+            <select
+              id="debaterA-model-select"
+              value={debaterAModel}
+              onChange={(e) => setDebaterAModel(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
+              disabled={isAutonomousRunning || debaterARole !== 'ai'}
+            >
+              {modelOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+
+            {/* Obfuscation toggle for A */}
+            {debaterARole === 'ai' && (
+              <div className="mt-2 flex items-center">
+                <input
+                  type="checkbox"
+                  id="obfuscate-debaterA"
+                  checked={obfuscatingDebaterId === 'debaterA'}
+                  onChange={(e) =>
+                    setObfuscatingDebaterId(e.target.checked ? 'debaterA' : null)
+                  }
+                  className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
+                  disabled={
+                    isAutonomousRunning || obfuscatingDebaterId === 'debaterB'
+                  }
+                />
+                <label
+                  htmlFor="obfuscate-debaterA"
+                  className="ml-2 block text-sm text-gray-700"
+                >
+                  Enable Obfuscation
+                </label>
+              </div>
             )}
           </div>
-        )}
 
-        {/* Debate Tree */}
-        <div className="mt-6 p-4 border border-gray-300 rounded-lg bg-white shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">Debate Tree</h2>
-          {renderNode(tree)}
+          {/* Debater B select */}
+          <div className="border p-3 rounded bg-purple-50 border-purple-200">
+            <label
+              htmlFor="debaterB-model-select"
+              className="block font-medium text-sm mb-1 text-purple-800"
+            >
+              Debater B ({debaterBRole}) Model
+            </label>
+            <select
+              id="debaterB-model-select"
+              value={debaterBModel}
+              onChange={(e) => setDebaterBModel(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
+              disabled={isAutonomousRunning || debaterBRole !== 'ai'}
+            >
+              {modelOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+
+            {/* Obfuscation toggle for B */}
+            {debaterBRole === 'ai' && (
+              <div className="mt-2 flex items-center">
+                <input
+                  type="checkbox"
+                  id="obfuscate-debaterB"
+                  checked={obfuscatingDebaterId === 'debaterB'}
+                  onChange={(e) =>
+                    setObfuscatingDebaterId(e.target.checked ? 'debaterB' : null)
+                  }
+                  className="h-4 w-4 text-yellow-600 border-gray-300 rounded focus:ring-yellow-500 disabled:opacity-50"
+                  disabled={
+                    isAutonomousRunning || obfuscatingDebaterId === 'debaterA'
+                  }
+                />
+                <label
+                  htmlFor="obfuscate-debaterB"
+                  className="ml-2 block text-sm text-gray-700"
+                >
+                  Enable Obfuscation
+                </label>
+              </div>
+            )}
+          </div>
+
+          {/* Judge select */}
+          <div className="border p-3 rounded bg-slate-50 border-slate-200">
+            <label
+              htmlFor="judge-model-select"
+              className="block font-medium text-sm mb-1 text-slate-800"
+            >
+              Judge Model
+            </label>
+            <select
+              id="judge-model-select"
+              value={judgeModel}
+              onChange={(e) => setJudgeModel(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded text-sm focus:ring-indigo-500 focus:border-indigo-500 disabled:bg-gray-200"
+              disabled={isAutonomousRunning}
+            >
+              {modelOptions.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-       {/* Discrete About Link */}
-       <div className="text-center mt-8">
-          <Link href="/about" legacyBehavior>
-            <a className="text-gray-500 hover:text-gray-700 transition">
-              About
-            </a>
-          </Link>
+
+        {/* Current topic display */}
+        <div className="mt-4">
+          <p className="text-sm font-medium text-gray-600">Current Topic:</p>
+          <p className="text-md italic text-gray-800">&quot;{topic}&quot;</p>
         </div>
+      </section>
+
+      {/* ---------- Debate Tree ---------- */}
+      <section className="p-4 border border-gray-300 rounded-lg bg-white shadow-lg mt-6">
+        <h2 className="text-xl font-semibold text-gray-700 mb-4">Debate Tree</h2>
+        {renderNode(tree)}
+      </section>
+
+      {/* About link */}
+      <div className="text-center mt-8">
+        <Link href="/about" legacyBehavior>
+          <a className="text-gray-500 hover:text-gray-700 transition">About</a>
+        </Link>
       </div>
-    </main>
-  );
-}
+    </div>
+  </main>
+);
