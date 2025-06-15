@@ -19,7 +19,7 @@
     "db:migrate": "node scripts/migrate-meteor-debates.js",
     "db:setup": "node scripts/setup-database.js",
     "deploy:prepare": "npm run db:setup && npm run db:migrate",
-    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ] && [ \"$AUTO_MIGRATE\" = \"true\" ]; then npm run deploy:prepare; fi"
+    "postinstall": "echo 'Installation complete. Run npm run deploy:prepare after deployment to set up database.'"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.3.10",
