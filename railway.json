@@ -1,27 +1,12 @@
 {
-  "name": "debate-arena",
-  "services": {
-    "web": {
-      "build": {
-        "commands": [
-          "npm install",
-          "npm run build"
-        ]
-      },
-      "deploy": {
-        "startCommand": "npm start",
-        "healthcheckPath": "/api/health"
-      },
-      "env": {
-        "NODE_ENV": "production"
-      }
-    },
-    "postgres": {
-      "image": "postgres:15",
-      "env": {
-        "POSTGRES_DB": "debate_arena",
-        "POSTGRES_USER": "debate_user"
-      }
-    }
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "nixpacks"
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "healthcheckPath": "/api/health",
+    "healthcheckTimeout": 100,
+    "restartPolicyType": "on_failure"
   }
 }
