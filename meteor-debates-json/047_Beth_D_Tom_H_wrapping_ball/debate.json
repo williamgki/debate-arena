@@ -1,0 +1,325 @@
+{
+  "metadata": {
+    "id": "047-beth-d-tom-h-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:D Tom:H wrapping ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "circular-motion", "angular-momentum", "energy-conservation", "wrapping-ball", "work-energy"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T18:00:00.000Z",
+      "lastModified": "2024-06-16T18:30:00.000Z",
+      "started": "2024-06-16T18:05:00.000Z",
+      "completed": "2024-06-16T18:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 7,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2.0,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    },
+    "tom": {
+      "id": "tom",
+      "role": "honest",
+      "type": "human",
+      "name": "Tom",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 69,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Its speed stays constant",
+        "dishonestAnswer": "It speeds up"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "If the kinetic energy of the ball stays constant, does its speed stay constant?"
+      },
+      "participantId": "tom",
+      "timestamps": {
+        "created": "2024-06-16T18:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "kinetic_energy",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Very likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If a spinning mass is pulled towards the centre around which it's spinning, and it can move towards that centre, does it speed up?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T18:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "spinning_mass_argument",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 23,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, if angular momentum is conserved, which it is not in this case because the center of rotation changes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If we don't do work on the ball, does its kinetic energy stay constant?"
+      },
+      "participantId": "tom",
+      "timestamps": {
+        "created": "2024-06-16T18:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "work_energy",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Very likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Does the string pull the ball towards the centre around which it's spinning?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T18:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "string_force",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, but the center about which it is spinning changes continuously after the pole stopped",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Is the force on the ball always perpendicular to the motion of the ball?"
+      },
+      "participantId": "tom",
+      "timestamps": {
+        "created": "2024-06-16T18:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "perpendicular_force",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "It's unclear whether this is the case",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "As per the normal definition of work, does a force that is perpendicular to the motion of an object result in zero work?"
+      },
+      "participantId": "tom",
+      "timestamps": {
+        "created": "2024-06-16T18:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "work_definition",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "work_energy_focus": {
+      "id": "work_energy_focus",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This wrapping ball debate focuses heavily on work-energy theorem. Tom (honest) correctly argues that no work is done because the force is always perpendicular to motion, so kinetic energy and speed remain constant. Beth (dishonest) tries to argue for angular momentum conservation leading to speed increase."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "center_change_argument": {
+      "id": "center_change_argument",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "Beth's notes: 'Beth means: if a force acts on it towards the centre and causes it to get closer to the centre' and Tom's response about the changing center of rotation being key to why angular momentum isn't conserved."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "string_force_clarification": {
+      "id": "string_force_clarification",
+      "nodeId": "node_4",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes clarify: 'Beth means: the string exerts a force on it towards the centre and causes it to get closer to the centre (ie after moving for a while it ends up at the centre)'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "wrapping-ball-problem",
+      "work-energy-theorem"
+    ]
+  }
+}

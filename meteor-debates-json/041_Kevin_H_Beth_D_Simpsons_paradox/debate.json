@@ -1,0 +1,349 @@
+{
+  "metadata": {
+    "id": "041-kevin-h-beth-d-simpsons-paradox",
+    "version": "1.0",
+    "topic": {
+      "title": "Kevin:H Beth:D Simpson's paradox",
+      "description": "Is it possible that wages went up from 1950 to 1960, but went down for both men and women? Assume that the proportion of men to women can change. (This is not a historical example.)",
+      "tags": ["statistics", "simpsons-paradox", "wages", "gender-disparity", "aggregation-bias"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T14:00:00.000Z",
+      "lastModified": "2024-06-16T14:30:00.000Z",
+      "started": "2024-06-16T14:05:00.000Z",
+      "completed": "2024-06-16T14:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 8,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2.2,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Is it possible that wages went up from 1950 to 1960, but went down for both men and women? Assume that the proportion of men to women can change. (This is not a historical example.)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T14:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" },
+          { "targetNodeId": "node_7", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 39,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes, it is possible",
+        "dishonestAnswer": "It's unclear"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Could men start out making so much more than women so that if the number of men increased but the wages for both decreased slightly, then the overall wages would increase on average?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T14:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "wage_composition_effect",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 31,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Probably, it's not entirely clear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is the overall change in wages an average of the change in wages for men and for women?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T14:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "average_calculation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No, you have to calculate the change from the entire population",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Given a population of 1 man making $100 and 2 women making $1 (just as example), if it changes to 2 men making $90 and 1 woman making $0.50, did the average wages increase?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T14:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "concrete_example",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 35,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Probably, it's not entirely clear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is it possible for the average of two negative things to be positive?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T14:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "negative_average",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "No, but this is not what is occurring here",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T14:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_debate",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, it is possible",
+        "dishonestAnswer": "The answers draw",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "To: + answer dishonest"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T14:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "system_message",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 4,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "With how much probability specifically do you believe that this example may be true?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T14:22:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "probability_assessment",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "It seems plausible, but we might have made an arithmetic error",
+        "dishonestAnswer": "Unclear probability assessment"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "simpsons_paradox_wages": {
+      "id": "simpsons_paradox_wages",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate examines Simpson's Paradox in the context of wage changes. Kevin (honest) correctly identifies that changing population composition can make overall wages increase even when both men's and women's wages decrease individually. Beth (dishonest) tries to confuse the issue by asking about averages of negative numbers, which isn't what's happening here."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T14:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "concrete_calculation": {
+      "id": "concrete_calculation",
+      "nodeId": "node_3",
+      "type": "highlight",
+      "content": {
+        "text": "Kevin provides a concrete numerical example: Population 1: 1 man at $100, 2 women at $1 = average $34. Population 2: 2 men at $90, 1 woman at $0.50 = average $60.17. Both groups' wages fell, but overall average increased due to composition change."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T14:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.95
+    },
+    "beth_notes_averaging": {
+      "id": "beth_notes_averaging",
+      "nodeId": "node_2",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes mention 'By average, Beth means something like you add up the wage changes and divide by the number of people - generic idea of averaging stuff, trying not to mean anything too specific'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T14:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "statistical-paradoxes",
+      "simpsons-paradox"
+    ]
+  }
+}

@@ -1,0 +1,406 @@
+{
+  "metadata": {
+    "id": "013-kevin-v-kunal-monty-hall-host-uncertainty",
+    "version": "1.0",
+    "topic": {
+      "title": "Monty Hall under uncertainty of host policy",
+      "description": "A car is behind 1 of 3 doors, with a goat behind the other two. You choose a door at random. The host opens one of the other doors to reveal a goat. What's the probability of winning if you switch to the unopened door?",
+      "tags": ["probability", "monty-hall", "game-theory", "host-policy", "uncertainty"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-15T10:00:00.000Z",
+      "lastModified": "2024-06-15T11:30:00.000Z",
+      "started": "2024-06-15T10:05:00.000Z",
+      "completed": "2024-06-15T11:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 12,
+      "totalParticipants": 2,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 2.5,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    },
+    "kunal": {
+      "id": "kunal",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Kunal",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A car is behind 1 of 3 doors, with a goat behind the other two. You choose a door at random. The host opens one of the other doors to reveal a goat. What's the probability of winning if you switch to the unopened door?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T10:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" },
+          { "targetNodeId": "node_7", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 43,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Unsure, but probably between 1/2 and 2/3 depending on host policy",
+        "dishonestAnswer": "Certainly 2/3"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Do we know what the host's policy for selecting the door to open is?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T10:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "host_policy_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No",
+        "dishonestAnswer": "In this situation, yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Do we know that the host will open a door?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T10:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "host_behavior_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Are two possible valid options for the host policy: 1. The host always picks a door with a goat 2. The host just picks a door at random (and it just so happened to contain a goat this time)"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T10:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "policy_options_thread",
+        "sequenceInThread": 0
+      },
+      "flags": ["key-insight"],
+      "metrics": {
+        "wordCount": 32,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Possibly, but the given situation considers a door with a goat behind",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "If you kept on letting the host pick a door with a goat behind it, then wouldn't the probability of winning when you switched be 2/3?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T10:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "probability_calculation_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No, because it depends each time on host policy",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "Since the problem states that the other door reveals a goat behind it, isn't it true that you would have a 2/3 probability of winning by switching?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T10:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_8", "type": "elaborated-by" },
+          { "targetNodeId": "node_9", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "standard_monty_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Maybe, but it depends on the host policy",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "With policy #1, is the probability of winning by switching 2/3?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T10:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_7", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "standard_monty_thread",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.95,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "With policy #2, is the probability of winning by switching 1/2?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T10:22:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_7", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "standard_monty_thread",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.95,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "cx_pair_1": {
+      "id": "cx_pair_1",
+      "content": {
+        "text": "Does that mean we take the set of all worlds where the host opens a goat door and calculate the probability of winning after switching? (The host may have different policies in different situations)"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T10:25:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "cross-examines" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "cross_examination",
+        "sequenceInThread": 0
+      },
+      "flags": ["cross-examination"],
+      "metrics": {
+        "wordCount": 29,
+        "confidenceLevel": 0.7,
+        "crossExaminationTarget": "kevin",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "cx_pair_2": {
+      "id": "cx_pair_2",
+      "content": {
+        "text": "It takes into account the set of all worlds where the host opens a goat door and does calculate the probability of the door being opened and having a goat behind it as given in the question."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T10:27:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "cx_pair_1", "type": "follows-from" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "cross_examination",
+        "sequenceInThread": 1
+      },
+      "flags": ["cross-examination"],
+      "metrics": {
+        "wordCount": 31,
+        "confidenceLevel": 0.8,
+        "crossExaminationTarget": "kevin",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "mathematical_complexity": {
+      "id": "mathematical_complexity",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate explores a sophisticated variant of the Monty Hall problem where the host's policy is uncertain. The key insight is that the probability depends critically on whether the host always chooses a goat door (classic 2/3 result) or picks randomly (giving 1/2 when conditioned on revealing a goat). This represents advanced probability theory involving conditional probability and policy uncertainty."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T11:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "key_uncertainty": {
+      "id": "key_uncertainty",
+      "nodeId": "node_3",
+      "type": "highlight",
+      "content": {
+        "text": "This node identifies the crucial uncertainty in the problem: whether the host follows a deterministic goat-revealing policy or picks doors randomly. This distinction fundamentally changes the probability calculation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T11:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "cross_examination_quality": {
+      "id": "cross_examination_quality",
+      "nodeId": "cx_pair_1",
+      "type": "note",
+      "content": {
+        "text": "The cross-examination questions demonstrate sophisticated understanding of conditional probability and possible worlds semantics in probability theory."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T11:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "metadata": {
+    "id": "025-kevin-v-kevin-three-bergs",
+    "version": "1.0",
+    "topic": {
+      "title": "Kevin v Kevin Three bergs",
+      "description": "Three tubs are brimful with ice-cold water. Each has an iceberg floating in it. In tub A, the berg has a large air bubble. In tub W, the berg has some unfrozen water inside it. In tub M, the berg has a heavy metal rod inside it. What happens to the water level in each of the three tubs when the icebergs melt?",
+      "tags": ["physics", "buoyancy", "density", "ice-melting", "water-displacement"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T01:30:00.000Z",
+      "lastModified": "2024-06-16T02:00:00.000Z",
+      "started": "2024-06-16T01:35:00.000Z",
+      "completed": "2024-06-16T02:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 3,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.3,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin1": {
+      "id": "kevin1",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    },
+    "kevin2": {
+      "id": "kevin2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Three tubs are brimful with ice-cold water. Each has an iceberg floating in it. In tub A, the berg has a large air bubble. In tub W, the berg has some unfrozen water inside it. In tub M, the berg has a heavy metal rod inside it. What happens to the water level in each of the three tubs when the icebergs melt?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T01:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 60,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "A & W stay the same, while the water level of M decreases",
+        "dishonestAnswer": "It's unclear, A/W might decrease depending on the weight of the air. M likely decreases"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "What happens to A's water level?"
+      },
+      "participantId": "kevin1",
+      "timestamps": {
+        "created": "2024-06-16T01:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "a_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "It stays the same",
+        "dishonestAnswer": "Unclear, it might decrease",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "What happens to W's water level?"
+      },
+      "participantId": "kevin1",
+      "timestamps": {
+        "created": "2024-06-16T01:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "w_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "[implied: stays the same]",
+        "dishonestAnswer": "[implied: might decrease]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "debate_strategy_notes": {
+      "id": "debate_strategy_notes",
+      "nodeId": "node_1",
+      "type": "analysis",
+      "content": {
+        "text": "The honest participant includes extensive strategic notes about debate structure, questioning whether to break down the problem into smaller components and considering game-theoretic aspects of the honest/dishonest framework."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T02:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "kevin_vs_kevin": {
+      "id": "kevin_vs_kevin",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Another example of the same person (Kevin) taking both honest and dishonest roles in the debate, similar to the Beth v Beth debates."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T02:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "strategic-notes"
+    ]
+  }
+}

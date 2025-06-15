@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "id": "035-beth-v-beth-math",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth v Beth math",
+      "description": "Is A true?",
+      "tags": ["mathematics", "logic", "abstract-reasoning", "propositions"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T11:00:00.000Z",
+      "lastModified": "2024-06-16T11:20:00.000Z",
+      "started": "2024-06-16T11:05:00.000Z",
+      "completed": "2024-06-16T11:20:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 4,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.5,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth1": {
+      "id": "beth1",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "beth2": {
+      "id": "beth2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Is A true?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T11:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "H: Yes",
+        "dishonestAnswer": "D: No"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is B true?"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-16T11:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "proposition_b",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "H: Yes",
+        "dishonestAnswer": "D: No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is A unlikely on priors?"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-16T11:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "prior_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "H: Yes",
+        "dishonestAnswer": "D: Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Does B imply A?"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-16T11:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "logical_implication",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 4,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "H: Yes",
+        "dishonestAnswer": "D: Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "abstract_logic": {
+      "id": "abstract_logic",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a highly abstract logical debate using undefined propositions A and B. The structure suggests a logical argument where B implies A, B is true, therefore A is true, but A has low prior probability, creating tension between logical deduction and prior beliefs."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T11:20:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "minimal_content": {
+      "id": "minimal_content",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "This debate has minimal content, focusing purely on abstract logical relationships without specific mathematical content."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T11:20:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "abstract-logic"
+    ]
+  }
+}

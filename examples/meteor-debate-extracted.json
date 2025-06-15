@@ -1,0 +1,366 @@
+{
+  "metadata": {
+    "id": "meteor-thomas-vs-sydney",
+    "version": "1.0",
+    "topic": {
+      "title": "Ice Cube Water Level Physics",
+      "description": "When an ice cube with a large air bubble melts in water, does the water level go down, stay the same, or rise?",
+      "tags": ["physics", "density", "buoyancy", "water-displacement"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T14:00:00.000Z",
+      "lastModified": "2024-06-14T15:30:00.000Z",
+      "started": "2024-06-14T14:05:00.000Z",
+      "completed": "2024-06-14T15:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 11,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "thomas": {
+      "id": "thomas",
+      "role": "honest",
+      "type": "human",
+      "name": "Thomas",
+      "side": "honest"
+    },
+    "sydney": {
+      "id": "sydney",
+      "role": "dishonest", 
+      "type": "human",
+      "name": "Sydney",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "An ice cube with a large air bubble in it is floating in water. When it melts, does the water level go down, stay the same or rise?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T14:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" },
+          { "targetNodeId": "node_7", "type": "responds-to" },
+          { "targetNodeId": "node_8", "type": "responds-to" },
+          { "targetNodeId": "node_10", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "stay the same",
+        "dishonestAnswer": "It will go down"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1", 
+      "content": {
+        "text": "Is ice less dense than water?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T14:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "When ice melts, will it melt into a smaller volume of water?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T14:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Does the ice cube containing an air bubble change the problem's answer?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T14:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "no",
+        "dishonestAnswer": "no",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Does ice have lower density than water?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T14:11:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 7,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Do the answers to the above sub-questions lead one to conclude that Sydney's answer to the top-level question is correct?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T14:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 3
+      },
+      "flags": ["meta-analysis"],
+      "metrics": {
+        "wordCount": 20,
+        "confidenceLevel": 0.95,
+        "honestAnswer": "no",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "Does an air bubble in the ice change the amount of water?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T14:13:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "no",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "when ice melts does it melt into the same volume of water?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T14:15:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "no",
+        "dishonestAnswer": "no",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "will an ice cube that melts change the water level?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T14:17:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "no",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a classic physics problem about Archimedes' principle and density. The honest answer 'stay the same' is correct because the ice cube displaces exactly the same volume of water whether frozen or melted, regardless of the air bubble. The dishonest answer 'it will go down' is incorrect and appears to be deliberately misleading."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T15:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "economic_structure": {
+      "id": "economic_structure", 
+      "nodeId": "root_node",
+      "type": "metadata",
+      "content": {
+        "text": "This debate used the Meteor debate platform's economic incentive system where participants can pay to 'recurse' into sub-arguments. All payment options were set to 'None' in this debate, indicating no economic incentives were used."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T15:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 1.0
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing", 
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "metadata": {
+    "id": "019-chris-h-mihnea-d-sledge",
+    "version": "1.0",
+    "topic": {
+      "title": "Chris:H - Mihnea:D Sledge",
+      "description": "Someone lies on the floor with an anvil on their chest. Someone else hits the anvil with a sledgehammer. The anvil shields the first person from most of the sledgehammer's: a) momentum b) kinetic energy c) both d) neither",
+      "tags": ["physics", "momentum", "kinetic-energy", "collision", "protection"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-15T19:30:00.000Z",
+      "lastModified": "2024-06-15T20:15:00.000Z",
+      "started": "2024-06-15T19:35:00.000Z",
+      "completed": "2024-06-15T20:15:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 9,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.7,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "chris": {
+      "id": "chris",
+      "role": "honest",
+      "type": "human",
+      "name": "Chris",
+      "side": "honest"
+    },
+    "mihnea": {
+      "id": "mihnea",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mihnea",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Someone lies on the floor with an anvil on their chest. Someone else hits the anvil with a sledgehammer. The anvil shields the first person from most of the sledgehammer's: a) momentum b) kinetic energy c) both d) neither"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T19:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 40,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "If we interpret \"shields from most of X\" to mean, \"prevents the transmission of the sledgehammer's quantity of X, or less, into the person\", then the answer is B, kinetic energy.",
+        "dishonestAnswer": "Both"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is momentum communicated to the person through the anvil?"
+      },
+      "participantId": "chris",
+      "timestamps": {
+        "created": "2024-06-15T19:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "momentum_transmission",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.96,
+        "honestAnswer": "Yes, and possibly more than the original momentum of the sledgehammer if the sledgehammer bounces off. (96%)",
+        "dishonestAnswer": "Yes, but then it's immediately passed onto the ground, probability 90%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is kinetic energy communicated to the person through the anvil?"
+      },
+      "participantId": "chris",
+      "timestamps": {
+        "created": "2024-06-15T19:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_transmission",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No, probability 90%",
+        "dishonestAnswer": "No, because the anvil is (presumably) so massive that if it has only a small speed (to match the sledgehammer's communication of momentum) this will amount to very little energy. (92%)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Does having the anvil result in the person not absorbing most of the kinetic energy?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-15T19:44:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_absorption",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "What's relevant isn't whether the body \"absorbs\" the kinetic energy, it's about whether it's transmitted to the person at all. The phrase \"shields the person from X\" would be strange if what was meant was \"enables X to pass through the person more easily\" (92%)",
+        "dishonestAnswer": "Yes, probability 90%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Does having the anvil result in the person not absorbing most of the momentum?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-15T19:46:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "momentum_absorption",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "What's relevant isn't whether the body \"absorbs\" the kinetic energy, it's about whether it's transmitted to the person at all. The phrase \"shields the person from X\" would be strange if what was meant was \"enables X to pass through the person more easily\" (92%)",
+        "dishonestAnswer": "Yes, probability 90%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "If the anvil hadn't been there, would the person have absorbed most of the kinetic energy?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-15T19:48:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "counterfactual_energy",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, probability 80%",
+        "dishonestAnswer": "What's relevant isn't whether the body \"absorbs\" the kinetic energy, it's about whether it's transmitted to the person at all. The phrase \"shields the person from X\" would be strange if what was meant was \"enables X to pass through the person more easily\" (92%)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "If the anvil hadn't been there, would the person have absorbed most of the momentum?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-15T19:50:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "counterfactual_momentum",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "[blank]",
+        "dishonestAnswer": "What's relevant isn't whether the body \"absorbs\" the kinetic energy, it's about whether it's transmitted to the person at all. The phrase \"shields the person from X\" would be strange if what was meant was \"enables X to pass through the person more easily\" (92%)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "repeated_physics_problem": {
+      "id": "repeated_physics_problem",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This appears to be a repeat or variation of the previous sledgehammer-anvil debate (018), exploring the same physics concepts of momentum vs kinetic energy transmission through protective barriers."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T20:15:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "transmission_vs_absorption": {
+      "id": "transmission_vs_absorption",
+      "nodeId": "node_3",
+      "type": "highlight",
+      "content": {
+        "text": "The debate focuses on the distinction between transmission of physical quantities versus absorption by the person's body, with different interpretations of what 'shielding' means in this context."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T20:15:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "probability-assignments"
+    ]
+  }
+}

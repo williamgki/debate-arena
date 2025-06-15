@@ -1,0 +1,468 @@
+{
+  "metadata": {
+    "id": "015-beth-v-beth-logical-uncertainty-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth v Beth logical uncertainty wrapping ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "logical-uncertainty", "angular-momentum", "energy-conservation", "circular-motion", "probability"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-15T14:00:00.000Z",
+      "lastModified": "2024-06-15T15:30:00.000Z",
+      "started": "2024-06-15T14:05:00.000Z",
+      "completed": "2024-06-15T15:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 17,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 2.8,
+      "longestThread": 4
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth1": {
+      "id": "beth1",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "beth2": {
+      "id": "beth2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T14:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 65,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It stays the same",
+        "dishonestAnswer": "It speeds up"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "In a scenario where there *is* gravity, the ball will speed up in the tangential direction"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T14:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_3", "type": "elaborated-by" },
+          { "targetNodeId": "node_4", "type": "elaborated-by" },
+          { "targetNodeId": "node_5", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "gravity_scenario",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "50%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Conditioned on 1=Yes it must also speed up here"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T14:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_6", "type": "elaborated-by" },
+          { "targetNodeId": "node_7", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "conditional_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "50%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "The potential energy lost is likely greater than the kinetic energy of the ball gained by its downward momentum"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "gravity_scenario",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "70%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Conditioned on 3=Yes, the ball will likely speed up in the tangential direction"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T14:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "gravity_scenario",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "70%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Conditioned on 1=Yes means that it will speed up in the tangential direction in scenario A"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T14:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "gravity_scenario",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "There is no important difference in conservation of angular momentum in the overall system between this scenario and scenario A"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_2", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "conditional_analysis",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "70%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "Conditioned on 6=Yes, it must also speed up here"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T14:22:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_2", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "conditional_analysis",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "[blank]",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "As the ball gets towards the end of the tether, it can't keep moving directly downward, so it doesn't accelerate downward as fast as a freely falling ball"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:24:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "tether_constraint",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "85%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "The potential energy lost by a ball falling 1m is similar to the kinetic energy it that ball accelerated downwards under gravity for a distance of 1m"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:26:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_equivalence",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "85%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "There is no important difference in the torque between this scenario and scenario A"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:28:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "torque_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "85%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_11": {
+      "id": "node_11",
+      "content": {
+        "text": "Conditioned on 11=Yes, there is is no important difference in conservation of angular momentum between this scenario and scenario A"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T14:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "momentum_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 22,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "85%",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "logical_uncertainty_physics": {
+      "id": "logical_uncertainty_physics",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate demonstrates logical uncertainty applied to physics problems involving circular motion, angular momentum, and energy conservation. The participants use probabilistic reasoning (50%, 70%, 85%) to express uncertainty about complex physical calculations involving the dynamics of a ball on a string wrapping around a pole."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T15:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "both_beths": {
+      "id": "both_beths",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Interesting debate format where both participants are named 'Beth' but take opposing honest/dishonest roles, demonstrating that the same person can argue different sides with different epistemic approaches."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T15:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "conditional_reasoning": {
+      "id": "conditional_reasoning",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "The extensive use of conditional reasoning ('Conditioned on X=Yes...') shows sophisticated logical dependency tracking in physical reasoning under uncertainty."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T15:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "logical-uncertainty",
+      "probability-assignments",
+      "conditional-reasoning"
+    ]
+  }
+}

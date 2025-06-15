@@ -1,0 +1,294 @@
+{
+  "metadata": {
+    "id": "032-beth-h-kunal-d-simpsons-paradox",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:H Kunal:D Simpson's Paradox",
+      "description": "Is it possible that wages went up from 1950 to 1960, but went down for both men and women? Assume that the proportion of men to women can change. (This is not a historical example.)",
+      "tags": ["statistics", "simpsons-paradox", "wages", "demographics", "weighted-averages"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T08:00:00.000Z",
+      "lastModified": "2024-06-16T08:30:00.000Z",
+      "started": "2024-06-16T08:05:00.000Z",
+      "completed": "2024-06-16T08:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "kunal": {
+      "id": "kunal",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Kunal",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Is it possible that wages went up from 1950 to 1960, but went down for both men and women? Assume that the proportion of men to women can change. (This is not a historical example.)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T08:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 33,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Probably not"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Can different groups of data produce a different trend when combined together?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T08:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "group_trends",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "It's unclear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is the total change in wages a weighted average of the change in wages for women and the change in wages for men?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T08:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "weighted_average",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Probably",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is it possible that men and women can have significantly large gaps in wages between the two of them that can affect the balance of the average?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T08:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "wage_gaps",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "It's unclear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is it possible for a weighted average of two negative things to be positive?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T08:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "negative_weighted_average",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "No",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Is there a situation in which the wages for both men and women goes down, but the average of the wages goes up?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T08:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "paradox_example",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Maybe",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "simpsons_paradox": {
+      "id": "simpsons_paradox",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate explores Simpson's Paradox - a statistical phenomenon where a trend appears in different groups of data but disappears or reverses when the groups are combined. The key insight is that changing demographic composition (proportion of men to women) can cause the overall average to move opposite to the trends within each subgroup."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T08:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "weighted_average_misconception": {
+      "id": "weighted_average_misconception",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "The dishonest participant incorrectly thinks the total change is a weighted average of individual group changes, missing that Simpson's Paradox occurs when the weights (group proportions) themselves change over time."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T08:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "averaging_explanation": {
+      "id": "averaging_explanation", 
+      "nodeId": "node_2",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes explain the key insight: 'By average, Beth means something like you add up the wage changes and divide by the number of people - generic idea of averaging stuff, trying not to mean anything too specific.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T08:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "statistical-paradoxes"
+    ]
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "id": "028-mark-mark-non-constructive",
+    "version": "1.0",
+    "topic": {
+      "title": "Mark Mark Non-constructive",
+      "description": "Does there exist s in S that has property P?",
+      "tags": ["mathematics", "logic", "constructive-proof", "existence-proof"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T04:00:00.000Z",
+      "lastModified": "2024-06-16T04:30:00.000Z",
+      "started": "2024-06-16T04:05:00.000Z",
+      "completed": "2024-06-16T04:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark1": {
+      "id": "mark1",
+      "role": "honest",
+      "type": "human",
+      "name": "Mark",
+      "side": "honest"
+    },
+    "mark2": {
+      "id": "mark2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Does there exist s in S that has property P?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T04:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "If there is no s in S with property P, does that imply A?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T04:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "logical_implication",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Do any of {s_1, …, s_10} \\subset S have property P?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T04:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "subset_check_1",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "No",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is it known that ~A?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T04:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "negation_known",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.75,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Maybe",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Do any of {s_11, …, s_20} \\subset S have property P?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T04:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "subset_check_2",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "No",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Do any of {s_21, …, s_30} \\subset S have property P?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T04:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "subset_check_3",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "Maybe",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "constructive_vs_nonconstructive": {
+      "id": "constructive_vs_nonconstructive",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate explores the difference between constructive and non-constructive proofs in mathematics. The honest participant may have a non-constructive existence proof (proving existence through contradiction), while the dishonest participant demands a constructive proof (actually finding an element with the property)."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T04:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "systematic_search": {
+      "id": "systematic_search",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "The dishonest participant systematically checks subsets of S for elements with property P, representing a constructive approach that seeks to explicitly find (or fail to find) such elements."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T04:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "proof-theory"
+    ]
+  }
+}

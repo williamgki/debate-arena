@@ -1,0 +1,308 @@
+{
+  "metadata": {
+    "id": "002-matej-v-sydney-3-bergs",
+    "version": "1.0",
+    "topic": {
+      "title": "3 bergs - Ice and Water Level Physics",
+      "description": "A physics problem about water levels when dealing with three containers with ice and metal objects, examining displacement and density effects.",
+      "tags": ["physics", "density", "displacement", "water-level", "ice", "metal"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T16:00:00.000Z",
+      "lastModified": "2024-06-14T17:30:00.000Z", 
+      "started": "2024-06-14T16:05:00.000Z",
+      "completed": "2024-06-14T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 9,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "matej": {
+      "id": "matej",
+      "role": "honest",
+      "type": "human",
+      "name": "Matej",
+      "side": "honest"
+    },
+    "sydney": {
+      "id": "sydney",
+      "role": "dishonest",
+      "type": "human", 
+      "name": "Sydney",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "3 bergs"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_7", "type": "responds-to" },
+          { "targetNodeId": "node_8", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "The water level in the first two tubs stays the same and in the third gets lower.",
+        "dishonestAnswer": "The water level will get higher on the third one and the first and second remain the same."
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the volume of water decrease when it goes from a solid form to a liquid form?"
+      },
+      "participantId": "matej",
+      "timestamps": {
+        "created": "2024-06-14T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If I move the metal so it's sticking out of the ice cube or no longer in the ice cube, will that change the answer?"
+      },
+      "participantId": "matej",
+      "timestamps": {
+        "created": "2024-06-14T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side", 
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "no",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Do the first two questions imply the answer is what I claim?"
+      },
+      "participantId": "matej",
+      "timestamps": {
+        "created": "2024-06-14T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 2
+      },
+      "flags": ["meta-analysis"],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "no",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Will the water level decrease if the metal in an ice cube was normally really hot or cold before we froze the metal?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:11:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "no",
+        "dishonestAnswer": "no",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "If we place the metal differently will it affect the water level?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:13:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "not unless we remove the metal from the tub",
+        "dishonestAnswer": "no",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "What will happen if we put the ice cube with the spike at the top and what will happen at the bottom?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:15:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "The water level won't change",
+        "dishonestAnswer": "Yes, because it's heavy",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This appears to be a physics problem about displacement and density involving three containers with ice and metal objects. The honest answer correctly identifies that water level changes depend on density relationships and displacement principles. The dishonest arguments attempt to confuse with irrelevant factors like temperature history and positioning."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "argument_quality": {
+      "id": "argument_quality",
+      "nodeId": "node_4",
+      "type": "highlight",
+      "content": {
+        "text": "This meta-analytical question is crucial - Matej is checking whether his sub-arguments logically support his main claim, which is good argumentative practice."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

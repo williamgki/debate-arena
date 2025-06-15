@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "id": "024-kevin-vs-william-switch",
+    "version": "1.0",
+    "topic": {
+      "title": "Kevin vs William Switch",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass",
+      "tags": ["physics", "circular-motion", "energy-conservation", "point-mass", "probability"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T00:30:00.000Z",
+      "lastModified": "2024-06-16T01:00:00.000Z",
+      "started": "2024-06-16T00:35:00.000Z",
+      "completed": "2024-06-16T01:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 7,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 1.7,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    },
+    "william": {
+      "id": "william",
+      "role": "dishonest",
+      "type": "human",
+      "name": "William",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T00:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 30,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Speed does not change (by any noticeable amount, say >1/1000 of train's speed)",
+        "dishonestAnswer": "It's unclear, it could slightly decrease or it could stay the same"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does conservation of energy apply to the train-rails system?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T00:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "How likely is it that the train's speed would not change by a noticeable amount?"
+      },
+      "participantId": "william",
+      "timestamps": {
+        "created": "2024-06-16T00:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "probability_no_change",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.95,
+        "honestAnswer": ">95%",
+        "dishonestAnswer": "75%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is the earth so massive as to effectively stop the rails from gaining kinetic energy?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T00:44:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "earth_mass_effect",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.98,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "98% Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "How likely is it that the train's speed would change by a noticeable amount?"
+      },
+      "participantId": "william",
+      "timestamps": {
+        "created": "2024-06-16T00:46:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "probability_change",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.25,
+        "honestAnswer": "<5%",
+        "dishonestAnswer": "25%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "If energy is conserved between the train and rails & the rails do not change in energy, does the train retain constant kinetic energy (and thus speed)?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T00:48:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "logical_deduction",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 26,
+        "confidenceLevel": 0.75,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "75% Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T00:50:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_debate",
+        "sequenceInThread": 0
+      },
+      "flags": ["meta-debate"],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Speed does not change (by any noticeable amount, say >1/1000 of train's speed)",
+        "dishonestAnswer": "It's unclear, it could slightly decrease or it could stay the same",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "point_mass_assumption": {
+      "id": "point_mass_assumption",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This version of the train switching problem adds the crucial assumption that the train is a point mass, which eliminates rotational energy considerations that were central to previous versions of this debate."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T01:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "probability_disagreement": {
+      "id": "probability_disagreement",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "Significant disagreement on probability assessments: honest participant gives >95% confidence for no change, while dishonest gives only 75%, showing different levels of certainty about the physics."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T01:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "probability-assignments",
+      "meta-debate"
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "id": "020-beth-v-beth-logical-uncertainty-switch",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth v Beth logical uncertainty switch",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction.",
+      "tags": ["physics", "logical-uncertainty", "circular-motion", "energy-conservation", "track-switching", "probability"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-15T20:30:00.000Z",
+      "lastModified": "2024-06-15T21:00:00.000Z",
+      "started": "2024-06-15T20:35:00.000Z",
+      "completed": "2024-06-15T21:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 3,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.3,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth1": {
+      "id": "beth1",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "beth2": {
+      "id": "beth2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T20:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "H: To a good approximation, its speed stays the same. In some situations it may slow down.",
+        "dishonestAnswer": "D: Its speed stays exactly unchanged"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "In all situations, the track never exerts a force that opposes the train's direction of motion"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T20:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "force_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "H: 50%",
+        "dishonestAnswer": "D: 95%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Conditioned on 1=Yes, its speed always stays exactly unchanged"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T20:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "conditional_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "H: 50%",
+        "dishonestAnswer": "D: 95%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "similar_to_014": {
+      "id": "similar_to_014",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate appears to be very similar to debate 014 (Beth v William logical uncertainty), covering the same physics problem about a train switching from a large to small circular track. The logical uncertainty approach with probability assignments is again employed."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T21:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "minimal_argumentation": {
+      "id": "minimal_argumentation",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "This debate has much fewer arguments than debate 014, focusing primarily on whether the track exerts opposing forces and the conditional reasoning that follows from that assumption."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T21:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "logical-uncertainty",
+      "probability-assignments",
+      "conditional-reasoning"
+    ]
+  }
+}

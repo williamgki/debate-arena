@@ -1,0 +1,428 @@
+{
+  "metadata": {
+    "id": "009-beth-v-beth-wrapping-ball-simulation",
+    "version": "1.0",
+    "topic": {
+      "title": "Ball Wrapping Around Pole Simulation",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "simulation", "circular-motion", "string-dynamics", "angular-momentum"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T20:00:00.000Z",
+      "lastModified": "2024-06-14T22:00:00.000Z",
+      "started": "2024-06-14T20:05:00.000Z",
+      "completed": "2024-06-14T22:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 12,
+      "totalParticipants": 2,
+      "totalJudgments": 0,
+      "totalFlags": 1,
+      "averageDepth": 3.5,
+      "longestThread": 5
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth_honest": {
+      "id": "beth_honest",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth (Honest)",
+      "side": "honest"
+    },
+    "beth_dishonest": {
+      "id": "beth_dishonest",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth (Dishonest)",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T20:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 66,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "[Answer not visible in source]",
+        "dishonestAnswer": "[Answer not visible in source]"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "What is a sensible simulation of this scenario?"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_3", "type": "elaborated-by" },
+          { "targetNodeId": "node_4", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "simulation_methodology",
+        "sequenceInThread": 0
+      },
+      "flags": ["methodology"],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "[Answer not visible in source]",
+        "dishonestAnswer": "[Answer not visible in source]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "What does that simulation say about how the speed changes?"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "speed_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "[Answer not visible in source]",
+        "dishonestAnswer": "[Answer not visible in source]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "In the simulation, what is the speed of the ball initially?"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:15:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "simulation_methodology",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.9,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "In the simulation, what is the speed after 3 seconds?"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:17:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "elaborates" }],
+        "children": [
+          { "targetNodeId": "node_5", "type": "elaborated-by" },
+          { "targetNodeId": "node_6", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "simulation_methodology",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.8,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "What is the state of the simulation after 1.5 seconds (state 1)?"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2024-06-14T20:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_4", "type": "elaborates" }],
+        "children": [
+          { "targetNodeId": "node_9", "type": "elaborated-by" },
+          { "targetNodeId": "node_13", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "time_series_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.7,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "What is the speed of the ball 1.5 seconds after state 1?"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2024-06-14T20:22:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_4", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "time_series_analysis",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.6,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "What is the state of the simulation after 0.75 seconds? (state 2)"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:25:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_5", "type": "elaborates" }],
+        "children": [
+          { "targetNodeId": "node_10", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 4,
+        "threadId": "time_series_analysis",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.7,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "What is the state of the simulation 0.75 seconds after state 2?"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2024-06-14T20:27:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_9", "type": "elaborates" }],
+        "children": [
+          { "targetNodeId": "node_11", "type": "elaborated-by" }
+        ]
+      },
+      "position": {
+        "depth": 5,
+        "threadId": "time_series_analysis",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.6,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_11": {
+      "id": "node_11",
+      "content": {
+        "text": "What is the speed of the ball 0.75 seconds after state 3?"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2024-06-14T20:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_10", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 6,
+        "threadId": "time_series_analysis",
+        "sequenceInThread": 4
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.5,
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_13": {
+      "id": "node_13",
+      "content": {
+        "text": "What is the state of the simulation 0.75 seconds after state 1? (state 3)"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2024-06-14T20:32:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_5", "type": "elaborates" }],
+        "children": []
+      },
+      "position": {
+        "depth": 4,
+        "threadId": "alternate_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.6,
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "simulation_complexity": {
+      "id": "simulation_complexity",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate represents a highly sophisticated approach to physics problem-solving, using detailed simulation methodology with time-stepped analysis. The participants are exploring the complex dynamics of a ball-string-pole system where the string wraps around the pole, which involves changing radius and angular momentum conservation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T22:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "methodological_approach": {
+      "id": "methodological_approach",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "The focus on simulation methodology rather than analytical solutions suggests this is a complex physics problem that may not have simple closed-form solutions, requiring numerical simulation to understand the behavior."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T22:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "missing_data": {
+      "id": "missing_data",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Note: The actual simulation results and numerical answers are not visible in the source PDFs, suggesting this debate may be incomplete or the PDFs captured a state where results were not yet filled in."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T22:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 1.0
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "simulation-methodology"
+    ]
+  }
+}

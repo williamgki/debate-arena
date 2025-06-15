@@ -1,0 +1,338 @@
+{
+  "metadata": {
+    "id": "017-kevin-v-kunal-lewis-carroll-problem",
+    "version": "1.0",
+    "topic": {
+      "title": "Kevin v Kunal Lewis Carroll problem",
+      "description": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?",
+      "tags": ["probability", "bayesian", "lewis-carroll", "conditional-probability", "bag-problem"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-15T17:00:00.000Z",
+      "lastModified": "2024-06-15T18:00:00.000Z",
+      "started": "2024-06-15T17:05:00.000Z",
+      "completed": "2024-06-15T18:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 11,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 2.2,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    },
+    "kunal": {
+      "id": "kunal",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Kunal",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T17:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" },
+          { "targetNodeId": "cx_1", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 39,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "1/2"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is is true that in there are two possible situations, each 50% likely: - There are two white counters - There is one white counter and one black counter"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T17:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "scenario_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 27,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is it true that there are only two counters in the bag?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T17:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "counter_count",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Isn't it true that the probability of the remaining counter being black or white, is 50% as stated by the question? It differs depending on whether this is before or after you witness taking out a white counter"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T17:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "timing_dependency",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 32,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "It differs depending on whether this is before or after you witness taking out a white counter",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is it true that in the 50% chance there are two white counters, there's a 100% chance of pulling out a white counter?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T17:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "white_scenario_prob",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Is is true that in the 50% chance there is 1 white counter and 1 black counter, there is a 50% chance of pulling out a black counter?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T17:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "mixed_scenario_prob",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Isn't it true that the act of putting a white counter in, doesn't change the probability of the remaining counter's identity?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-15T17:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "intervention_effect",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "cx_1": {
+      "id": "cx_1",
+      "content": {
+        "text": "Is the probability you are referring to the probability *before* taking a white counter out, or *after* you see you took out a white counter?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-15T17:25:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "cross-examines" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "cross_examination",
+        "sequenceInThread": 0
+      },
+      "flags": ["cross-examination"],
+      "metrics": {
+        "wordCount": 23,
+        "confidenceLevel": 0.9,
+        "crossExaminationTarget": "kunal",
+        "honestAnswer": "Either situation",
+        "dishonestAnswer": "Either situation",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "lewis_carroll_paradox": {
+      "id": "lewis_carroll_paradox",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a classic Lewis Carroll probability paradox involving conditional probability and Bayesian updating. The key insight is that observing a white counter being drawn changes the posterior probability distribution over the initial bag composition."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T18:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "timing_distinction": {
+      "id": "timing_distinction",
+      "nodeId": "node_3",
+      "type": "highlight",
+      "content": {
+        "text": "The crucial distinction between probabilities before and after observing the white counter being drawn. This represents the difference between prior and posterior probabilities in Bayesian reasoning."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T18:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "bayesian-reasoning"
+    ]
+  }
+}

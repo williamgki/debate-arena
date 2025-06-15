@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "id": "048-beth-rohan-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth Rohan Wrapping Ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, and assume the ball is a point mass)",
+      "tags": ["physics", "circular-motion", "angular-momentum", "energy-conservation", "wrapping-ball", "tension-forces"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T18:30:00.000Z",
+      "lastModified": "2024-06-16T19:00:00.000Z",
+      "started": "2024-06-16T18:35:00.000Z",
+      "completed": "2024-06-16T19:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "rohan": {
+      "id": "rohan",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Rohan",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, and assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 71,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It remains constant",
+        "dishonestAnswer": "It's unclear, there's an argument it speeds up and an argument it stays constant"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is the only force acting on the ball is tension from the string?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T18:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "force_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes, it seems likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is there an argument that it speeds up based on approximate conservation of angular momentum?"
+      },
+      "participantId": "rohan",
+      "timestamps": {
+        "created": "2024-06-16T18:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum_argument",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is the Tension always perpendicular to the direction of motion of the ball?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T18:44:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "tension_direction",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Probably, it's not entirely clear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is there an argument that the speed stays constant based on approximate conservation of energy?"
+      },
+      "participantId": "rohan",
+      "timestamps": {
+        "created": "2024-06-16T18:46:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation_argument",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Given the only force on the ball is perpendicular to it, does this imply that the speed does not change?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T18:48:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "perpendicular_force_implication",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes, very likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Do these arguments use similar levels of approximation?"
+      },
+      "participantId": "rohan",
+      "timestamps": {
+        "created": "2024-06-16T18:50:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "approximation_comparison",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "role_reversal_again": {
+      "id": "role_reversal_again",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "Another role-reversed wrapping ball debate with Beth as honest and Rohan as dishonest. Beth correctly identifies that tension is perpendicular to motion, so no work is done and speed remains constant. Rohan tries to create equivalence between angular momentum and energy conservation arguments."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T19:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "approximation_strategy": {
+      "id": "approximation_strategy",
+      "nodeId": "node_6",
+      "type": "highlight",
+      "content": {
+        "text": "Beth's notes reveal Rohan's strategy: 'Beth is planning to argue that energy is approximately conserved to a similar extent that momentum is approximately conserved (ie some energy and some momentum is transmitted to the earth, but we can probably ignore this)' with 'Rohan regrets recursing on this, it all got very complicated'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T19:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "wrapping-ball-problem",
+      "role-reversal"
+    ]
+  }
+}

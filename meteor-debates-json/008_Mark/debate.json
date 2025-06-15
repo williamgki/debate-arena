@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "id": "008-mark-train-circular-track",
+    "version": "1.0",
+    "topic": {
+      "title": "Train Speed on Circular Track Change",
+      "description": "A train coasting around a large circular track is switched to a smaller circular track. How does its speed change? Assume no friction.",
+      "tags": ["physics", "energy-conservation", "momentum", "circular-motion", "trains"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T18:00:00.000Z",
+      "lastModified": "2024-06-14T19:30:00.000Z",
+      "started": "2024-06-14T18:05:00.000Z", 
+      "completed": "2024-06-14T19:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 5,
+      "totalParticipants": 1,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 1.5,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark": {
+      "id": "mark",
+      "role": "both",
+      "type": "human",
+      "name": "Mark",
+      "note": "Single participant exploring both honest and dishonest sides"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T18:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It gets slower",
+        "dishonestAnswer": "It stays the same"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is energy conserved?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-14T18:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_2", "type": "supports" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If energy is conserved, does the train get slower?"
+      },
+      "participantId": "mark", 
+      "timestamps": {
+        "created": "2024-06-14T18:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          { "targetNodeId": "root_node", "type": "responds-to" },
+          { "targetNodeId": "node_1", "type": "follows-from" }
+        ],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "energy_analysis",
+        "sequenceInThread": 1
+      },
+      "flags": ["logical-chain"],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3", 
+      "content": {
+        "text": "Is momentum conserved?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-14T18:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [
+          { "targetNodeId": "node_4", "type": "supports" }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "momentum_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "If momentum is conserved, does the train stay the same speed?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-14T18:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          { "targetNodeId": "root_node", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "follows-from" }
+        ],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "momentum_analysis", 
+        "sequenceInThread": 1
+      },
+      "flags": ["logical-chain"],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a classic physics problem involving energy vs momentum conservation in circular motion. The correct analysis involves angular momentum conservation (L = mvr), where a smaller radius requires higher velocity to maintain constant angular momentum. However, the debate explores whether energy or linear momentum conservation applies."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T19:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "solo_debate_structure": {
+      "id": "solo_debate_structure",
+      "nodeId": "root_node", 
+      "type": "metadata",
+      "content": {
+        "text": "This debate appears to be conducted by a single participant (Mark) exploring both sides of the argument, which is an interesting format for understanding multiple perspectives on a physics problem."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T19:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 1.0
+    },
+    "logical_chains": {
+      "id": "logical_chains",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "This demonstrates good logical structure: establishing a premise (energy conservation) then exploring its implications for the main question."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T19:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.95
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination", 
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

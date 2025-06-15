@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "id": "029-beth-h-mark-d-tokens",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:H Mark:D tokens",
+      "description": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?",
+      "tags": ["probability", "bayesian", "lewis-carroll", "conditional-probability", "bag-problem"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T05:00:00.000Z",
+      "lastModified": "2024-06-16T05:30:00.000Z",
+      "started": "2024-06-16T05:05:00.000Z",
+      "completed": "2024-06-16T05:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "mark": {
+      "id": "mark",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T05:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 39,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "1/2"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "What are the two possibilities for what was in the bag before you drew a counter?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T05:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "initial_possibilities",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Two white counters, or one white counter and one black counter",
+        "dishonestAnswer": "2 white counters, 1 white 1 black",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If a white counter is put in and a white counter is taken out, is all that remains in the bag the original counter?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-16T05:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "counter_identity",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Not necessarily, it may be the original counter that was taken out, in which case you now know that the original counter is white",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If you don't know which of these two bags you have, and you draw a random counter and it turns out to be white, which bag is it more likely you had?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T05:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "likelihood_reasoning",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 26,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "It's more likely you had the one with two white counters",
+        "dishonestAnswer": "Both bags have white counters, so drawing a white counter doesn't give you this information. If you drew two white counters, then you would know, but with only one counter you're drawing from, then you would know, but with only one counter, you're oblivious to the truth",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is the original counter white with probability 1/2?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-16T05:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "original_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "At the beginning, before you get any more information about which bag you have, yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "lewis_carroll_variant": {
+      "id": "lewis_carroll_variant",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is another variant of the Lewis Carroll probability problem (similar to debate 017), exploring Bayesian updating when observing that a white counter is drawn from a bag with unknown initial composition."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T05:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "debate_strategy_note": {
+      "id": "debate_strategy_note",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "The notes indicate Mark has executed a successful looping strategy and exhausted all but the last layer of recursion, so this debate will not include any recursion but will be a H victory if judged a draw."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T05:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "bayesian-reasoning",
+      "strategic-looping"
+    ]
+  }
+}

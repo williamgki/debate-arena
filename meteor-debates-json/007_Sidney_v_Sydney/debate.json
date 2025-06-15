@@ -1,0 +1,308 @@
+{
+  "metadata": {
+    "id": "007-sidney-vs-sydney-energy-conservation",
+    "version": "1.0",
+    "topic": {
+      "title": "Train Speed and Total Energy Conservation",
+      "description": "A physics debate between Sidney and Sydney about a train switching between circular tracks, focusing on energy conservation, rotational kinetic energy, and force analysis to determine speed changes.",
+      "tags": ["physics", "energy-conservation", "rotational-kinetic-energy", "circular-motion", "speed"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T16:00:00.000Z",
+      "lastModified": "2024-06-14T17:30:00.000Z", 
+      "started": "2024-06-14T16:05:00.000Z",
+      "completed": "2024-06-14T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 8,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "sidney": {
+      "id": "sidney",
+      "role": "honest",
+      "type": "human",
+      "name": "Sidney",
+      "side": "honest"
+    },
+    "sydney": {
+      "id": "sydney",
+      "role": "dishonest",
+      "type": "human", 
+      "name": "Sydney",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 27,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Speed gets slower",
+        "dishonestAnswer": "Speed stays constant."
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is speed the magnitude of velocity?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is total energy conserved?"
+      },
+      "participantId": "sidney",
+      "timestamps": {
+        "created": "2024-06-14T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side", 
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 4,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is total energy equal to translational + rotational kinetic energy?"
+      },
+      "participantId": "sidney",
+      "timestamps": {
+        "created": "2024-06-14T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Does rotational kinetic energy increase?"
+      },
+      "participantId": "sidney",
+      "timestamps": {
+        "created": "2024-06-14T16:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Without a force acting parallel to velocity, does the magnitude of the velocity decrease?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "It can",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Is there any force acting parallel to velocity?"
+      },
+      "participantId": "sydney",
+      "timestamps": {
+        "created": "2024-06-14T16:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "No",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate showcases two different approaches to the same physics problem. Sidney uses energy conservation with rotational kinetic energy considerations to show the train slows down. Sydney attempts to use force analysis to argue for constant speed, but misses the energy conservation requirement that drives the speed change."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "energy_conservation_argument": {
+      "id": "energy_conservation_argument",
+      "nodeId": "node_4",
+      "type": "highlight",
+      "content": {
+        "text": "Sidney's approach recognizes that rotational kinetic energy increases when the radius decreases (for constant angular momentum), which means translational kinetic energy must decrease to conserve total energy, resulting in lower speed."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

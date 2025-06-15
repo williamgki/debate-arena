@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "id": "043-beth-d-paul-h-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:D Paul:H Wrapping ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "circular-motion", "angular-momentum", "energy-conservation", "wrapping-ball"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T16:00:00.000Z",
+      "lastModified": "2024-06-16T16:30:00.000Z",
+      "started": "2024-06-16T16:05:00.000Z",
+      "completed": "2024-06-16T16:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    },
+    "paul": {
+      "id": "paul",
+      "role": "honest",
+      "type": "human",
+      "name": "Paul",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 69,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It doesn't change",
+        "dishonestAnswer": "It's unclear, there's an argument for both speeding up and staying the same"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the energy of the system change?"
+      },
+      "participantId": "paul",
+      "timestamps": {
+        "created": "2024-06-16T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 7,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Probably not, it's not entirely clear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is there an argument that it speeds up based on approximate conservation of angular momentum?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum_argument",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No clear response given",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "paul",
+      "timestamps": {
+        "created": "2024-06-16T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_debate",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "It doesn't change",
+        "dishonestAnswer": "Draw",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is there an argument that the speed stays constant based on approximate conservation of energy?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T16:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation_argument",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No clear response given",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Do these arguments use similar levels of approximation?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T16:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "approximation_comparison",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "No clear response given",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "wrapping_ball_physics": {
+      "id": "wrapping_ball_physics",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a classic wrapping ball problem, similar to debates 009, 015, and others. Paul (honest) argues the speed doesn't change based on energy conservation. Beth (dishonest) creates confusion by suggesting both angular momentum and energy conservation arguments are equally valid."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T16:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "energy_conservation_notes": {
+      "id": "energy_conservation_notes",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "Paul's notes: 'There's some subtlety with time periods and stuff like that, I mean the actually true thing.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T16:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "angular_momentum_argument": {
+      "id": "angular_momentum_argument",
+      "nodeId": "node_2",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes explain the angular momentum argument: 'I mean there's an argument that's like \"the pole only turns infinitesimally so there's not much angular momentum transferred from the ball, so angular momentum is approximately conserved, in a similar way to how energy is approximately conserved\"'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T16:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "energy_argument_detail": {
+      "id": "energy_argument_detail",
+      "nodeId": "node_4",
+      "type": "note",
+      "content": {
+        "text": "Paul's notes about energy conservation: 'H: does this refer to the actually good argument? Or are you going to try to make some kind of other derpy argument? D: no, I'm arguing the energy of the ball is conserved to the extent that the pole approximately doesn't move'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T16:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "wrapping-ball-problem"
+    ]
+  }
+}

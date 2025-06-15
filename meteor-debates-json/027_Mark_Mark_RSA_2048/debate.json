@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "id": "027-mark-mark-rsa-2048",
+    "version": "1.0",
+    "topic": {
+      "title": "Mark Mark RSA-2048",
+      "description": "Is RSA-2048 a prime number?",
+      "tags": ["mathematics", "cryptography", "rsa", "prime-numbers", "factorization"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T03:00:00.000Z",
+      "lastModified": "2024-06-16T03:30:00.000Z",
+      "started": "2024-06-16T03:05:00.000Z",
+      "completed": "2024-06-16T03:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 5,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark1": {
+      "id": "mark1",
+      "role": "honest",
+      "type": "human",
+      "name": "Mark",
+      "side": "honest"
+    },
+    "mark2": {
+      "id": "mark2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Is RSA-2048 a prime number?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T03:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Yes"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "If a number satisfies PROPERTY is it prime?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T03:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "property_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.75,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Maybe",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is the smallest number that isn't 1 that divides RSA-2048 from [3, sqrt(RSA-2048)/2]?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T03:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "divisor_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "Maybe",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "does RSA-2048 satisfy PROPERTY?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T03:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "property_satisfaction",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Maybe",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Is the smallest number that isn't 1 that divides RSA-2048 from [3, sqrt(RSA-2048)/2]?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T03:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "divisor_repeat",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "Maybe",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "rsa_challenge_number": {
+      "id": "rsa_challenge_number",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "RSA-2048 is a well-known RSA challenge number - a large composite number whose factorization was part of a cryptographic challenge. It is definitely not prime, being the product of two large primes. The debate includes complex strategic considerations about primality testing and mathematical proof methods."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T03:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "property_abstraction": {
+      "id": "property_abstraction",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "The debate uses an abstract 'PROPERTY' (likely referring to passing AKS primality tests or similar) rather than discussing specific primality tests, showing sophisticated mathematical reasoning about proof methods."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T03:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "cryptographic-challenges"
+    ]
+  }
+}

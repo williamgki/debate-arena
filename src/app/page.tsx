@@ -32,6 +32,22 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Featured Library Link */}
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 rounded-2xl shadow-lg text-white">
+          <h2 className="text-xl font-semibold mb-2">
+            📚 Debate Library
+          </h2>
+          <p className="mb-4 opacity-90">
+            Explore 50+ debates from the Meteor platform covering physics, mathematics, probability, and more. 
+            Browse by topic, participants, or complexity level.
+          </p>
+          <Link href="/library" legacyBehavior>
+            <a className="inline-flex items-center px-4 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition">
+              🔍 Browse Debates
+            </a>
+          </Link>
+        </div>
+
         {/* CTA Buttons */}
         <div className="grid gap-4 md:grid-cols-2">
           <Link href="/setup" legacyBehavior>

@@ -1,0 +1,324 @@
+{
+  "metadata": {
+    "id": "014-beth-v-william-logical-uncertainty",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth v William logical uncertainty",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction.",
+      "tags": ["physics", "logical-uncertainty", "circular-motion", "energy-conservation", "probability"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-15T12:00:00.000Z",
+      "lastModified": "2024-06-15T13:30:00.000Z",
+      "started": "2024-06-15T12:05:00.000Z",
+      "completed": "2024-06-15T13:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 8,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 2,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "william": {
+      "id": "william",
+      "role": "dishonest",
+      "type": "human",
+      "name": "William",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It slows down slightly",
+        "dishonestAnswer": "Its speed stays exactly unchanged"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Does the train gain rotational energy as it moves to the smaller track?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, slightly",
+        "dishonestAnswer": "p=70%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the track ever exert a force that slows the train down?"
+      },
+      "participantId": "william",
+      "timestamps": {
+        "created": "2024-06-15T12:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "force_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "10%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is the train's rotational and kinetic energy approximately conserved (any additional energy change is much less than the change in rotational energy)?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-15T12:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 0.85,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "p=70%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Conditioned on 1=No, and no friction, must the speed of the train stay exactly unchanged?"
+      },
+      "participantId": "william",
+      "timestamps": {
+        "created": "2024-06-15T12:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "conditional_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "[blank]",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "If the train's rotational and kinetic energy is approximately conserved and the train gains rotational energy slightly as it moves to the smaller track, does the train slow down slightly?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-15T12:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "logical_conclusion",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 28,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "p=80%",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T12:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": ["meta-debate"],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "It slows down slightly",
+        "dishonestAnswer": "Its speed stays exactly unchanged",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "logical_uncertainty_approach": {
+      "id": "logical_uncertainty_approach",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate demonstrates 'logical uncertainty' - using probabilistic reasoning about logical/mathematical facts when facing computational constraints. The participants assign probabilities to physical principles and outcomes, reflecting uncertainty about complex physics calculations rather than just empirical uncertainty."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T13:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "probability_assignments": {
+      "id": "probability_assignments",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "Notice the use of explicit probability assignments (p=70%, p=80%, etc.) for physics claims, which is characteristic of logical uncertainty approaches where even deterministic physical facts are treated probabilistically due to computational limitations."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T13:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "meta_debate_structure": {
+      "id": "meta_debate_structure",
+      "nodeId": "node_6",
+      "type": "note",
+      "content": {
+        "text": "The inclusion of a meta-debate question asking which answer is better based on the presented arguments demonstrates sophisticated argumentation analysis and self-reflection within the debate structure."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T13:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.95
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "logical-uncertainty",
+      "probability-assignments"
+    ]
+  }
+}

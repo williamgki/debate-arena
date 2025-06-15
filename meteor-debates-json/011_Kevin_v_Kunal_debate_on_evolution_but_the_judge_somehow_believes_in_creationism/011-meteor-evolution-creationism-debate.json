@@ -1,0 +1,1033 @@
+{
+  "metadata": {
+    "id": "meteor-evolution-creationism-debate",
+    "version": "1.0",
+    "topic": {
+      "title": "Kevin v Kunal: Evolution vs Creationism",
+      "tags": [
+        "evolution",
+        "creationism",
+        "biology",
+        "debate"
+      ],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2025-06-15T12:05:00.000Z",
+      "lastModified": "2025-06-15T12:05:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {},
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 29,
+      "totalParticipants": 3,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 2.55,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "judge",
+      "type": "system",
+      "name": "Judge"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "proponent",
+      "type": "human",
+      "name": "Kevin"
+    },
+    "kunal": {
+      "id": "kunal",
+      "role": "opponent",
+      "type": "human",
+      "name": "Kunal"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "What explains the origin of the great diversity of plants and animals on Earth?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "A1: Creationism is real."
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_3",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_6",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_9",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_12",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_15",
+            "type": "elaborates"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "branch_A1",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "A2: Evolution - the concept that organisms' variations are heritable, that variations in ability cause some organisms to produce more offspring on average, and that this disparity causes species to change characteristics and evolve new traits over geologic time."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_18",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_21",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_24",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_27",
+            "type": "elaborates"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "branch_A2",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 42
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Q2: Isn't it true that evolutionary biologists reject written history as stated in numerous texts (see Bible, etc.)?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_4",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_5",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A1",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "A1: Yes"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "A2: Yes, but history is not always correct."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Q4: Isn't it true that Isaac Newton, Carl Linnaeus, and Nicolaus Steno et al., all scientists who helped discover and explain important laws of physics, biology, and geology all believe that creationism is true?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_7",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_8",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A1",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 30
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "A1: Yes"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "A2: Yes"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "Q5: If scientists in the forefront of their scientific applications that directly apply to evidence related to creationism all believe in creationism, isn't it more likely that creationism is a better explanation for these events?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_10",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_11",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A1",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 29
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "A1: Yes"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 4
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_11": {
+      "id": "node_11",
+      "content": {
+        "text": "A2: Possibly, but there is strong empirical evidence to think otherwise."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 5
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9
+      },
+      "version": 1
+    },
+    "node_12": {
+      "id": "node_12",
+      "content": {
+        "text": "Q7: Isn't it true that believing in creationism does not directly reject all modes of science? There is adequate explanation for the fossil records + evidence of happenings according to said historical and religious texts (i.e the Flood)?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_13",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_14",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A1",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 34
+      },
+      "version": 1
+    },
+    "node_13": {
+      "id": "node_13",
+      "content": {
+        "text": "A1: Yes"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_12",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 6
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_14": {
+      "id": "node_14",
+      "content": {
+        "text": "A2: Yes, but evolution is a simpler theory."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_12",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 7
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 6
+      },
+      "version": 1
+    },
+    "node_15": {
+      "id": "node_15",
+      "content": {
+        "text": "Q9: Is there a historical and logical chain of reasoning that are built of each other that explains creationism as being more accurate?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_16",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_17",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A1",
+        "sequenceInThread": 4
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 22
+      },
+      "version": 1
+    },
+    "node_16": {
+      "id": "node_16",
+      "content": {
+        "text": "A1: Yes"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_15",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 8
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_17": {
+      "id": "node_17",
+      "content": {
+        "text": "A2: No, as the prevailing theory is not always correct."
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_15",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A1",
+        "sequenceInThread": 9
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8
+      },
+      "version": 1
+    },
+    "node_18": {
+      "id": "node_18",
+      "content": {
+        "text": "Q1: Is there a logical chain of reasoning that leads naturally to natural selection?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_19",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_20",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A2",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20
+      },
+      "version": 1
+    },
+    "node_19": {
+      "id": "node_19",
+      "content": {
+        "text": "A1: Perhaps, but there is a also a logical chain of reasoning that leads to creationism. Hence, this argument is fallacious."
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_18",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20
+      },
+      "version": 1
+    },
+    "node_20": {
+      "id": "node_20",
+      "content": {
+        "text": "A2: Yes"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_18",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_21": {
+      "id": "node_21",
+      "content": {
+        "text": "Q3: Is there significant evidence contained in the fossil record, carbon dating, etc. to support evolution?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_22",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_23",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A2",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17
+      },
+      "version": 1
+    },
+    "node_22": {
+      "id": "node_22",
+      "content": {
+        "text": "A1: Perhaps, however, there is also adequate creationist explanations to all of these arguments, which show that such occurrences can be explained by creationism."
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_21",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20
+      },
+      "version": 1
+    },
+    "node_23": {
+      "id": "node_23",
+      "content": {
+        "text": "A2: Yes"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_21",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 4
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_24": {
+      "id": "node_24",
+      "content": {
+        "text": "Q6: Is natural selection evolution analogous to several known processes, such as artificial breeding of dogs and genetic algorithms in programming?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_25",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_26",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A2",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 22
+      },
+      "version": 1
+    },
+    "node_25": {
+      "id": "node_25",
+      "content": {
+        "text": "A1: Yes, but this is explained by humans modeling the image of our creator that we were created in. We have also not seen any examples that can reach the complexity of natural life."
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_24",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 5
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25
+      },
+      "version": 1
+    },
+    "node_26": {
+      "id": "node_26",
+      "content": {
+        "text": "A2: Yes"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_24",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 6
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    },
+    "node_27": {
+      "id": "node_27",
+      "content": {
+        "text": "Q8: By Occam's razor, is natural selection a simpler theory that explains the diversity of life as well or better than creationism?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_28",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_29",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_A2",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 20
+      },
+      "version": 1
+    },
+    "node_28": {
+      "id": "node_28",
+      "content": {
+        "text": "A1: No, creationism is backed up by several sources. There are also historical and logical chain of reasoning."
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_27",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 7
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16
+      },
+      "version": 1
+    },
+    "node_29": {
+      "id": "node_29",
+      "content": {
+        "text": "A2: Yes"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2025-06-15T12:05:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_27",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_A2",
+        "sequenceInThread": 8
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 1
+      },
+      "version": 1
+    }
+  },
+  "annotations": {},
+  "rootNodeId": "root_node"
+}

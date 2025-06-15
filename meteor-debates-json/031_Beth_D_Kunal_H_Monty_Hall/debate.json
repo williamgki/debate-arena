@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "id": "031-beth-d-kunal-h-monty-hall",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:D Kunal:H Monty Hall",
+      "description": "A prize is behind 1 of 3 doors. You choose a door at random. The host opens one of the other doors to reveal it doesn't contain the prize. Should you switch to the unopened door? The host's policy is to always open a door, and to randomly choose one door to open that (a) you didn't choose and that (b) doesn't contain the prize.",
+      "tags": ["probability", "monty-hall", "game-theory", "conditional-probability", "host-policy"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T07:00:00.000Z",
+      "lastModified": "2024-06-16T07:45:00.000Z",
+      "started": "2024-06-16T07:05:00.000Z",
+      "completed": "2024-06-16T07:45:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 9,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.7,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    },
+    "kunal": {
+      "id": "kunal",
+      "role": "honest",
+      "type": "human",
+      "name": "Kunal",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A prize is behind 1 of 3 doors. You choose a door at random. The host opens one of the other doors to reveal it doesn't contain the prize. Should you switch to the unopened door? The host's policy is to always open a door, and to randomly choose one door to open that (a) you didn't choose and that (b) doesn't contain the prize."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T07:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" },
+          { "targetNodeId": "cx_1", "type": "responds-to" },
+          { "targetNodeId": "cx_2", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 65,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "It probably doesn't make any difference if you switch"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is there a 1/3 probability of the prize being behind the door you chose if you don't switch?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T07:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "initial_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "It's unclear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "At the start of the game, is there an equal chance that the prize is behind the door you chose or that it's behind the unopened door?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T07:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "equal_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, however you are given further information once the door is opened.",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is there a 2/3 probability of the prize being behind the door if you switch?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T07:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "switch_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Probably not",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "In this question, you should switch since there is a greater probability of the prize being behind the door you switch to?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T07:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "conclusion",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "If this was true, then yes you should switch",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Does the host opening the other door change anything about which door the prize is behind?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T07:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "information_value",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Probably not",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "If the two doors had the same probability of having the prize initially, and nothing changed where the prize is, do they still have the same probability of having the prize?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T07:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "probability_preservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 28,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "cx_1": {
+      "id": "cx_1",
+      "content": {
+        "text": "What is the definition of probability that you're using in this situation?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T07:25:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "cross-examines" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "cross_examination",
+        "sequenceInThread": 0
+      },
+      "flags": ["cross-examination"],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.9,
+        "crossExaminationTarget": "beth",
+        "honestAnswer": "The probability the prize is behind the door is the proportion of times the prize is behind the door if you run the experiment many times",
+        "dishonestAnswer": "The probability the prize is behind the door is the proportion of times the prize is behind the door if you run the experiment many times",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "cx_2": {
+      "id": "cx_2",
+      "content": {
+        "text": "If you opened one of the doors and saw that there wasn't a prize, what would be the probability of the prize being in the remaining door?"
+      },
+      "participantId": "kunal",
+      "timestamps": {
+        "created": "2024-06-16T07:27:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "cross-examines" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "cross_examination",
+        "sequenceInThread": 1
+      },
+      "flags": ["cross-examination"],
+      "metrics": {
+        "wordCount": 23,
+        "confidenceLevel": 0.9,
+        "crossExaminationTarget": "beth",
+        "honestAnswer": "approximately 1",
+        "dishonestAnswer": "approximately 1",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "classic_monty_hall": {
+      "id": "classic_monty_hall",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a classic Monty Hall problem with explicit host policy. The correct answer is to switch (2/3 probability vs 1/3), but the dishonest participant argues that opening the door doesn't provide useful information, missing the key insight about conditional probability."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T07:45:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "role_reversal": {
+      "id": "role_reversal",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Interesting role reversal: Beth is taking the dishonest position while Kunal is honest, unlike most previous debates where Beth was typically honest."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T07:45:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "probability_definition": {
+      "id": "probability_definition",
+      "nodeId": "cx_1",
+      "type": "highlight",
+      "content": {
+        "text": "The cross-examination explores the fundamental definition of probability, with both participants agreeing on a frequentist interpretation based on repeated experiments."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T07:45:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "role-reversal"
+    ]
+  }
+}

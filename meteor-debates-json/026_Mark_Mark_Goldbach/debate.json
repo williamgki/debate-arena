@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "id": "026-mark-mark-goldbach",
+    "version": "1.0",
+    "topic": {
+      "title": "Mark Mark Goldbach",
+      "description": "Can every even integer greater than 2 and less than 100 be expressed as the sum of two primes?",
+      "tags": ["mathematics", "number-theory", "goldbach-conjecture", "primes"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T02:30:00.000Z",
+      "lastModified": "2024-06-16T02:45:00.000Z",
+      "started": "2024-06-16T02:35:00.000Z",
+      "completed": "2024-06-16T02:45:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 2,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 1,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark1": {
+      "id": "mark1",
+      "role": "honest",
+      "type": "human",
+      "name": "Mark",
+      "side": "honest"
+    },
+    "mark2": {
+      "id": "mark2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Can every even integer greater than 2 and less than 100 be expressed as the sum of two primes?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T02:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Can 60 be expressed as the sum of 2 primes?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T02:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "specific_example",
+        "sequenceInThread": 0
+      },
+      "flags": ["correlated-failure"],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "goldbach_conjecture": {
+      "id": "goldbach_conjecture",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate addresses a restricted version of the famous Goldbach conjecture, specifically for even integers between 2 and 100. The conjecture has been verified computationally for much larger ranges, so this restricted version is known to be true."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T02:45:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "correlated_failure_example": {
+      "id": "correlated_failure_example",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "The notes mention this as an example of 'correlated failure' where the honest participant has a good argument but one premise is false, causing them to lose points. The number 60 can indeed be expressed as sum of two primes (e.g., 7+53, 13+47, 17+43, 19+41, 23+37, 29+31)."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T02:45:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "correlated-failure-testing"
+    ]
+  }
+}

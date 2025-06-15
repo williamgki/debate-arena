@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "id": "038-william-h-mark-d-lewis-carroll",
+    "version": "1.0",
+    "topic": {
+      "title": "William:H Mark:D Lewis Carroll",
+      "description": "Lewis Carroll probability problem involving bag contents and Bayesian updating",
+      "tags": ["probability", "bayesian", "lewis-carroll", "conditional-probability"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T13:30:00.000Z",
+      "lastModified": "2024-06-16T13:45:00.000Z",
+      "started": "2024-06-16T13:35:00.000Z",
+      "completed": "2024-06-16T13:45:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 1,
+      "totalParticipants": 2,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 1,
+      "longestThread": 0
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "william": {
+      "id": "william",
+      "role": "honest",
+      "type": "human",
+      "name": "William",
+      "side": "honest"
+    },
+    "mark": {
+      "id": "mark",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Lewis Carroll Problem"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T13:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": []
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "lewis_carroll_variant": {
+      "id": "lewis_carroll_variant",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "Another variant of the Lewis Carroll probability problem, similar to debates 017 and 029, involving Bayesian reasoning about bag contents after observing draws."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T13:45:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "bayesian-reasoning",
+      "probability-paradoxes"
+    ]
+  }
+}

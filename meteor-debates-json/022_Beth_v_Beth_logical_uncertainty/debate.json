@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "id": "022-beth-v-beth-logical-uncertainty",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth v Beth logical uncertainty",
+      "description": "Three tubs are brimful with ice-cold water. Each has an iceberg floating in it. In tub A, the berg has a large air bubble. In tub W, the berg has some unfrozen water inside it. In tub M, the berg has a heavy metal rod inside it. What happens to the water level in each of the three tubs when the icebergs melt?",
+      "tags": ["physics", "logical-uncertainty", "buoyancy", "density", "ice-melting", "water-displacement"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-15T22:30:00.000Z",
+      "lastModified": "2024-06-15T23:00:00.000Z",
+      "started": "2024-06-15T22:35:00.000Z",
+      "completed": "2024-06-15T23:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 4,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.5,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth1": {
+      "id": "beth1",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "beth2": {
+      "id": "beth2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Three tubs are brimful with ice-cold water. Each has an iceberg floating in it. In tub A, the berg has a large air bubble. In tub W, the berg has some unfrozen water inside it. In tub M, the berg has a heavy metal rod inside it. What happens to the water level in each of the three tubs when the icebergs melt?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T22:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 60,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "M gets lower, W and A stay the same to a good approximation",
+        "dishonestAnswer": "M probably gets lower, W probably stays the same, it's unclear what happens to A"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "What happens to W and M, respectively?"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T22:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "w_and_m_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "W stays approximately the same, M gets lower",
+        "dishonestAnswer": "W probably stays approximately the same, M probably gets lower",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "What happens to A?"
+      },
+      "participantId": "beth1",
+      "timestamps": {
+        "created": "2024-06-15T22:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "a_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 4,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "Stays approximately the same",
+        "dishonestAnswer": "It's unclear",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "[blank question]"
+      },
+      "participantId": "beth2",
+      "timestamps": {
+        "created": "2024-06-15T22:44:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "blank_question",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.0,
+        "honestAnswer": "[blank]",
+        "dishonestAnswer": "[blank]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "repeat_iceberg_problem": {
+      "id": "repeat_iceberg_problem",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This appears to be essentially the same iceberg melting problem as debate 021, but with slightly different participant responses. The physical setup is identical involving buoyancy and density considerations."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T23:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "uncertainty_emphasis": {
+      "id": "uncertainty_emphasis",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "The dishonest participant emphasizes uncertainty about the air bubble case (tub A), while the honest participant is more confident in the approximation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T23:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "logical-uncertainty"
+    ]
+  }
+}

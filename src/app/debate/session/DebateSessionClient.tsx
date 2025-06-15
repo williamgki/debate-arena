@@ -1,10 +1,12 @@
 'use client';
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
+import { DebateConverter, DebateAPI, LegacyDebateState } from '@/lib/utils/debate-conversion';
+import { DebateDocument } from '@/types/debate';
 
 
 // --- Types and Helpers ---
@@ -106,11 +108,147 @@ export default function DebateSessionClient() {
   const [isAutonomousRunning, setIsAutonomousRunning] = useState(false);
   const [obfuscatingDebaterId, setObfuscatingDebaterId] = useState<string | null>(null);
 
+  // Storage-related state
+  const [currentDebateId, setCurrentDebateId] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+
   const router = useRouter();
-  const resetDebate = () => { /* same reset code as before */ };
+  const resetDebate = () => { 
+    setTree({
+      nodeId: uuidv4(),
+      parentId: null,
+      text: topic,
+      participantId: 'system',
+      obfuscationFlag: false,
+      children: [],
+    });
+    setCurrentDebateId(null);
+    setSaveStatus('idle');
+  };
 
   // For manual branch input
   const [branchInputs, setBranchInputs] = useState<Record<string, string>>({});
+
+  // --- Save/Load Functions ---
+  const saveDebate = useCallback(async () => {
+    if (isSaving) return;
+    
+    setIsSaving(true);
+    setSaveStatus('saving');
+    
+    try {
+      const legacyState: LegacyDebateState = {
+        tree,
+        topic,
+        debaterARole,
+        debaterBRole,
+        debaterAModel,
+        debaterBModel,
+        judgeModel
+      };
+      
+      if (currentDebateId) {
+        // Update existing debate
+        const debateDoc = DebateConverter.convertToDebateDocument(legacyState);
+        const updated = await DebateAPI.updateDebate(currentDebateId, debateDoc);
+        if (updated) {
+          setSaveStatus('saved');
+          setTimeout(() => setSaveStatus('idle'), 2000);
+        } else {
+          setSaveStatus('error');
+        }
+      } else {
+        // Create new debate
+        const request = DebateConverter.createDebateRequest(legacyState);
+        const newDebate = await DebateAPI.createDebate(request);
+        if (newDebate) {
+          setCurrentDebateId(newDebate.metadata.id);
+          setSaveStatus('saved');
+          setTimeout(() => setSaveStatus('idle'), 2000);
+        } else {
+          setSaveStatus('error');
+        }
+      }
+    } catch (error) {
+      console.error('Error saving debate:', error);
+      setSaveStatus('error');
+    } finally {
+      setIsSaving(false);
+    }
+  }, [tree, topic, debaterARole, debaterBRole, debaterAModel, debaterBModel, judgeModel, currentDebateId, isSaving]);
+
+  const loadDebate = useCallback(async (debateId: string) => {
+    setIsLoading(true);
+    
+    try {
+      const debate = await DebateAPI.getDebate(debateId);
+      if (debate) {
+        const legacyTree = DebateConverter.convertFromDebateDocument(debate);
+        setTree(legacyTree);
+        setCurrentDebateId(debate.metadata.id);
+        
+        // Update models from participants
+        const debaterA = Object.values(debate.participants).find(p => p.role === 'debaterA');
+        const debaterB = Object.values(debate.participants).find(p => p.role === 'debaterB');
+        const judge = Object.values(debate.participants).find(p => p.role === 'judge');
+        
+        if (debaterA?.model) setDebaterAModel(debaterA.model);
+        if (debaterB?.model) setDebaterBModel(debaterB.model);
+        if (judge?.model) setJudgeModel(judge.model);
+        
+        setSaveStatus('saved');
+      }
+    } catch (error) {
+      console.error('Error loading debate:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  const exportDebate = useCallback(async (format: string = 'json') => {
+    if (!currentDebateId) {
+      alert('Please save the debate first before exporting.');
+      return;
+    }
+    
+    try {
+      const blob = await DebateAPI.exportDebate(currentDebateId, format);
+      if (blob) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `debate-${currentDebateId}.${format}`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+    } catch (error) {
+      console.error('Error exporting debate:', error);
+      alert('Failed to export debate.');
+    }
+  }, [currentDebateId]);
+
+  // Auto-save functionality
+  useEffect(() => {
+    if (currentDebateId && tree.children.length > 0) {
+      const timer = setTimeout(() => {
+        saveDebate();
+      }, 5000); // Auto-save after 5 seconds of inactivity
+      
+      return () => clearTimeout(timer);
+    }
+  }, [tree, currentDebateId, saveDebate]);
+
+  // Check for debate ID in URL params
+  useEffect(() => {
+    const debateId = searchParams.get('debateId') || searchParams.get('load');
+    if (debateId && debateId !== currentDebateId) {
+      loadDebate(debateId);
+    }
+  }, [searchParams, currentDebateId, loadDebate]);
 
   // --- Prompt Builders ---
   const buildDebaterPrompt = useCallback(
@@ -779,6 +917,58 @@ return (
               ? '🤖 Running AI Debate…'
               : '🚀 Run Full AI Debate'}
           </button>
+        )}
+
+        {/* Save/Load buttons */}
+        <button
+          onClick={saveDebate}
+          disabled={isSaving || isAutonomousRunning}
+          className={`px-3 py-1 rounded text-white ${
+            saveStatus === 'saving' 
+              ? 'bg-yellow-500 cursor-not-allowed'
+              : saveStatus === 'saved'
+              ? 'bg-green-500'
+              : saveStatus === 'error'
+              ? 'bg-red-500'
+              : 'bg-blue-600 hover:bg-blue-700'
+          }`}
+          title={currentDebateId ? 'Update saved debate' : 'Save new debate'}
+        >
+          {saveStatus === 'saving' 
+            ? '💾 Saving...' 
+            : saveStatus === 'saved'
+            ? '✅ Saved'
+            : saveStatus === 'error'
+            ? '❌ Error'
+            : currentDebateId
+            ? '💾 Update'
+            : '💾 Save'}
+        </button>
+
+        <Link
+          href="/debates"
+          className="px-3 py-1 rounded bg-purple-600 hover:bg-purple-700 text-white"
+        >
+          📚 Browse Debates
+        </Link>
+
+        {currentDebateId && (
+          <div className="flex gap-1">
+            <button
+              onClick={() => exportDebate('json')}
+              className="px-2 py-1 rounded bg-gray-600 hover:bg-gray-700 text-white text-xs"
+              title="Export as JSON"
+            >
+              📄 JSON
+            </button>
+            <button
+              onClick={() => exportDebate('markdown')}
+              className="px-2 py-1 rounded bg-gray-600 hover:bg-gray-700 text-white text-xs"
+              title="Export as Markdown"
+            >
+              📝 MD
+            </button>
+          </div>
         )}
       </div>
 

@@ -1,0 +1,2165 @@
+{
+  "metadata": {
+    "id": "beth-switch-train-speed",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth switch honest argument: train speed",
+      "tags": [
+        "physics",
+        "mechanics",
+        "energy",
+        "kinetics"
+      ],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2025-06-15T12:10:00.000Z",
+      "lastModified": "2025-06-15T12:10:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {},
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 66,
+      "totalParticipants": 3,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 1.62,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "judge",
+      "type": "system",
+      "name": "Judge"
+    },
+    "h": {
+      "id": "h",
+      "role": "honest",
+      "type": "human",
+      "name": "H"
+    },
+    "d": {
+      "id": "d",
+      "role": "dishonest",
+      "type": "human",
+      "name": "D"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 34
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "It stays the same (90%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.9
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "It's unclear (30% stays the same, 70% other)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.3
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the energy of the train doesn't change, will its speed stay the same?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_4",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_5",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 3
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Yes (95%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 4
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.95
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Yes (60%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 5
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.6
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "If the translational kinetic energy of the train changed, would its energy have to change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_7",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_8",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 6
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "Yes (95%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 7
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.95
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "Yes (70%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 8
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.7
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "Do any of these other types of energy change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_10",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_11",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 9
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "No (96%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 10
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_11": {
+      "id": "node_11",
+      "content": {
+        "text": "No (75%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 11
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.75
+      },
+      "version": 1
+    },
+    "node_12": {
+      "id": "node_12",
+      "content": {
+        "text": "Are there types of energy that a point mass can have apart from translational kinetic energy and gravitational potential energy that change in this scenario?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_13",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_14",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 12
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25
+      },
+      "version": 1
+    },
+    "node_13": {
+      "id": "node_13",
+      "content": {
+        "text": "No (96%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_12",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 13
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_14": {
+      "id": "node_14",
+      "content": {
+        "text": "No (80%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_12",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 14
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.8
+      },
+      "version": 1
+    },
+    "node_15": {
+      "id": "node_15",
+      "content": {
+        "text": "Can the point mass have types of energy apart from translational kinetic energy and gravitational potential energy that would be relevant in this scenario?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_16",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_17",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 15
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24
+      },
+      "version": 1
+    },
+    "node_16": {
+      "id": "node_16",
+      "content": {
+        "text": "No (96%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_15",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 16
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_17": {
+      "id": "node_17",
+      "content": {
+        "text": "No (85%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_15",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 17
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.85
+      },
+      "version": 1
+    },
+    "node_18": {
+      "id": "node_18",
+      "content": {
+        "text": "Is this a complete list of types of energy that might be relevant in this scenario:\n- gravitational potential energy\n- elastic potential energy\n- rotational kinetic energy\n- translational kinetic energy"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_19",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_20",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 18
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 32
+      },
+      "version": 1
+    },
+    "node_19": {
+      "id": "node_19",
+      "content": {
+        "text": "Yes (96%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_18",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 19
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_20": {
+      "id": "node_20",
+      "content": {
+        "text": "Yes (90%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_18",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 20
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.9
+      },
+      "version": 1
+    },
+    "node_21": {
+      "id": "node_21",
+      "content": {
+        "text": "Can the point mass have elastic potential energy or rotational kinetic energy?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_22",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_23",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 21
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12
+      },
+      "version": 1
+    },
+    "node_22": {
+      "id": "node_22",
+      "content": {
+        "text": "No (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_21",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 22
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_23": {
+      "id": "node_23",
+      "content": {
+        "text": "No (95%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_21",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 23
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.95
+      },
+      "version": 1
+    },
+    "node_24": {
+      "id": "node_24",
+      "content": {
+        "text": "Does the gravitational potential energy of the point mass change in this scenario?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_25",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_26",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 24
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13
+      },
+      "version": 1
+    },
+    "node_25": {
+      "id": "node_25",
+      "content": {
+        "text": "No (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_24",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 25
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_26": {
+      "id": "node_26",
+      "content": {
+        "text": "No (95%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_24",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 26
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.95
+      },
+      "version": 1
+    },
+    "node_27": {
+      "id": "node_27",
+      "content": {
+        "text": "Does the point mass's height above the Earth's surface change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_28",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_29",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 27
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10
+      },
+      "version": 1
+    },
+    "node_28": {
+      "id": "node_28",
+      "content": {
+        "text": "No (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_27",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 28
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_29": {
+      "id": "node_29",
+      "content": {
+        "text": "No (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_27",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 29
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_30": {
+      "id": "node_30",
+      "content": {
+        "text": "Are there any other significant sources of gravity apart from the earth?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_31",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_32",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 30
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12
+      },
+      "version": 1
+    },
+    "node_31": {
+      "id": "node_31",
+      "content": {
+        "text": "No (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_30",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 31
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_32": {
+      "id": "node_32",
+      "content": {
+        "text": "No (98%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_30",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 32
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.98
+      },
+      "version": 1
+    },
+    "node_33": {
+      "id": "node_33",
+      "content": {
+        "text": "Conditioned on 13=No and 14=No, does the gravitational potential energy of the point mass change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_34",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_35",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 33
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15
+      },
+      "version": 1
+    },
+    "node_34": {
+      "id": "node_34",
+      "content": {
+        "text": "No (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_33",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 34
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_35": {
+      "id": "node_35",
+      "content": {
+        "text": "No (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_33",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 35
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_36": {
+      "id": "node_36",
+      "content": {
+        "text": "Does 'conditioned on 13=No and 14=No' mean we only need to consider the object's height above the Earth's surface, and that its height doesn't change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_37",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_38",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 36
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25
+      },
+      "version": 1
+    },
+    "node_37": {
+      "id": "node_37",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_36",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 37
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_38": {
+      "id": "node_38",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_36",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 38
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_39": {
+      "id": "node_39",
+      "content": {
+        "text": "Wikipedia quote: Close to the Earth's surface, the gravitational field is approximately constant, and the gravitational potential energy of an object reduces to mass*[gravity of earth]*height"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_40",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_41",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 39
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 26
+      },
+      "version": 1
+    },
+    "node_40": {
+      "id": "node_40",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_39",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 40
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_41": {
+      "id": "node_41",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_39",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 41
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_42": {
+      "id": "node_42",
+      "content": {
+        "text": "Does the mass of the point mass change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_43",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_44",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 42
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8
+      },
+      "version": 1
+    },
+    "node_43": {
+      "id": "node_43",
+      "content": {
+        "text": "No (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_42",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 43
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_44": {
+      "id": "node_44",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_42",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 44
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_45": {
+      "id": "node_45",
+      "content": {
+        "text": "If the speed of the train changed, would its translational kinetic energy have to change?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_46",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_47",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 45
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15
+      },
+      "version": 1
+    },
+    "node_46": {
+      "id": "node_46",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_45",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 46
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_47": {
+      "id": "node_47",
+      "content": {
+        "text": "Yes (85%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_45",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 47
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.85
+      },
+      "version": 1
+    },
+    "node_48": {
+      "id": "node_48",
+      "content": {
+        "text": "Is the translational kinetic energy for a point mass equal to 0.5 times the square of the magnitude of its velocity?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_49",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_50",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 48
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21
+      },
+      "version": 1
+    },
+    "node_49": {
+      "id": "node_49",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_48",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 49
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_50": {
+      "id": "node_50",
+      "content": {
+        "text": "Yes (96%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_48",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 50
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_51": {
+      "id": "node_51",
+      "content": {
+        "text": "Is the speed of the train around the track the same thing as the magnitude of its velocity?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_52",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_53",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 51
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18
+      },
+      "version": 1
+    },
+    "node_52": {
+      "id": "node_52",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_51",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 52
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_53": {
+      "id": "node_53",
+      "content": {
+        "text": "Yes (96%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_51",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 53
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.96
+      },
+      "version": 1
+    },
+    "node_54": {
+      "id": "node_54",
+      "content": {
+        "text": "Do 21 and 22 together imply that translational kinetic energy is a quadratic function of speed, and therefore that it must change if speed changes?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_55",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_56",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 54
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 25
+      },
+      "version": 1
+    },
+    "node_55": {
+      "id": "node_55",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_54",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 55
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_56": {
+      "id": "node_56",
+      "content": {
+        "text": "Yes (94%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_54",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 56
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.94
+      },
+      "version": 1
+    },
+    "node_57": {
+      "id": "node_57",
+      "content": {
+        "text": "Do 21 and 22 together imply that translational kinetic energy is a quadratic function of speed?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_58",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_59",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 57
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16
+      },
+      "version": 1
+    },
+    "node_58": {
+      "id": "node_58",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_57",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 58
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_59": {
+      "id": "node_59",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_57",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 59
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_60": {
+      "id": "node_60",
+      "content": {
+        "text": "Do we only need to consider positive speeds?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_61",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_62",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 60
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8
+      },
+      "version": 1
+    },
+    "node_61": {
+      "id": "node_61",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_60",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 61
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_62": {
+      "id": "node_62",
+      "content": {
+        "text": "Yes (98%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_60",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 62
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.98
+      },
+      "version": 1
+    },
+    "node_63": {
+      "id": "node_63",
+      "content": {
+        "text": "If y is a quadratic function of x, does y have a different value for every different positive value of x?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_64",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_65",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 63
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 21
+      },
+      "version": 1
+    },
+    "node_64": {
+      "id": "node_64",
+      "content": {
+        "text": "Yes (~100%)"
+      },
+      "participantId": "h",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_63",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 64
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    },
+    "node_65": {
+      "id": "node_65",
+      "content": {
+        "text": "Yes (98%)"
+      },
+      "participantId": "d",
+      "timestamps": {
+        "created": "2025-06-15T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_63",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "main_thread",
+        "sequenceInThread": 65
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.98
+      },
+      "version": 1
+    }
+  },
+  "annotations": {},
+  "rootNodeId": "root_node"
+}

@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "id": "030-beth-h-chris-d-switch",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:H Chris:D switch",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass",
+      "tags": ["physics", "circular-motion", "energy-conservation", "point-mass", "translational-kinetic-energy"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T06:00:00.000Z",
+      "lastModified": "2024-06-16T06:30:00.000Z",
+      "started": "2024-06-16T06:05:00.000Z",
+      "completed": "2024-06-16T06:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 4,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.5,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "chris": {
+      "id": "chris",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Chris",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T06:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 30,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "The speed stays the same (95% confidence)",
+        "dishonestAnswer": "The speed probably doesn't stay the same (90% confidence)"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the translational kinetic energy of the cart stay the same?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T06:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "kinetic_energy_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.96,
+        "honestAnswer": "Yes (96% confidence)",
+        "dishonestAnswer": "No (85% confidence)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Can we think of the cart at first as moving without rotation in a rotating reference frame?"
+      },
+      "participantId": "chris",
+      "timestamps": {
+        "created": "2024-06-16T06:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "reference_frame",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "[blank]",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the translational kinetic energy of the cart stays the same, will its speed stay the same?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T06:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "logical_conclusion",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.99,
+        "honestAnswer": "Yes (99% confidence)",
+        "dishonestAnswer": "Yes (95% confidence)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "point_mass_clarification": {
+      "id": "point_mass_clarification",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This version of the train switching problem again emphasizes the point mass assumption, which eliminates rotational energy concerns. The debate focuses on translational kinetic energy conservation and reference frame considerations."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T06:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "high_confidence_physics": {
+      "id": "high_confidence_physics",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "Both participants show very high confidence levels (96% and 85%) in their physics reasoning, with the honest participant being more confident about energy conservation principles."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T06:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.95
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing", 
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "confidence-levels",
+      "reference-frames"
+    ]
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "id": "005-thomas-pranay-train-practice",
+    "version": "1.0",
+    "topic": {
+      "title": "Train Speed on Different Track Radii - AISF Practice Debate",
+      "description": "A physics problem about a train coasting around circular tracks of different radii, examining speed changes through conservation laws. This is a practice debate for the AISF (Artificial Intelligence Safety Foundation).",
+      "tags": ["physics", "conservation-laws", "circular-motion", "AISF", "practice-debate"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T16:00:00.000Z",
+      "lastModified": "2024-06-14T17:30:00.000Z", 
+      "started": "2024-06-14T16:05:00.000Z",
+      "completed": "2024-06-14T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 1,
+      "averageDepth": 2,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "thomas": {
+      "id": "thomas",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Thomas",
+      "side": "dishonest"
+    },
+    "pranay": {
+      "id": "pranay",
+      "role": "honest",
+      "type": "human", 
+      "name": "Pranay",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 27,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It slows down",
+        "dishonestAnswer": "Who knows, not Thomas"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is energy conserved?"
+      },
+      "participantId": "pranay",
+      "timestamps": {
+        "created": "2024-06-14T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Was any new force applied to the train?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side", 
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If energy is conserved, does the train slow down?"
+      },
+      "participantId": "pranay",
+      "timestamps": {
+        "created": "2024-06-14T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "If no force is applied, is motion is conserved?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T16:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "If motion is conserved, does speed change?"
+      },
+      "participantId": "thomas",
+      "timestamps": {
+        "created": "2024-06-14T16:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 2
+      },
+      "flags": ["meta-debate"],
+      "metrics": {
+        "wordCount": 7,
+        "confidenceLevel": 0.5,
+        "honestAnswer": "No",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This AISF practice debate involves the same physics question as previous debates but with a different argumentative approach. The dishonest side uses confusion and claims of ignorance rather than attempting false physics arguments."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.75
+    },
+    "debate_strategy": {
+      "id": "debate_strategy",
+      "nodeId": "node_5",
+      "type": "highlight",
+      "content": {
+        "text": "Thomas attempts to create a logical chain where if motion is conserved, speed doesn't change. However, this conflates different types of conservation laws and fails to address the energy analysis that leads to the correct answer."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.8
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

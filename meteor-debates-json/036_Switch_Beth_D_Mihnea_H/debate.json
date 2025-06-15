@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "id": "036-switch-beth-d-mihnea-h",
+    "version": "1.0",
+    "topic": {
+      "title": "Switch Beth:D Mihnea:H",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction.",
+      "tags": ["physics", "circular-motion", "energy-conservation", "earth-rotation", "coriolis-effects"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T12:00:00.000Z",
+      "lastModified": "2024-06-16T12:30:00.000Z",
+      "started": "2024-06-16T12:05:00.000Z",
+      "completed": "2024-06-16T12:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 5,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    },
+    "mihnea": {
+      "id": "mihnea",
+      "role": "honest",
+      "type": "human",
+      "name": "Mihnea",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 24,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "The speed will stay approximately the same. Sometimes a small slowdown might be detectable with the naked eye.",
+        "dishonestAnswer": "It's unclear; modeling the problem in different ways gives different answers; it may slow down or speed up"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is there anything giving the train kinetic energy?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-16T12:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_source",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No",
+        "dishonestAnswer": "It's unclear (the rotation of the earth might be)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If we consider the earth to be stationary, does one reasonable model suggest the train will slow down?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T12:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "stationary_earth_model",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes, but the slowdown is small",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is the train losing kinetic energy, other than via an increase in its rotational energy?"
+      },
+      "participantId": "mihnea",
+      "timestamps": {
+        "created": "2024-06-16T12:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_loss_analysis",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "It's unclear (the rotation of the earth or the effect of the curved track on the wheels might be slowing it down)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "If we model the train in its rotating reference frame, does the coreolis effect suggest it speeds up?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T12:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "coriolis_effect",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "I think an increase is impossible, except maybe to an insignificant amount",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "complex_physics_models": {
+      "id": "complex_physics_models",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This debate explores multiple physics models including Earth rotation effects, Coriolis forces, and different reference frames. Beth (dishonest) argues that different modeling approaches give different answers, while Mihnea (honest) focuses on fundamental energy conservation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T12:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "curved_track_model": {
+      "id": "curved_track_model",
+      "nodeId": "node_2",
+      "type": "highlight",
+      "content": {
+        "text": "Beth's notes reference a model based on 'trains always slow down on a curved track, the tighter the curve the more they slow down' - a practical engineering consideration."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T12:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "rotating_surface_effects": {
+      "id": "rotating_surface_effects",
+      "nodeId": "node_4",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes mention planning to argue from the train's perspective on a rotating surface, involving Coriolis forces, showing sophisticated understanding of non-inertial reference frames."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T12:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "reference-frames"
+    ]
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "metadata": {
+    "id": "meteor-three-tubs-iceberg-melt",
+    "version": "1.0",
+    "topic": {
+      "title": "Three tubs iceberg melt",
+      "tags": [
+        "physics",
+        "buoyancy",
+        "fluid-dynamics",
+        "iceberg"
+      ],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2025-06-15T12:00:00.000Z",
+      "lastModified": "2025-06-15T12:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {},
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 12,
+      "totalParticipants": 3,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 2.17,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth_honest": {
+      "id": "beth_honest",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth (Honest)",
+      "side": "honest"
+    },
+    "beth_dishonest": {
+      "id": "beth_dishonest",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth (Dishonest)",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Three tubs are brimful with ice-cold water. Each has an iceberg floating in it. In tub A, the berg has a large air bubble. In tub W, the berg has some unfrozen water inside it. In tub M, the berg has a heavy metal rod inside it. What happens to the water level in each of the three tubs when the icebergs melt?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          {
+            "targetNodeId": "node_1",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_2",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 40
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "M gets lower, W and A stay the same to a good approximation (95%)"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_3",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_6",
+            "type": "elaborates"
+          },
+          {
+            "targetNodeId": "node_9",
+            "type": "elaborates"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.95
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "M gets lower, W spills over and A gets lower (50%)"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "root_node",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "main_thread",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.5
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "When a solid iceberg melts, does the water level remain unchanged (to a good approximation)?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "elaborates"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_4",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_5",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_1",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Yes (97%)"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_1",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.97
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Yes (70%)"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_3",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_1",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.7
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Conditioned on 1=Yes, does the water level in W and A stay the same (to a good approximation)?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "elaborates"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_7",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_8",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_2",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18
+      },
+      "version": 1
+    },
+    "node_7": {
+      "id": "node_7",
+      "content": {
+        "text": "Yes (98%)"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_2",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.98
+      },
+      "version": 1
+    },
+    "node_8": {
+      "id": "node_8",
+      "content": {
+        "text": "Yes (70%)"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_6",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_2",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.7
+      },
+      "version": 1
+    },
+    "node_9": {
+      "id": "node_9",
+      "content": {
+        "text": "Does the water level in M get lower?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_1",
+            "type": "elaborates"
+          }
+        ],
+        "children": [
+          {
+            "targetNodeId": "node_10",
+            "type": "responds-to"
+          },
+          {
+            "targetNodeId": "node_11",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "branch_3",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8
+      },
+      "version": 1
+    },
+    "node_10": {
+      "id": "node_10",
+      "content": {
+        "text": "Yes (99%)"
+      },
+      "participantId": "beth_honest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_3",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.99
+      },
+      "version": 1
+    },
+    "node_11": {
+      "id": "node_11",
+      "content": {
+        "text": "Yes (70%)"
+      },
+      "participantId": "beth_dishonest",
+      "timestamps": {
+        "created": "2025-06-15T12:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [
+          {
+            "targetNodeId": "node_9",
+            "type": "responds-to"
+          }
+        ]
+      },
+      "position": {
+        "depth": 3,
+        "threadId": "branch_3",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 2,
+        "confidenceLevel": 0.7
+      },
+      "version": 1
+    }
+  },
+  "annotations": {},
+  "rootNodeId": "root_node"
+}

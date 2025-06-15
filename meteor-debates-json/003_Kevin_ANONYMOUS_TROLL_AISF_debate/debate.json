@@ -1,0 +1,279 @@
+{
+  "metadata": {
+    "id": "003-kevin-anonymous-troll-train-physics",
+    "version": "1.0",
+    "topic": {
+      "title": "Train Speed on Different Track Radii - Conservation of Energy and Angular Momentum",
+      "description": "A physics problem about a train coasting around a large circular track and then switching to a smaller circular track, examining whether it speeds up or slows down based on conservation laws.",
+      "tags": ["physics", "conservation-of-energy", "angular-momentum", "circular-motion", "trains"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T16:00:00.000Z",
+      "lastModified": "2024-06-14T17:30:00.000Z", 
+      "started": "2024-06-14T16:05:00.000Z",
+      "completed": "2024-06-14T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "dishonest"
+    },
+    "anonymous_troll": {
+      "id": "anonymous_troll",
+      "role": "honest",
+      "type": "human", 
+      "name": "ANONYMOUS TROLL AISF",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 27,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It slows down",
+        "dishonestAnswer": "IT GETS FASTER (P=0.87)"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is energy conserved?"
+      },
+      "participantId": "anonymous_troll",
+      "timestamps": {
+        "created": "2024-06-14T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "I'M NOT SURE, IS IT? I THINK NOT (P=51%)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If energy is conserved, does the speed of the train decrease?"
+      },
+      "participantId": "anonymous_troll",
+      "timestamps": {
+        "created": "2024-06-14T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side", 
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 12,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "PERHAPS NOT!",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "BY THE LAW OF ANGULAR MOMENTUM, ISN'T MOMENTUM CONSERVED?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-14T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 10,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No",
+        "dishonestAnswer": "YES!",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "IF MOMENTUM IS CONSERVED, SINCE MOMENTUM = MASS*VELOCITY*RADIUS, SINCE THE RADIUS SHRINKS, MUSTN'T THE VELOCITY INCREASE FOR ANGULAR MOMENTUM TO BE CONSERVED???"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-14T16:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 26,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "YES",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Is it true that there are no net external forces acting on the train-rails system?"
+      },
+      "participantId": "anonymous_troll",
+      "timestamps": {
+        "created": "2024-06-14T16:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 2
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes (p=0.95)",
+        "dishonestAnswer": "NO (P=0.05)",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a physics problem involving conservation laws and circular motion. The honest side correctly identifies that energy conservation leads to the train slowing down when switching to a smaller track. The dishonest side incorrectly applies angular momentum conservation, failing to recognize that angular momentum is not conserved in this scenario due to external forces from the track switch."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "conservation_laws": {
+      "id": "conservation_laws",
+      "nodeId": "node_4",
+      "type": "highlight",
+      "content": {
+        "text": "Kevin's argument about angular momentum conservation is flawed because it assumes no external torques, but the track switch itself provides external forces that break the conservation of angular momentum."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

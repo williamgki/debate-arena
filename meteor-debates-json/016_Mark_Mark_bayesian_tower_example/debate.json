@@ -1,0 +1,221 @@
+{
+  "metadata": {
+    "id": "016-mark-mark-bayesian-tower-example",
+    "version": "1.0",
+    "topic": {
+      "title": "Mark Mark bayesian tower example",
+      "description": "If an urn contains 9 black balls and 1 white ball, what is the probability a white ball is drawn?",
+      "tags": ["probability", "bayesian", "urn-problem", "basic-probability"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-15T16:00:00.000Z",
+      "lastModified": "2024-06-15T16:30:00.000Z",
+      "started": "2024-06-15T16:05:00.000Z",
+      "completed": "2024-06-15T16:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 4,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.5,
+      "longestThread": 2
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark1": {
+      "id": "mark1",
+      "role": "honest",
+      "type": "human",
+      "name": "Mark",
+      "side": "honest"
+    },
+    "mark2": {
+      "id": "mark2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "If an urn contains 9 black balls and 1 white ball, what is the probability a white ball is drawn?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 19,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "0.1",
+        "dishonestAnswer": "[blank]"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "What is the probability the balls are drawn uniformly at random?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-15T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "random_draw_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "~1",
+        "dishonestAnswer": "[blank]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "If the balls are not drawn uniformly at random, what is the probability a white ball is drawn?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-15T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "non_uniform_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "0.1",
+        "dishonestAnswer": "[blank]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the balls are drawn uniformly at random, what is the probability of a white ball being drawn?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-15T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "uniform_calculation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "0.1",
+        "dishonestAnswer": "[blank]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "basic_probability": {
+      "id": "basic_probability",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a straightforward probability problem involving drawing from an urn with known composition. The correct answer is 1/10 = 0.1, but the debate explores the assumptions about uniform random drawing."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T16:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.95
+    },
+    "assumption_questioning": {
+      "id": "assumption_questioning",
+      "nodeId": "node_1",
+      "type": "highlight",
+      "content": {
+        "text": "The honest participant questions the fundamental assumption of uniform random drawing, which is typically assumed in basic probability problems but could be made explicit."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-15T16:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

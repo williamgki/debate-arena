@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "id": "045-beth-h-mark-d-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:H Mark:D wrapping ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "circular-motion", "angular-momentum", "energy-conservation", "wrapping-ball"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T17:00:00.000Z",
+      "lastModified": "2024-06-16T17:30:00.000Z",
+      "started": "2024-06-16T17:05:00.000Z",
+      "completed": "2024-06-16T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 5,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.6,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "mark": {
+      "id": "mark",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 69,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It stays the same",
+        "dishonestAnswer": "the speed increases"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the kinetic energy of the ball stay the same?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T17:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "kinetic_energy",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "yes, approximately; it increases slightly",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is angular momentum approximately conserved?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-16T17:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the kinetic energy of the ball stays the same, does its speed stay the same?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T17:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "speed_energy_relationship",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "If the angular momentum is conserved, then does the ball speed up?"
+      },
+      "participantId": "mark",
+      "timestamps": {
+        "created": "2024-06-16T17:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum_speed",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "role_reversal": {
+      "id": "role_reversal",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This wrapping ball debate has roles reversed - Beth is honest and Mark is dishonest. Beth (honest) correctly argues for energy conservation and constant speed. Mark (dishonest) argues for angular momentum conservation leading to speed increase."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "approximate_values": {
+      "id": "approximate_values",
+      "nodeId": "root_node",
+      "type": "highlight",
+      "content": {
+        "text": "Beth asks 'what do you mean by \"approximately\"?' and Mark responds 'I mean such that the values are similar.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "angular_momentum_definition": {
+      "id": "angular_momentum_definition",
+      "nodeId": "node_2",
+      "type": "note",
+      "content": {
+        "text": "Beth asks 'What do you mean by angular momentum? Angular momentum about what centre?' and Mark responds 'I mean angular momentum around approximately the center of the pole'."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "answer_clarification": {
+      "id": "answer_clarification",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Beth asks about the question answer: 'Do you mean such that the answer to the question did not change?' and Mark clarifies 'No the speed of the ball increases.' and 'what do you mean by \"approximately\"?' with Mark responding 'I mean such that the answer to the question does not change.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.8
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "wrapping-ball-problem",
+      "role-reversal"
+    ]
+  }
+}

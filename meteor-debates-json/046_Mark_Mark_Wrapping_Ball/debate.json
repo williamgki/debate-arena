@@ -1,0 +1,310 @@
+{
+  "metadata": {
+    "id": "046-mark-mark-wrapping-ball",
+    "version": "1.0",
+    "topic": {
+      "title": "Mark Mark Wrapping Ball",
+      "description": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)",
+      "tags": ["physics", "circular-motion", "angular-momentum", "energy-conservation", "wrapping-ball", "self-debate"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T17:30:00.000Z",
+      "lastModified": "2024-06-16T18:00:00.000Z",
+      "started": "2024-06-16T17:35:00.000Z",
+      "completed": "2024-06-16T18:00:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "mark1": {
+      "id": "mark1",
+      "role": "honest",
+      "type": "human",
+      "name": "Mark",
+      "side": "honest"
+    },
+    "mark2": {
+      "id": "mark2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Mark",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A ball is attached to a pole by a string. The ball is swinging in a circle, and the pole is rotating freely, so that the part of the pole where the string is attached is always facing the ball. Now you stop the pole rotating, so the string starts wrapping around the pole. What happens to the speed of the ball? (ignore effects due to gravity, assume the ball is a point mass)"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T17:30:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 69,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "the speed stays the same",
+        "dishonestAnswer": "the speed increases"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Does the energy of the ball stay the same?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T17:40:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 9,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes, approximately",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Is angular momentum approximately conserved?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T17:42:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 5,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "no",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the energy of the ball stays the same, does the speed stay the same?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T17:44:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "speed_energy_relationship",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 15,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes, approximately",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "If the angular momentum is conserved, then does the ball speed up?"
+      },
+      "participantId": "mark2",
+      "timestamps": {
+        "created": "2024-06-16T17:46:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum_speed",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "yes",
+        "dishonestAnswer": "yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "mark1",
+      "timestamps": {
+        "created": "2024-06-16T17:48:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_debate",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "the speed stays the same",
+        "dishonestAnswer": "the speed slows down",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "self_debate_format": {
+      "id": "self_debate_format",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a unique self-debate where Mark argues against himself on the wrapping ball problem. The notes indicate confusion about roles and strategy, with Mark1 (honest) and Mark2 (dishonest) representing different sides of the same person's reasoning."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "strategy_confusion": {
+      "id": "strategy_confusion",
+      "nodeId": "root_node",
+      "type": "highlight",
+      "content": {
+        "text": "The notes show Mark's internal confusion: 'Mark1 is the person arguing for \"the speed stays the same\", Mark2 is the person arguing for \"the speed increases\"' and 'Mark is confused by whether or not this will be a draw. The only viable recursion seems to be on 10, which Mark1 feels like he should be able to win.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "strategic_considerations": {
+      "id": "strategic_considerations",
+      "nodeId": "root_node",
+      "type": "note",
+      "content": {
+        "text": "Mark's notes reveal strategic thinking: 'Seems plausible that simple debates with not much detail get judged sort of as draws and there's a dishonest strategy that's like \"loosy goosy agree with everything H says, forcing H to recurse or tie on arguments\"' and considerations about payment strategies."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:00:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "approximation_discussion": {
+      "id": "approximation_discussion",
+      "nodeId": "node_2",
+      "type": "note",
+      "content": {
+        "text": "The notes clarify approximation meanings with Mark asking about the usage of 'stays the same' vs exact/approximate equivalence, and extensive discussion about what 'approximately' means in different contexts."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T18:00:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.8
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "advanced-physics",
+      "wrapping-ball-problem",
+      "self-debate"
+    ]
+  }
+}

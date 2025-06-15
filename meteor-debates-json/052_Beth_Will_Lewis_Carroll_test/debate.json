@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "id": "052-beth-will-lewis-carroll-test",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth Will Lewis Carroll test",
+      "description": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?",
+      "tags": ["probability", "bayesian", "lewis-carroll", "conditional-probability", "bag-problem"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T20:00:00.000Z",
+      "lastModified": "2024-06-16T20:30:00.000Z",
+      "started": "2024-06-16T20:05:00.000Z",
+      "completed": "2024-06-16T20:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.8,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "will": {
+      "id": "will",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Will",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A bag contains one counter, known to be either white or black with probability 1/2. A white counter is put in, the bag shaken, and a counter drawn out, which proves to be white. What is now the chance of drawing a white counter?"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T20:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 39,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "1/2"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "If I update using bayes rule based on observing that a white counter was drawn the first time, what is the chance of drawing a white counter the second time?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T20:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "bayes_rule",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 26,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "Probably 2/3",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "What is the probability of drawing a white counter at the start (before the white counter is put in)?"
+      },
+      "participantId": "will",
+      "timestamps": {
+        "created": "2024-06-16T20:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "initial_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 19,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "No response given",
+        "dishonestAnswer": "1/2",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If I break down the probabilities into scenarios, and then discard scenarios where a white counter is not drawn the first time, what is the probability of drawing a white counter the second time?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T20:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "scenario_breakdown",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 31,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "Probably 2/3",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Does putting in a white counter then removing a white counter change anything about the number of white and black counters in the bag?"
+      },
+      "participantId": "will",
+      "timestamps": {
+        "created": "2024-06-16T20:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "counter_balance",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 23,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No response given",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Meta-debate: Given the questions and answers in this round, which is the better answer to the question?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T20:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "meta_debate",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "2/3",
+        "dishonestAnswer": "Draw",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Therefore, is the probability of drawing a white counter still 1/2?"
+      },
+      "participantId": "will",
+      "timestamps": {
+        "created": "2024-06-16T20:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "final_probability",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 11,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "No, you have different information about what counter is in the bag, the probability is 2/3",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "lewis_carroll_variant": {
+      "id": "lewis_carroll_variant",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is another Lewis Carroll probability problem, similar to debates 017, 029, and 038. Beth (honest) correctly applies Bayesian reasoning to get 2/3. Will (dishonest) argues the probability remains 1/2 by focusing on the physical counting rather than the information gained from observation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T20:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "bayesian_vs_counting": {
+      "id": "bayesian_vs_counting",
+      "nodeId": "node_4",
+      "type": "highlight",
+      "content": {
+        "text": "Will's argument focuses on the physical fact that putting in a white counter and removing a white counter doesn't change the bag's contents, missing the key insight that the observation provides information about which counter was originally in the bag."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T20:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    },
+    "information_update": {
+      "id": "information_update",
+      "nodeId": "node_6",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes clarify the key insight: 'Beth means: if you have two bags with the same number of black and white counters, you have the same probability of drawing a white counter from either' - the observation changes our knowledge about which scenario we're in."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T20:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "bayesian-reasoning",
+      "lewis-carroll-problems"
+    ]
+  }
+}

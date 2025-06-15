@@ -1,0 +1,324 @@
+{
+  "metadata": {
+    "id": "034-beth-d-kevin-h-switch",
+    "version": "1.0",
+    "topic": {
+      "title": "Beth:D Kevin:H Switch",
+      "description": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass",
+      "tags": ["physics", "circular-motion", "energy-conservation", "reference-frames", "angular-momentum"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-16T10:00:00.000Z",
+      "lastModified": "2024-06-16T10:45:00.000Z",
+      "started": "2024-06-16T10:05:00.000Z",
+      "completed": "2024-06-16T10:45:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 7,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 1.7,
+      "longestThread": 1
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth": {
+      "id": "beth",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    },
+    "kevin": {
+      "id": "kevin",
+      "role": "honest",
+      "type": "human",
+      "name": "Kevin",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is coasting around a large circular track. It is then switched to a smaller circular track. How does its speed change? Assume no friction, and assume the train is a point mass"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T10:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" },
+          { "targetNodeId": "node_5", "type": "responds-to" },
+          { "targetNodeId": "node_6", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 30,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Its speed does not change",
+        "dishonestAnswer": "It's unclear, different models suggest its speed might increase or decrease or stay the same"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "If nothing interacting with the train changes its energy, does the train's energy remain constant?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T10:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "energy_conservation",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 16,
+        "confidenceLevel": 0.95,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes, very likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Can we view the situation in a rotating reference frame, where the frame is rotating at the same rate as the train is initially traveling round the circular track?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T10:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "rotating_frame",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 27,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "If the train's energy remains constant, does the train's velocity remain constant?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T10:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "velocity_conclusion",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 13,
+        "confidenceLevel": 0.95,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes, very likely",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "In a rotating reference frame, does the speed of the train increase in some circumstances and decrease in others?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T10:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "frame_dependent_effects",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 18,
+        "confidenceLevel": 0.7,
+        "honestAnswer": "Unsure, but these speed changes would not appear in an inertial reference frame",
+        "dishonestAnswer": "Probably",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Does anything that interacts with the train (e.g. the rails) change in energy?"
+      },
+      "participantId": "kevin",
+      "timestamps": {
+        "created": "2024-06-16T10:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "external_interactions",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 14,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "No",
+        "dishonestAnswer": "The earth might change in energy",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_6": {
+      "id": "node_6",
+      "content": {
+        "text": "Do other models (conservation of angular momentum in a non-rotating reference frame) suggest its speed increases?"
+      },
+      "participantId": "beth",
+      "timestamps": {
+        "created": "2024-06-16T10:20:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "angular_momentum_model",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 17,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "[implied: No/unclear]",
+        "dishonestAnswer": "[implied: Yes/Maybe]",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "reference_frame_analysis": {
+      "id": "reference_frame_analysis",
+      "nodeId": "node_2",
+      "type": "analysis",
+      "content": {
+        "text": "This debate explores different reference frames for analyzing the train problem. Beth introduces rotating reference frames where the analysis becomes more complex due to fictitious forces, while Kevin focuses on inertial frames and energy conservation."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T10:45:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.9
+    },
+    "speed_vs_velocity": {
+      "id": "speed_vs_velocity",
+      "nodeId": "node_3",
+      "type": "highlight",
+      "content": {
+        "text": "Kevin clarifies that he means magnitude of velocity (speed) here, not velocity itself, which is an important distinction in circular motion problems."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T10:45:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.85
+    },
+    "frame_transformation_notes": {
+      "id": "frame_transformation_notes",
+      "nodeId": "node_4",
+      "type": "note",
+      "content": {
+        "text": "Beth's notes explain: 'when you transform into rotating reference frame, you need to account for things like coriolis + centrifugal force, and depending on the parameters of track, rotation speed etc, the train will either speed up or slow down.'"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T10:45:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.9
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging",
+      "reference-frames",
+      "complex-physics"
+    ]
+  }
+}

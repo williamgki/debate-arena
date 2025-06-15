@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "id": "004-train-michael-noa-string-physics",
+    "version": "1.0",
+    "topic": {
+      "title": "Train on String - Circular Motion and Energy Conservation",
+      "description": "A physics problem about a train following a circular path around a pole, held by a string. When switched to a smaller string, examining how speed changes based on energy conservation and rotational dynamics.",
+      "tags": ["physics", "conservation-of-energy", "circular-motion", "rotational-dynamics", "string-tension"],
+      "category": "science"
+    },
+    "timestamps": {
+      "created": "2024-06-14T16:00:00.000Z",
+      "lastModified": "2024-06-14T17:30:00.000Z", 
+      "started": "2024-06-14T16:05:00.000Z",
+      "completed": "2024-06-14T17:30:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 6,
+      "totalParticipants": 2,
+      "totalJudgments": 1,
+      "totalFlags": 0,
+      "averageDepth": 2,
+      "longestThread": 3
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "michael": {
+      "id": "michael",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Michael",
+      "side": "dishonest"
+    },
+    "noa": {
+      "id": "noa",
+      "role": "honest",
+      "type": "human", 
+      "name": "Noa",
+      "side": "honest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "A train is following a circular path around a pole, held by a string. It is then switched to a smaller string and continues its circular path. How does its speed change? Assume no friction or gravity."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T16:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": [
+          { "targetNodeId": "node_1", "type": "responds-to" },
+          { "targetNodeId": "node_2", "type": "responds-to" },
+          { "targetNodeId": "node_3", "type": "responds-to" },
+          { "targetNodeId": "node_4", "type": "responds-to" }
+        ]
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 35,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "It slows down",
+        "dishonestAnswer": "It stays at the same speed"
+      },
+      "version": 1
+    },
+    "node_1": {
+      "id": "node_1",
+      "content": {
+        "text": "Is the energy of the train conserved?"
+      },
+      "participantId": "noa",
+      "timestamps": {
+        "created": "2024-06-14T16:10:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [{ "targetNodeId": "node_5", "type": "responds-to" }]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 7,
+        "confidenceLevel": 1.0,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "No",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_2": {
+      "id": "node_2",
+      "content": {
+        "text": "Are the two types of energy the train has the sum of the energy from the train moving around the track (its translational kinetic energy at each moment) and its energy from rotating around its center of mass when not considering the rotation around the track (rotational kinetic energy) such that Energy = (1/2)mv^2 + (1/2)Iw^2?"
+      },
+      "participantId": "noa",
+      "timestamps": {
+        "created": "2024-06-14T16:12:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": [{ "targetNodeId": "node_6", "type": "responds-to" }]
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "honest_side", 
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 55,
+        "confidenceLevel": 0.8,
+        "honestAnswer": "Yes",
+        "dishonestAnswer": "Yes",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_3": {
+      "id": "node_3",
+      "content": {
+        "text": "Is there a force acting on the train?"
+      },
+      "participantId": "michael",
+      "timestamps": {
+        "created": "2024-06-14T16:14:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 8,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Yes.",
+        "dishonestAnswer": "Yes, because the train is not moving linearly.",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_4": {
+      "id": "node_4",
+      "content": {
+        "text": "Should a long train be modeled as a single rigid body, or as a chain of rigid bodies which are moving together because they have the same momentum and the same forces apply to them?"
+      },
+      "participantId": "michael",
+      "timestamps": {
+        "created": "2024-06-14T16:16:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "root_node", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 1,
+        "threadId": "dishonest_side",
+        "sequenceInThread": 1
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 32,
+        "confidenceLevel": 0.6,
+        "honestAnswer": "Neither, it's atoms that are somehow bound together in a 3D shape. Neither a chain or a single rigid body.",
+        "dishonestAnswer": "Chain of rigid bodies",
+        "economicPayment": "none"
+      },
+      "version": 1
+    },
+    "node_5": {
+      "id": "node_5",
+      "content": {
+        "text": "Then as w = vr, v = w/r so that Energy = (1/2)mv^2 + (1/2)I(v/r)^2. As I, m are constant and r decreases, if v is constant Energy will increase. So v has to decrease for Energy to stay constant. As Energy is conserved, v decreases. Correct or no?"
+      },
+      "participantId": "noa",
+      "timestamps": {
+        "created": "2024-06-14T16:18:00.000Z"
+      },
+      "relationships": {
+        "parents": [{ "targetNodeId": "node_1", "type": "responds-to" }],
+        "children": []
+      },
+      "position": {
+        "depth": 2,
+        "threadId": "honest_side",
+        "sequenceInThread": 0
+      },
+      "flags": ["mathematical-proof"],
+      "metrics": {
+        "wordCount": 48,
+        "confidenceLevel": 0.9,
+        "honestAnswer": "Correct",
+        "dishonestAnswer": "Incorrect; the energy of the train is not conserved.",
+        "economicPayment": "none"
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "physics_analysis": {
+      "id": "physics_analysis",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This is a sophisticated physics problem involving both translational and rotational energy in circular motion. The honest side correctly applies energy conservation with the proper energy formula, while the dishonest side attempts to confuse the analysis with irrelevant modeling questions and incorrect force analysis."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.85
+    },
+    "mathematical_proof": {
+      "id": "mathematical_proof",
+      "nodeId": "node_5",
+      "type": "highlight",
+      "content": {
+        "text": "Noa provides a clear mathematical derivation showing that when the radius decreases, velocity must decrease to conserve total energy. This is a strong analytical argument that directly addresses the physics question."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-14T17:30:00.000Z"
+      },
+      "scope": "local",
+      "confidence": 0.95
+    }
+  },
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "cross-examination",
+      "versioned-arguments",
+      "anonymous-judging"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "id": "037-simpsons-paradox-explanations-beth-beth",
+    "version": "1.0",
+    "topic": {
+      "title": "Simpson's paradox explanations Beth Beth",
+      "description": "Explanations and analysis of Simpson's Paradox statistical phenomenon",
+      "tags": ["statistics", "simpsons-paradox", "explanations", "statistical-reasoning"],
+      "category": "mathematics"
+    },
+    "timestamps": {
+      "created": "2024-06-16T13:00:00.000Z",
+      "lastModified": "2024-06-16T13:15:00.000Z",
+      "started": "2024-06-16T13:05:00.000Z",
+      "completed": "2024-06-16T13:15:00.000Z"
+    },
+    "status": "completed",
+    "format": "tree",
+    "configuration": {
+      "allowObfuscation": false,
+      "scoringMethod": "honest-dishonest",
+      "moderationLevel": "light",
+      "allowPublicJudging": true,
+      "economicIncentives": true,
+      "phaseBasedTiming": true
+    },
+    "access": {
+      "level": "public"
+    },
+    "analytics": {
+      "totalNodes": 1,
+      "totalParticipants": 2,
+      "totalJudgments": 0,
+      "totalFlags": 0,
+      "averageDepth": 1,
+      "longestThread": 0
+    }
+  },
+  "participants": {
+    "system": {
+      "id": "system",
+      "role": "system",
+      "type": "system",
+      "name": "Debate System"
+    },
+    "beth1": {
+      "id": "beth1",
+      "role": "honest",
+      "type": "human",
+      "name": "Beth",
+      "side": "honest"
+    },
+    "beth2": {
+      "id": "beth2",
+      "role": "dishonest",
+      "type": "human",
+      "name": "Beth",
+      "side": "dishonest"
+    }
+  },
+  "nodes": {
+    "root_node": {
+      "id": "root_node",
+      "content": {
+        "text": "Simpson's Paradox Explanations"
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T13:00:00.000Z"
+      },
+      "relationships": {
+        "parents": [],
+        "children": []
+      },
+      "position": {
+        "depth": 0,
+        "threadId": "main_thread",
+        "sequenceInThread": 0
+      },
+      "flags": [],
+      "metrics": {
+        "wordCount": 3,
+        "confidenceLevel": 1.0
+      },
+      "version": 1
+    }
+  },
+  "annotations": {
+    "explanatory_debate": {
+      "id": "explanatory_debate",
+      "nodeId": "root_node",
+      "type": "analysis",
+      "content": {
+        "text": "This appears to be an explanatory or educational debate about Simpson's Paradox, likely following up on previous Simpson's Paradox debates to provide deeper understanding of the statistical phenomenon."
+      },
+      "participantId": "system",
+      "timestamps": {
+        "created": "2024-06-16T13:15:00.000Z"
+      },
+      "scope": "global",
+      "confidence": 0.8
+    }
+  ],
+  "rootNodeId": "root_node",
+  "originalPlatform": {
+    "name": "Meteor Debate Platform",
+    "url": "https://meteor-debate.herokuapp.com",
+    "format": "honest-dishonest-adversarial",
+    "features": [
+      "economic-incentives",
+      "phase-based-timing",
+      "educational-explanations",
+      "statistical-paradoxes"
+    ]
+  }
+}
