@@ -31,7 +31,7 @@ export async function POST() {
     await pool.query(schema);
     console.log('✅ Database schema created');
     
-    // Try to load meteor debates
+    // Load and insert meteor debates
     console.log('Loading meteor debates...');
     const meteorDebatesPath = path.join(process.cwd(), 'meteor-debates-json');
     console.log('Looking for meteor debates in:', meteorDebatesPath);
@@ -47,17 +47,58 @@ export async function POST() {
     console.log(`Found ${folders.length} debate folders`);
     
     let successCount = 0;
-    for (const folder of folders.slice(0, 3)) { // Test with first 3 only
+    let errorCount = 0;
+    
+    for (const folder of folders) {
       try {
         const debateJsonPath = path.join(meteorDebatesPath, folder, 'debate.json');
         if (fs.existsSync(debateJsonPath)) {
           const fileContent = fs.readFileSync(debateJsonPath, 'utf-8');
           const debate = JSON.parse(fileContent);
-          console.log(`✓ Loaded debate: ${debate.metadata.topic.title}`);
+          
+          // Add meteor-platform tag if not present
+          if (!debate.metadata.topic.tags.includes('meteor-platform')) {
+            debate.metadata.topic.tags.push('meteor-platform');
+          }
+          
+          // Insert into database
+          await pool.query(`
+            INSERT INTO debates (
+              id, version, title, description, category, tags, status, format,
+              created_at, updated_at, started_at, completed_at,
+              configuration, access_level, analytics, original_platform,
+              root_node_id, full_document
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
+            ON CONFLICT (id) DO UPDATE SET
+              updated_at = EXCLUDED.updated_at,
+              full_document = EXCLUDED.full_document
+          `, [
+            debate.metadata.id,
+            debate.metadata.version,
+            debate.metadata.topic.title,
+            debate.metadata.topic.description,
+            debate.metadata.topic.category,
+            JSON.stringify(debate.metadata.topic.tags),
+            debate.metadata.status,
+            debate.metadata.format,
+            debate.metadata.timestamps.created,
+            debate.metadata.timestamps.lastModified,
+            debate.metadata.timestamps.started,
+            debate.metadata.timestamps.completed,
+            JSON.stringify(debate.metadata.configuration),
+            debate.metadata.access.level,
+            JSON.stringify(debate.metadata.analytics),
+            JSON.stringify(debate.originalPlatform),
+            debate.rootNodeId,
+            JSON.stringify(debate)
+          ]);
+          
+          console.log(`✓ Inserted debate: ${debate.metadata.topic.title}`);
           successCount++;
         }
       } catch (error) {
-        console.warn(`⚠ Failed to load debate in ${folder}:`, error.message);
+        console.warn(`⚠ Failed to insert debate in ${folder}:`, error.message);
+        errorCount++;
       }
     }
     
@@ -65,11 +106,11 @@ export async function POST() {
     
     return NextResponse.json({ 
       success: true, 
-      message: `Database setup completed successfully. Tested loading ${successCount} debates.`,
+      message: `Database setup completed successfully. Inserted ${successCount} debates.`,
       debugInfo: {
         foundFolders: folders.length,
-        testedDebates: Math.min(3, folders.length),
-        successfulLoads: successCount
+        successfulInserts: successCount,
+        errors: errorCount
       }
     });
     
