@@ -2,6 +2,7 @@
 // This allows gradual migration from the old format to the new storage system
 
 import { v4 as uuidv4 } from 'uuid';
+import { apiCall } from '@/lib/api-config';
 import { 
   DebateDocument, 
   DebateNode, 
@@ -297,7 +298,7 @@ export class DebateAPI {
   
   static async getDebate(id: string): Promise<DebateDocument | null> {
     try {
-      const response = await fetch(`/api/debates/${id}`);
+      const response = await apiCall(`/api/debates/${id}`);
       const result = await response.json();
       
       if (result.success) {

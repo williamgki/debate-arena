@@ -4,56 +4,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { storage } from '@/lib/storage/storage-manager';
 import { DebateDocument } from '@/types/debate';
-import fs from 'fs';
-import path from 'path';
 
 export const runtime = 'nodejs';
+
+// Add CORS headers
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 200, headers: corsHeaders() });
+}
 
 interface RouteParams {
   params: {
     id: string;
   };
-}
-
-// Helper function to load a specific meteor debate
-async function loadMeteorDebate(id: string): Promise<DebateDocument | null> {
-  try {
-    const meteorDebatesPath = path.join(process.cwd(), 'meteor-debates-json');
-    
-    if (!fs.existsSync(meteorDebatesPath)) {
-      return null;
-    }
-
-    const folders = fs.readdirSync(meteorDebatesPath, { withFileTypes: true })
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
-
-    for (const folder of folders) {
-      const debateJsonPath = path.join(meteorDebatesPath, folder, 'debate.json');
-      
-      if (fs.existsSync(debateJsonPath)) {
-        try {
-          const fileContent = fs.readFileSync(debateJsonPath, 'utf-8');
-          const debate: DebateDocument = JSON.parse(fileContent);
-          
-          if (debate.metadata.id === id) {
-            // Add meteor-platform tag if not present
-            if (!debate.metadata.topic.tags.includes('meteor-platform')) {
-              debate.metadata.topic.tags.push('meteor-platform');
-            }
-            return debate;
-          }
-        } catch (error) {
-          console.warn(`Failed to parse debate JSON in ${folder}:`, error);
-        }
-      }
-    }
-    
-    return null;
-  } catch (error) {
-    console.error('Error loading meteor debate:', error);
-    return null;
-  }
 }
 
 // GET /api/debates/[id] - Get specific debate
@@ -64,37 +34,30 @@ export async function GET(request: NextRequest, { params }: RouteParams) {
     if (!id) {
       return NextResponse.json(
         { success: false, error: { code: 'VALIDATION_ERROR', message: 'Debate ID is required' } },
-        { status: 400 }
+        { status: 400, headers: corsHeaders() }
       );
     }
     
-    // First try to get from storage
+    // Get from database (debates should already be migrated)
     const result = await storage.getDebate(id);
     
-    if (result.success) {
-      return NextResponse.json(result);
-    }
-    
-    // If not found in storage, try meteor debates
-    const meteorDebate = await loadMeteorDebate(id);
-    
-    if (meteorDebate) {
+    if (result.success && result.debate) {
       return NextResponse.json({
         success: true,
-        debate: meteorDebate
-      });
+        data: result.debate  // Make sure to use 'data' key as expected by DebateAPI
+      }, { headers: corsHeaders() });
     }
     
-    // Not found anywhere
+    // Not found
     return NextResponse.json(
       { success: false, error: { code: 'NOT_FOUND', message: 'Debate not found' } },
-      { status: 404 }
+      { status: 404, headers: corsHeaders() }
     );
   } catch (error) {
     console.error('Error getting debate:', error);
     return NextResponse.json(
       { success: false, error: { code: 'INTERNAL_ERROR', message: 'Internal server error' } },
-      { status: 500 }
+      { status: 500, headers: corsHeaders() }
     );
   }
 }
