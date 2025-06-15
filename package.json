@@ -18,7 +18,8 @@
     "test:clean": "rm -rf tests/data coverage .next/cache/jest",
     "db:migrate": "node scripts/migrate-meteor-debates.js",
     "db:setup": "psql $DATABASE_URL -f scripts/create-schema.sql",
-    "deploy:prepare": "npm run db:setup && npm run db:migrate"
+    "deploy:prepare": "npm run db:setup && npm run db:migrate",
+    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ] && [ \"$AUTO_MIGRATE\" = \"true\" ]; then npm run deploy:prepare; fi"
   },
   "dependencies": {
     "@ai-sdk/openai": "^1.3.10",
