@@ -17,7 +17,7 @@
     "test:seed": "node scripts/seed-test-data.js",
     "test:clean": "rm -rf tests/data coverage .next/cache/jest",
     "db:migrate": "node scripts/migrate-meteor-debates.js",
-    "db:setup": "psql $DATABASE_URL -f scripts/create-schema.sql",
+    "db:setup": "node scripts/setup-database.js",
     "deploy:prepare": "npm run db:setup && npm run db:migrate",
     "postinstall": "if [ \"$NODE_ENV\" = \"production\" ] && [ \"$AUTO_MIGRATE\" = \"true\" ]; then npm run deploy:prepare; fi"
   },
