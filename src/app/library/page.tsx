@@ -5,6 +5,7 @@ import { Search, Filter, Grid, List, Shuffle, Download, BookOpen, Users, Tag, Ca
 import DebateCard from '@/components/library/DebateCard'
 import FilterSidebar from '@/components/library/FilterSidebar'
 import { DebateDocument } from '@/types/debate'
+import { apiCall } from '@/lib/api-config'
 
 export default function DebateLibrary() {
   const [debates, setDebates] = useState<DebateDocument[]>([])
@@ -29,7 +30,7 @@ export default function DebateLibrary() {
   const loadDebates = async () => {
     try {
       setIsLoading(true)
-      const response = await fetch('/api/debates')
+      const response = await apiCall('/api/debates')
       if (response.ok) {
         const data = await response.json()
         setDebates(data.debates || [])

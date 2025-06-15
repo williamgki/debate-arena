@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { apiCall } from '@/lib/api-config';
 
 export default function AdminPage() {
   const [status, setStatus] = useState<string>('');
@@ -11,7 +12,7 @@ export default function AdminPage() {
     setStatus('Setting up database and loading debates...');
     
     try {
-      const response = await fetch('/api/admin/setup', {
+      const response = await apiCall('/api/admin/setup', {
         method: 'POST',
       });
       
