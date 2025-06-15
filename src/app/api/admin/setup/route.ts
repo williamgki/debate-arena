@@ -8,9 +8,20 @@ export async function POST() {
     
     // Test database connection first
     const { Pool } = require('pg');
+    
+    console.log('DATABASE_URL exists:', !!process.env.DATABASE_URL);
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    
+    if (!process.env.DATABASE_URL) {
+      throw new Error('DATABASE_URL environment variable is not set');
+    }
+    
     const pool = new Pool({
       connectionString: process.env.DATABASE_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
+      max: 5,
+      idleTimeoutMillis: 30000,
+      connectionTimeoutMillis: 10000,
     });
     
     // Test connection
