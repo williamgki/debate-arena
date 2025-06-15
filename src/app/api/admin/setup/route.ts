@@ -2,6 +2,19 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
+// Add CORS headers
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 200, headers: corsHeaders() });
+}
+
 export async function POST() {
   try {
     console.log('🚀 Starting database setup...');
@@ -123,7 +136,7 @@ export async function POST() {
         successfulInserts: successCount,
         errors: errorCount
       }
-    });
+    }, { headers: corsHeaders() });
     
   } catch (error) {
     console.error('❌ Database setup failed:', error);
@@ -133,7 +146,7 @@ export async function POST() {
         error: error instanceof Error ? error.message : 'Unknown error',
         stack: error instanceof Error ? error.stack : undefined
       },
-      { status: 500 }
+      { status: 500, headers: corsHeaders() }
     );
   }
 }

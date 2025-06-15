@@ -7,6 +7,19 @@ import { CreateDebateRequest, SearchQuery } from '@/types/debate';
 
 export const runtime = 'nodejs';
 
+// Add CORS headers
+function corsHeaders() {
+  return {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  };
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 200, headers: corsHeaders() });
+}
+
 // GET /api/debates - List or search debates
 export async function GET(request: NextRequest) {
   try {
@@ -51,7 +64,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json(result, { status: 500 });
     }
     
-    return NextResponse.json(result);
+    return NextResponse.json(result, { headers: corsHeaders() });
   } catch (error) {
     console.error('Error searching debates:', error);
     return NextResponse.json(
